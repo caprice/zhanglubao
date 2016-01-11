@@ -12,6 +12,7 @@ api:thinkphp搭建的API没有用restful<br>
 web:thinkphp很早前的网站的模板自行修改<br>
 database:直接从rds上面拉下来的<br>
 image:所有头像图片<br>
+说明：如果以上产品用到的付费的项目请自行替换或者付费<br>
 
 下面是产品图片:<br>
 管理端:<br>
