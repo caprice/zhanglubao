@@ -12,6 +12,7 @@ api:thinkphp搭建的API没有用restful<br>
 web:thinkphp很早前的网站的模板自行修改<br>
 database:直接从rds上面拉下来的<br>
 image:所有头像图片<br>
+特别说明:该产品全部基于阿里云项目 ecs+rds+ocs+oss+cdn+opensearch 不过都可以替换<br>
 说明：如果以上产品用到的付费的项目请自行替换或者付费<br>
 
 下面是产品图片:<br>
