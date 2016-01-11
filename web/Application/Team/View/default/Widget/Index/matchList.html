@@ -1,0 +1,67 @@
+
+<div class="row">
+	<div class="col-xs-12  column-content">
+		<div class="column-content-title">
+			<i class="title-tip-box"></i> <span class="title-tip">最近比赛</span>
+		</div>
+		<div class="matches column-content">
+			<ul>
+				<volist name="matches" id="match">
+				<li>
+					<div class="match-team">
+						<div class="col-xs-4">
+							<if condition="$match['blue_team']"> <a
+								href="{:U('/matchgame/'.$match['id'])}"> <img
+								src="__PUBLIC__/Core/images/placeholder.png"
+								lazy-src="{:query_team('cover',$match['blue_team'])}"
+								alt="{$live['title']}" width="50" height="50">
+							</a> <else />
+							<div class="vs">弃权</div>
+							</if>
+						</div>
+						<div class="col-xs-4 vs">VS</div>
+						<div class="col-xs-4">
+							<if condition="$match['red_team']"> <a
+								href="{:U('/matchgame/'.$match['id'])}"> <img
+								src="__PUBLIC__/Core/images/placeholder.png"
+								lazy-src="{:query_team('cover',$match['red_team'])}"
+								alt="{$live['title']}" width="50" height="50">
+							</a> <else />
+							<div class="vs">弃权</div>
+							</if>
+						</div>
+					</div>
+					<div class="match-team-name">
+						<ul>
+							<li><if condition="$match['blue_team']"> <a
+									href="{:U('/team/'.$match['blue_team'])}">{:query_team('name',$match['blue_team'])}</a>
+								<else /> 弃权 </if></li>
+							<li></li>
+							<li><if condition="$match['red_team']"> <a
+									href="{:U('/team/'.$match['red_team'])}">{:query_team('name',$match['red_team'])}</a>
+								<else /> 弃权 </if></li>
+						</ul>
+					</div>
+					<div class="match-item-des">
+						<ul>
+							<li><span class="pull-left"><a
+									href="{:U('/matchgame/'.$match['id'])}">{:get_game($match['game_id'],'title')}</a></span>
+								<span class="pull-right"> <switch
+										name="match['game_status']"> <case value="0">
+									未开始 </case> <case value="1"> 正在进行 </case> <case value="2"> 已结束
+									</case> </switch>
+							</span></li>
+
+							<li><span class="match-item-des-left"><a
+									href="{:U('/matchgame/'.$match['id'])}">{:query_match('title',$match['match_id'])}</a></span>
+
+								<span class="match-item-des-right">{:date('m-d
+									H:i',$match['start_time'])}</span></li>
+						</ul>
+					</div>
+				</li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+	</div>

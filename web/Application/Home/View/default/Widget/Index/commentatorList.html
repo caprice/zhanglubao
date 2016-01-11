@@ -1,0 +1,15 @@
+<div class="commentators">
+	<ul>
+		<volist name="commentators" id="commentator">
+		<li><php> $user =
+			query_user(array('avatar','username'),$commentator['uid']); </php>
+
+			<div class="commentators-thumb">
+				<a href="{:U('/commentator/'.$commentator['id'])}"><img
+					src="__PUBLIC__/Core/images/placeholder.png"
+					lazy-src="{$user.avatar}" height="84" width="84" /> </a>
+			</div>
+			<div class="commentators-des">{$user.username}</div></li>
+		</volist>
+	</ul>
+</div>

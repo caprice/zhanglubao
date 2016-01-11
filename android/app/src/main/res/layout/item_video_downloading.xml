@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android_custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/caching_item_height"
+    android:background="@drawable/listview_item_bg"
+    android:paddingBottom="12.0dip"
+    android:paddingLeft="6.0dip"
+    android:paddingRight="6.0dip"
+    android:paddingTop="12.0dip"
+
+    >
+
+
+    <ImageView
+        android:id="@+id/cacheImage"
+        android:layout_width="@dimen/cache_item_imgae_width"
+        android:layout_height="@dimen/cache_item_imgae_height"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/cache_item_picture_file_margin_right"
+        android:scaleType="fitXY" />
+
+    <RelativeLayout
+        android:id="@+id/cacheImageLevel"
+        android:layout_width="@dimen/cache_item_imgae_width"
+        android:layout_height="@dimen/cache_item_imgae_height"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/cache_item_picture_file_margin_right"
+        android:background="#99000000">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/roundProgressRel"
+                android:layout_width="@dimen/cache_progress_height"
+                android:layout_height="@dimen/cache_progress_height"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="4.0dip">
+
+
+                <ImageView
+                    android:id="@+id/cacheStatusImg"
+                    android:layout_width="@dimen/cache_progress_height"
+                    android:layout_height="@dimen/cache_progress_height"
+                    android:visibility="gone" />
+
+                <com.zhanglubao.lol.view.widget.RoundProgressBar
+                    android:id="@+id/roundProgressBar"
+                    android:layout_width="@dimen/cache_progress_height"
+                    android:layout_height="@dimen/cache_progress_height"
+                    android_custom:roundColor="@color/round_progress_border_color"
+                    android_custom:roundProgressColor="@color/round_progress_fill_color"
+                    android_custom:roundWidth="1dip"
+                    android_custom:style="FILL" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/cacheSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="等待缓存"
+                android:textAppearance="@style/caching_item_state" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/cache_item_imgae_height"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/cached_progress_mbt"
+        android:layout_toLeftOf="@+id/cacheEditImgLine"
+        android:layout_toRightOf="@+id/cacheImage"
+        android:gravity="left|center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/cacheTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="top"
+            android:maxLines="2"
+            android:text="优点打"
+            android:textAppearance="@style/cache_item_title" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/cacheSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="@dimen/caching_item_size_speed_space"
+                android:textAppearance="@style/cache_item_other" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/cacheEditImgLine"
+        android:layout_width="60.0dip"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/cacheEditImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

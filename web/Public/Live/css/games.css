@@ -1,0 +1,69 @@
+.showBox {
+	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+	background: #000;
+}
+
+.showBox .enter_room a {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 690px;
+	height: 450px;
+	display: block;
+}
+
+ 
+
+.game-list {
+	margin-left: -1%;
+}
+
+.game-des {
+	background: #48b87a;
+	height: 28px;
+	padding: 2%;
+	font-size: 1.0em;
+	color: #ffffff;
+}
+.game-list
+{
+	margin-top:10px;
+}
+
+.game-list li {
+	float: left;
+	width: 19%;
+	margin-left: 1%;
+	margin-bottom:2%;
+}
+
+.game-list li image {
+	width: 100%;
+}
+
+
+
+.anchors {
+	padding-top: 15px;
+	margin-left: -3%;
+}
+
+.anchors li {
+	width: 29.33333333333333%;
+	margin-left: 4%;
+	margin-bottom: 5%;
+	float: left;
+	height: 106px;
+	float: left;
+}
+
+.anchors-des {
+	background: #F5F5F5;
+	height: 26px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+}

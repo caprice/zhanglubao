@@ -1,0 +1,24 @@
+<div class="video-list">
+	<ul>
+		<volist name="heartstones" id="heartstone">
+		<li>
+			<div class="video-thumb">
+				<a href="{:U('/video/'.$heartstone['id'])}"> <img
+					src="__PUBLIC__/Core/images/placeholder.png"
+					lazy-src="{:query_picture('url',$heartstone['cover'])}"
+					alt="{$heartstone['title']}" width="216px" height="120px">
+				</a>
+				<div class="video-name">
+					<span>{$heartstone['title']}</span>
+				</div>
+			</div>
+			<div class="video-des">
+				<span class="pull-left"> <span
+					class="glyphicon glyphicon-user "></span> <span
+					class="game-des-online">{$heartstone['views']}人</span></span> <span
+					class="pull-right "> {:get_game($heartstone['game_id'],'title')} </span>
+			</div>
+		</li>
+		</volist>
+	</ul>
+</div>

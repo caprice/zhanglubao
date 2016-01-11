@@ -1,0 +1,43 @@
+<if condition="$allow_publish">
+    <div style="margin-bottom: 12px">
+        <a type="button" class="btn btn-large btn-primary forum_post_btn"
+           href="{:U('Index/edit',array('forum_id'=>$forum_id))}">
+
+            发表新帖
+        </a>
+    </div>
+    <!-- <div style="margin-bottom: 20px">
+         <a type="button" class="btn btn-large btn_primary_tieba primary forum_post_btn"
+            href="{:U('Index/edit',array('forum_id'=>$forum_id))}">
+
+             创建板块
+         </a>
+     </div>-->
+</if>
+
+<div class="forum_module">
+    <div class="forum_module_name">
+        <div class="pull-left">我的板块</div>
+       <!-- <div class="pull-right"><a href="{:U('Forum/Index/forums')}" class="font_grey" style="font-size: 14px;">查看全部</a>
+        </div>-->
+    </div>
+    <div class="forum_module_content clearfix">
+        <div class="col-md-6">
+            <a
+               class="btn btn-default position <eq name="forum_id" value="0"> btn-primary</eq>" href="{:U('Index/forum')}">全部帖子</a>
+
+        </div>
+        <volist name="forum_list" id="each_forum">
+            <div class="col-md-6">
+                <a href="{:U('Index/forum',array('id'=>$each_forum['id']))}" class="btn btn-default  position <eq name="forum_id" value="$each_forum['id']">btn-primary</eq>">{$each_forum.title|htmlspecialchars}</a>
+            </div>
+        </volist>
+
+
+    </div>
+</div>
+
+{:W('Event/RecommendEvent/recommendEvent')}
+
+{:W('HotPost/lists',array('forum_id'=>$forum_id))}
+

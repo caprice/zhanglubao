@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/profile_page_bg"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/profile_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarThumbVertical="@drawable/transparent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/user_head"
+                android:layout_width="match_parent"
+                android:layout_height="100.0dip"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="10.0dip">
+
+                <ImageView
+                    android:id="@+id/user_icon"
+                    android:layout_width="56.0dip"
+                    android:layout_height="56.0dip"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/profile_default_face" />
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_toRightOf="@+id/user_icon"
+                    android:text="未登录"
+                    android:textAlignment="center"
+                    android:textSize="18.0sp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/not_login_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_toRightOf="@+id/user_icon"
+                    android:orientation="vertical"
+                    android:textSize="18.0sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="32.0dip"
+                        android:layout_toRightOf="@+id/user_icon"
+                        android:gravity="center_vertical"
+                        android:text="@string/profile_not_login"
+
+                        android:textAlignment="center"
+                        android:textSize="18.0sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/user_icon"
+                        android:gravity="center"
+                        android:text="@string/profile_not_login_tips"
+                        android:textColor="@color/profile_not_login_tips"
+                        android:textSize="14.0sp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="32.0dip"
+                    android:layout_height="32.0dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/arrow_right" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.0dip"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="10.0dip"
+                android:paddingRight="10.0dip">
+
+                <RelativeLayout
+                    android:id="@+id/cache_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="52.0dip">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+
+                            android:layout_width="32.0dip"
+                            android:layout_height="32.0dip"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/profile_download" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8.0dip"
+                            android:text="@string/profile_download"
+                            android:layout_gravity="center"
+                            android:textSize="16.0sp"
+
+                            />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="32.0dip"
+                        android:layout_height="32.0dip"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/arrow_right" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:background="#ffdfdfdf"
+
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/subscribe_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="52.0dip">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+
+                            android:layout_width="32.0dip"
+                            android:layout_height="32.0dip"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/profile_subscribe" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8.0dip"
+                            android:text="@string/profile_subscribe"
+                            android:layout_gravity="center"
+                            android:textSize="16.0sp"
+
+                            />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="32.0dip"
+                        android:layout_height="32.0dip"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/arrow_right" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:background="#ffdfdfdf"
+
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/fav_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="52.0dip">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+
+                            android:layout_width="32.0dip"
+                            android:layout_height="32.0dip"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/profile_collect" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8.0dip"
+                            android:text="@string/profile_collect"
+                            android:layout_gravity="center"
+                            android:textSize="16.0sp"
+
+                            />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="32.0dip"
+                        android:layout_height="32.0dip"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/arrow_right" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.0dip"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="10.0dip"
+                android:paddingRight="10.0dip">
+
+                <RelativeLayout
+                    android:id="@+id/feed_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="52.0dip">
+
+                    <LinearLayout
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+
+                            android:layout_width="32.0dip"
+                            android:layout_height="32.0dip"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/profile_info" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8.0dip"
+                            android:text="@string/profile_feedback"
+                            android:layout_gravity="center"
+                            android:textSize="16.0sp"
+
+                            />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="32.0dip"
+                        android:layout_height="32.0dip"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/arrow_right" />
+                </RelativeLayout>
+
+
+
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,61 @@
+<extend name="Base/common" />
+<block name="body">
+<div class="avatar-box">
+<div>
+
+<div class="register-step register-step-avatar "><span>基本信息</span>
+<span>完善资料</span> <span class="hover">头像上传</span></div>
+<div><section>
+<div class="avatar-form-upbox">
+<div class="col-xs-9">
+
+<div class="login-input-area login-form" id="meitu">
+
+
+
+</div>
+</div>
+<div class="col-xs-3"><include file="User/right" /></div>
+
+
+
+
+</div>
+
+
+</div>
+</section></div>
+
+
+</div>
+
+</div>
+</block>
+
+
+<block name="side"></block>
+<block name="script">
+
+<script src="http://open.web.meitu.com/sources/xiuxiu.js"
+	type="text/javascript"></script>
+<script type="text/javascript">
+window.onload=function(){
+  xiuxiu.embedSWF("meitu",5,"100%","100%");
+  xiuxiu.setUploadURL("http://www.quntiao.com__SELF__"); 
+  xiuxiu.setUploadType(2);
+  xiuxiu.onInit = function ()
+  {
+    xiuxiu.loadPhoto("http://open.web.meitu.com/sources/images/1.jpg"); 
+  }
+  xiuxiu.onUploadResponse = function (data)
+  {
+	 	var data = $.parseJSON(data);
+	  if (data.status) {
+      	window.location.href = data.url;
+      } else {
+          $("#error-message").html(data.info);
+      }
+  }
+}
+</script>
+</block>

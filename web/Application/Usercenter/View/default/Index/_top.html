@@ -1,0 +1,68 @@
+    <div class="uc_top_bg">
+        <img class="img-responsive" src="__IMG__/fractional.png" style="display: none">
+    </div>
+    <div class="row uc_info">
+        <div class="col-md-3 col-xs-4">
+            <dl>
+                <dt>
+                    <a href="{$user_info.space_url}" title="">
+                        <img src="{$user_info.avatar128}" class="avatar-img img-responsive top_img"/>
+                    </a>
+                </dt>
+                <dd>
+                    <div>
+                        <div class="col-xs-4 text-center">
+                            <a href="{:U('Weibo/Index/index',array('uid'=>$user_info['uid']))}"
+                               title="微博数">{$user_info.weibocount}</a><br>微博
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="{:U('Usercenter/Index/fans',array('uid'=>$user_info['uid']))}" title="粉丝数">{$user_info.fans}</a><br>粉丝
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <a href="{:U('Usercenter/Index/following',array('uid'=>$user_info['uid']))}" title="关注数">{$user_info.following}</a><br>关注
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-6 col-xs-8">
+            <div class="uc_main_info">
+                <div class="uc_m_t_12 uc_m_b_12 uc_uname">
+                <span>
+                    <a ucard="{$user_info.uid}" href="{$user_info.space_url}" title="">{$user_info.nickname|htmlspecialchars}</a>
+                </span>
+                    <span>
+                <if condition="$user_info['rank_link'][0]['num']">
+                    <volist name="user_info['rank_link']" id="vl">
+                            <img src="{$vl.logo_url}" title="{$vl.title}" alt="{$vl.title}"
+                                 style="width: 18px;height: 18px;vertical-align: middle;margin-left: 2px;"/>
+                    </volist>
+                </if>
+            </span>
+                </div>
+                <div class="uc_m_b_12 text-more" style="width: 100%">个性签名：<span>
+                <if condition="$user_info['signature'] eq ''">
+                    还没想好O(∩_∩)O
+                    <else/>
+                    <attr title="{$user_info.signature}">{$user_info.signature}</attr>
+                </if>
+            </span></div>
+                <div class="uc_m_b_12">
+                <span class="uc_m_r_36">积分：{$user_info.score}&nbsp;&nbsp;
+                </span>
+                </div>
+                <div class="uc_m_b_12"><span>等级：{$user_info.title}</span></div>
+            </div>
+        </div>
+        <if condition="is_login() && $user_info['uid'] != get_uid()">
+            <div class="col-md-3 col-xs-12">
+                <div class="uc_follow">
+                    <php>
+                        $user_info['is_following'] =
+                        D('Follow')->where(array('who_follow'=>get_uid(),'follow_who'=>$user_info['uid']))->find();
+                    </php>
+                    {:W('Common/Ufollow/render',array('is_following'=>$user_info['is_following'],'uid'=>$user_info['uid']))}
+                </div>
+            </div>
+        </if>
+    </div>

@@ -1,0 +1,88 @@
+<div class="weibo_post_box">
+
+
+<!--回复框-->
+<div class="row ">
+    <div class="col-xs-12">
+        <!--输入框-->
+        <p>
+            <input type="hidden" id="weibo-comment-to-comment-id" name="reply_id" value="0"/>
+            <textarea placeholder="说点什么吧～" id="text_{$weiboId}"
+                      class="form-control weibo-comment-content comment_text_inputor"></textarea>
+        </p>
+        <a href="javascript:" onclick="insertFace($(this))"><img src="__STATIC__/image/bq.png"/></a>
+
+        <!--评论按钮-->
+        <p class="pull-right">
+            <button class="btn btn-primary weibo-comment-commit" type="submit" id="btn_{$weiboId}"
+                    data-weibo-id="{$weiboId}">评论 Ctrl+Enter
+            </button>
+        </p>
+    </div>
+
+</div>
+<div id="emot_content" class="emot_content" style="float: left"></div>
+<!--评论列表-->
+</div>
+<div id="show_comment_{$weiboId}">
+<volist name="list" id="comment">
+
+
+    <hr style="margin: 5px 0px;"/>
+    <div class="row weibo_comment">
+        <div class="col-xs-12">
+            <div class="pull-left" style="width: 32px;">
+                <a href="{$comment.user.space_url}" ucard="{$comment.user.uid}"><img src="{$comment.user.avatar32}"
+                                                                                     class="avatar-img"/></a>
+            </div>
+            <div class="" style="overflow: hidden; padding-left: 15px; padding-top: 5px;">
+                <span class="text-muted pull-right">&nbsp;{$comment.create_time|friendlyDate}&nbsp;&nbsp;<a
+                        data-weibo-id="{$weiboId}" onclick="weibo_reply(this,{$comment.id},'{$comment.user.nickname}')"><i
+                        class="glyphicon glyphicon-comment"></i></a>
+                        <if condition="$comment['can_delete']">
+                            <a data-weibo-id="{$weiboId}" onclick="comment_del(this,{$comment.id})"><i
+                                    style="margin-left: 0.2em" class="glyphicon glyphicon-trash"></i></a>
+                        </if>
+                </span>
+                <a href="{$comment.user.space_url}" ucard="{$comment.user.uid}">{$comment.user.nickname|htmlspecialchars}</a>{$comment.user.icons_html}：{$comment.content|parse_comment_content}
+            </div>
+        </div>
+    </div>
+
+</volist>
+</div>
+<php>if($weiboCommentTotalCount>5){</php>
+<div style="width: 100%;height: 40px;text-align: center;line-height: 40px;">
+    <a id="btn_showall"  href="javascript:" onclick="show_all_comment('{$weiboId}');">查看全部回复>></a>
+</div>
+
+<php>}</php>
+
+
+<script>
+    function show_all_comment(weiboId){
+        $.post("{:U('Weibo/Index/commentlist')}",{weibo_id:weiboId},function(res){
+                 $('#show_comment_'+weiboId).html(res);
+                  $('#btn_showall').hide()
+        },'json');
+    }
+</script>
+
+<script>ucard();</script>
+<div class="operation" style="display: none;">
+    <include file="_operation"/>
+</div>
+<script>
+    bindSupport();
+    $(function () {
+
+        var weiboid = '{$weiboId}';
+        $('#text_' + weiboid + '').keypress(function (e) {
+            if (e.ctrlKey && e.which == 13 || e.which == 10) {
+                $('#btn_' + weiboid + '').click();
+            }
+        });
+
+        var $inputor = $('.comment_text_inputor').atwho(atwho_config);
+    });
+</script>

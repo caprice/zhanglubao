@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="col-xs-12  column-content">
+		<div class="column-content-title">
+			<i class="title-tip-box"></i> <span class="title-tip"><a
+				href="{:U('/fight/hot')}">战斗排行榜</a></span>
+		</div>
+		<div class="fighter-list column-content">
+			<ul>
+
+				<volist name="members" id="member">
+
+				<li>
+				<div class="cl">
+				 <div class="avatar">
+				 
+				 		<a href="{:U('/u/'.$member['uid'])}"> <img
+						src="__PUBLIC__/Core/images/placeholder.png"
+						lazy-src="{$member.avatar}"
+						  width="80" height="80">
+					</a>
+				 </div>
+				 <div class="fighter-info">
+				 
+				 <div><a href="{:U('/u/'.$member['uid'])}">{$member.username}</a></div>
+				 
+				 <div class="pull-left">
+				 <div>赚取: {$member.win_coins} </div>
+				 
+				 <div>场次: {$member.total_fights} </div>
+				 </div>
+				 <div class="pull-right fighter-invite">
+				 
+				<a href="{:U('/u/'.$member['uid'])}">战</a>
+				 </div>
+				 </div>
+				</div>
+				
+				</li>
+				</volist>
+		</div>
+	</div>
+</div>

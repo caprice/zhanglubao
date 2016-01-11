@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<link href="__CSS__/games.css" rel="stylesheet" />
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+		<div class="row">
+			<!-- 左边 -->
+			<div class="col-xs-9">
+				<div class="row">
+					<div class="col-xs-12">
+
+						<div class="column-content-title">
+							<i class="title-tip-box"></i> <span class="title-tip">所有游戏</span> 
+							</span>
+						</div>
+
+						<div class="game-list">
+							<ul>
+								<volist name="games" id="game">
+								<li>
+									<div>
+										<a href="{:U('/live/list/'.$game['id'])}"> <img
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{:query_picture('url',$game['cover'])}"
+											alt="{$game['title']}" width="170" height="220">
+										</a>
+									</div>
+									<div class="game-des">
+										<span class="pull-left">{$game['title']}</span> <span
+											class="pull-right"> <span
+											class="glyphicon glyphicon-user clo"></span> <span
+											class="game-des-online">{$game['online_member']}人</span>
+										</span>
+									</div>
+								</li>
+								</volist>
+							</ul>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+			<!-- 右边 -->
+			<div class="col-xs-3">
+				<div>
+
+					<div class="right-want-box">
+						<div class="row">
+							<div class="col-xs-2">
+								<span class=" glyphicon glyphicon-facetime-video want-box-icon "></span>
+							</div>
+							<div class="col-lg-4">
+								<a href="#" class="want-box-text" rel="nofollow">我要直播</a>
+							</div>
+							<div class="col-xs-1">
+								<span class="glyphicon glyphicon-share want-box-share-icon "></span>
+							</div>
+							<div class="col-xs-4">
+								<a href="#" class="want-box-text" rel="nofollow">分享视频</a>
+							</div>
+						</div>
+					</div>
+					{:W('IndexAnchors/lists')}
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 343);
+					}).resize();
+		});
+	</script>
+	<!-- /主体 -->
+
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

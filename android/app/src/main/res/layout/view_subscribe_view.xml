@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="46.0dip"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/video_subscribe_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="right|center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <Button
+            android:layout_width="26.0dip"
+            android:layout_height="26.0dip"
+            android:background="@drawable/detail_bottom_brief_bar_atte_normal"
+            android:clickable="false" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.0dip"
+            android:text="@string/video_page_subscribe"
+            android:textColor="#ff4d4d4d"
+            android:textSize="14.0dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/video_subscribe_already"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="right|center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="26.0dip"
+            android:layout_height="26.0dip"
+            android:background="@drawable/detail_bottom_brief_bar_atte_checked"
+            android:clickable="false" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.0dip"
+            android:text="@string/video_page_subscribe_already"
+            android:textColor="#ff4d4d4d"
+            android:textSize="14.0dip" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/video_subscribe_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminateBehavior="repeat"
+        android:indeterminateDrawable="@drawable/detail_progress_white_60"
+        android:indeterminateOnly="true"
+        android:maxHeight="20.0dip"
+        android:maxWidth="20.0dip"
+        android:minHeight="20.0dip"
+        android:minWidth="20.0dip"
+       />
+
+</RelativeLayout>
+

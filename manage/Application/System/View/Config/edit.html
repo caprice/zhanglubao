@@ -1,0 +1,123 @@
+<extend name="Public/base" />
+<block name="style">
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/compiled/wizard.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/libs/dropzone.css">
+</block>
+
+<block name="body">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix" style="min-height: 1180px;">
+			<header class="main-box-header clearfix">
+				<h2>{$info['id']?'编辑':'新增'}配置</h2>
+			</header>
+			<div class="main-box-body clearfix">
+				<form class="form-horizontal" action="{:U()}" method="post">
+					<div class="form-group">
+						<label for="inputName" class="col-lg-2 control-label">配置标识</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputName"
+								name="name" value="{$info.name|default=''}" placeholder="配置标识">
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-2 control-label">配置标题</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputTitle"
+								name="title" value="{$info.title|default=''}" placeholder="配置标题">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputSort" class="col-lg-2 control-label">排序</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputSort"
+								name="sort" value="{$info.sort|default=0}" placeholder="排序">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputType" class="col-lg-2 control-label">配置类型</label>
+						<div class="col-lg-10">
+
+
+							<select name="type" class="form-control">
+								<volist name="Think.config.CONFIG_TYPE_LIST" id="type">
+								<option value="{$key}">{$type}</option>
+								</volist>
+							</select>
+
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="inputGroup" class="col-lg-2 control-label">配置分组</label>
+						<div class="col-lg-10">
+
+							<select name="group" class="form-control">
+								<option value="0">不分组</option>
+							 
+								<volist name="Think.config.CONFIG_GROUP_LIST" id="group">
+								<option value="{$key}">{$group}</option>
+								</volist>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputValue" class="col-lg-2 control-label">配置值</label>
+						<div class="col-lg-10">
+							<textarea class="form-control" rows="4" name="value">{$info.value|default=''}</textarea>
+
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="inputExtra" class="col-lg-2 control-label">配置项</label>
+						<div class="col-lg-10">
+							<textarea class="form-control" rows="4" name="extra">{$info.extra|default=''}</textarea>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputRemark" class="col-lg-2 control-label">说明</label>
+						<div class="col-lg-10">
+							<textarea class="form-control" rows="4" name="remark">{$info.remark|default=''}</textarea>
+
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+
+
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<input type="hidden" name="id" value="{$info.id|default=''}">
+							<button type="submit" class="btn btn-success ajax-post"
+								target-form="form-horizontal">提交</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</block>
+
+<block name="script"> </block>

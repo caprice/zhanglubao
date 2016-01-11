@@ -1,0 +1,119 @@
+hr {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  margin: 10px 0 10px 0;
+}
+.border {
+  border: 1px solid #dddddd;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+}
+.boxShadow {
+  box-shadow: 0 0 5px #cccccc;
+  -moz-box-shadow: 0 0 5px #CCCCCC;
+  -khtml-box-shadow: 0 0 5px #CCCCCC;
+}
+.boxShadowBorder {
+  box-shadow: 0 0 5px #cccccc;
+  -moz-box-shadow: 0 0 5px #CCCCCC;
+  -khtml-box-shadow: 0 0 5px #CCCCCC;
+  border: 1px solid #dddddd;
+  border-radius: 0.2em;
+}
+.avatar-img-rectangle {
+  border-radius: 3px;
+  max-width: 100%;
+}
+.people-li {
+  margin: 0px;
+  padding: 10px;
+  background: white;
+  margin-bottom: 30px;
+  border: 1px solid #dddddd;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+}
+.people-li h3 {
+  font-size: 20px;
+  margin: 0;
+}
+/*应用公共css*/
+.app_head {
+  border: 1px solid #dddddd;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  background: white;
+}
+.app_title {
+  font-size: 1.5em;
+  line-height: 2em;
+}
+.app_title .app_ico_i {
+  font-size: .8em;
+  margin-right: .5em;
+}
+.sub_nav .nav_list {
+  padding-left: 0em;
+  margin-bottom: 0;
+}
+.sub_nav .nav_list li {
+  list-style: none;
+  float: left;
+}
+.sub_nav .nav_list li a {
+  padding: 1.1em 1.3em;
+  font-size: 1.1em;
+  display: inline-block;
+}
+.sub_nav .nav_list li:hover {
+  background: white;
+}
+.sub_nav .nav_list li .cur {
+  background: white;
+  color: #333;
+}
+.aline {
+  border-bottom: 1px solid white;
+  border-top: 1px solid #ccc;
+}
+.children_nav {
+  display: none;
+}
+.children_nav .nav_list {
+  background: white;
+  padding-left: 0;
+  margin: 0;
+}
+.children_nav .nav_list li {
+  list-style: none;
+  float: left;
+}
+.children_nav .nav_list li a {
+  padding: 1.1em 1.3em;
+  font-size: 1.1em;
+  display: inline-block;
+  color: #666;
+}
+.children_nav .nav_list li .cur {
+  background: white;
+  font-size: 1.0em;
+}
+.app_head {
+  margin-bottom: 1em;
+}
+.app_body {
+  box-shadow: 0 0 5px #cccccc;
+  -moz-box-shadow: 0 0 5px #CCCCCC;
+  -khtml-box-shadow: 0 0 5px #CCCCCC;
+}
+/*详情页面END*/

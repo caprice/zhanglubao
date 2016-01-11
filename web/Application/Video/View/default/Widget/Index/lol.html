@@ -1,0 +1,52 @@
+<div class="lol-row">
+	<div class="lol-left">
+		<volist name="reclols" id="reclol">
+		<div class="lol-rec-row">
+			<div class="lol-big-thumb">
+				<a class="mod_poster" href="{:U('/video/'.$reclol['id'])}"> <img
+					src="__PUBLIC__/Core/images/placeholder.png"
+					lazy-src="{:query_picture('url',$reclol['cover'])}"
+					alt="{$reclol['title']}" width="350px" />
+				</a>
+				<div class="lol-name">
+					<span>{$reclol['title']} </span>
+				</div>
+			</div>
+			<div class="lol-des">
+				<span class="pull-left"> <span
+					class="glyphicon glyphicon-facetime-video "></span> <span
+					class="game-des-online">{$reclol['views']}人</span></span> <span
+					class="pull-right ">
+					{:get_game($reclol['game_id'],'title')} </span>
+			</div>
+		</div>
+		</volist>
+	</div>
+	<div class="lol-right">
+		<div class="lol-list">
+			<ul>
+				<volist name="lols" id="lol">
+				<li>
+					<div class="lol-thumb">
+						<a href="{:U('/video/'.$lol['id'])}"> <img
+							src="__PUBLIC__/Core/images/placeholder.png"
+							lazy-src="{:query_picture('url',$lol['cover'])}"
+							alt="{$lol['title']}" width="160px" height="90px">
+						</a>
+						<div class="lol-name">
+							<span><a href="{:U('/video/'.$lol['id'])}">{$lol['title']}</a></span>
+						</div>
+					</div>
+					<div class="lol-des">
+						<span class="pull-left"> <span
+							class="glyphicon glyphicon-facetime-video  "></span> <span
+							class="game-des-online">{$lol['views']}人</span></span> <span
+							class="pull-right ">
+							{:get_game($lol['game_id'],'title')}</span>
+					</div>
+				</li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+</div>

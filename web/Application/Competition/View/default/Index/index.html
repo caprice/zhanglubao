@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<script type="text/javascript" src="__JS__/index.js"></script>
+<link href="__CSS__/index.css" rel="stylesheet" />
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+		<div class="row">
+			<!-- left side -->
+			<div class="col-xs-9">
+				<div class="row">{:W('CAd/lists')}</div>
+				<div class="row">
+					<div class="col-xs-12  column-content">
+						<div class="column-content-title">
+							<i class="title-tip-box"></i> <span class="title-tip"><a
+								href="#">最新联赛</a></span> <span class="recommend-tag"><a href="#">英雄联盟</a>
+								<a href="#">DOTA2</a> <a href="#">炉石传说</a> <a href="#">穿越火线</a>
+								<a href="#">地下城与勇士</a> </span> <span class="pull-right"> <a
+								href="{:U('/match/index')}">更多比赛</a></span>
+						</div>
+					</div>
+					<div class="col-xs-12  column-content">
+						<div class="match-list">
+							<ul>
+								<volist name="matches" id="match">
+								<li class="match-item">
+									<div class="match-item-image">
+									
+									<a href="{:U('/match/'.$match['id'])}">
+										<img width="273" height="118"
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{:query_picture('url',$match['cover'])}"
+											alt="{$matche.title}">
+											
+											</a>
+									</div>
+									<div class="match-item-innr ">
+										<div class="match-item-tit">	<a href="{:U('/match/'.$match['id'])}">{$match.title}</a></div>
+										<div class="match-item-date">活动时间：{:date('Y-m-d',$match['start_time'])}~{:date('Y-m-d',$match['end_time'])}</div>
+									</div> <span class="match-item-name">{:get_game($match['game_id'],'title')}</span>
+									<i class="match-item-sbg "></i> <if
+										condition="$match['match_status'] lt 2">
+									<div class="match-item-times">
+										<if condition="$match['days'] lt 3000"> <em>
+											{$match['days']} </em>天<br>
+										后结束 <else /> <span class="match-item-timesred">永久</span> </if>
+									</div>
+									<else />
+									<div class="match-item-times match-item-timesgray">已结束</div>
+									</if>
+								</li>
+								</volist>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- New GameMatch -->
+				<div class="row">
+					<div class="col-xs-12  column-content">
+						<div class="column-content-title">
+							<i class="title-tip-box"></i> <span class="title-tip"><a
+								href="#">最新比赛</a></span> <span class="recommend-tag"><a href="#">英雄联盟</a>
+								<a href="#">DOTA2</a> <a href="#">炉石传说</a> <a href="#">穿越火线</a>
+								<a href="#">地下城与勇士</a> </span> <span class="pull-right"> <a href="{:U('/matchgame/index')}">更多比赛</a></span>
+						</div>
+					</div>
+					<div class="col-xs-12  column-content">
+						<div class="guess-list">
+							<ul>
+								<volist name="guesses" id="guess">
+								<li class="guess-item">
+									<div class="guess-item-content">
+										<div class="col-xs-4">
+											<if condition="$guess['blue_team']"> <a
+												href="{:U('/matchgame/'.$guess['id'])}"> <img
+												src="__PUBLIC__/Core/images/placeholder.png"
+												lazy-src="{:query_team('cover',$guess['blue_team'])}"
+												alt="{$video['title']}" width="50" height="50">
+											</a> <else />
+											<div class="vs">弃权</div>
+											</if>
+										</div>
+										<div class="col-xs-4 vs">VS</div>
+										<div class="col-xs-4">
+											<if condition="$guess['red_team']"> <a
+												href="{:U('/matchgame/'.$guess['id'])}"> <img
+												src="__PUBLIC__/Core/images/placeholder.png"
+												lazy-src="{:query_team('cover',$guess['red_team'])}"
+												alt="{$video['title']}" width="50" height="50">
+											</a> <else />
+											<div class="vs">弃权</div>
+											</if>
+										</div>
+									</div>
+									<div class="guess-team-name">
+										<ul>
+											<li><if condition="$guess['blue_team']">
+												<a href="{:U('/matchgame/'.$guess['id'])}">{:query_team('name',$guess['blue_team'])}</a>
+												<else /> 弃权 </if></li>
+											<li></li>
+											<li><if condition="$guess['red_team']"> <a
+													href="{:U('/matchgame/'.$guess['id'])}">{:query_team('name',$guess['red_team'])}</a>
+												<else /> 弃权 </if></li>
+										</ul>
+									</div>
+									<div class="guess-item-des">
+										<ul>
+											<li><span class="pull-left"><a
+													href="{:U('/matchgame/'.$guess['id'])}">{:get_game($guess['game_id'],'title')}</a></span>
+												<span class="pull-right">{:date('m-d
+													H:i',$guess['start_time'])}</span></li>
+											<li><span class="pull-left"><a
+													href="{:U('/matchgame/'.$guess['id'])}">{:query_match('title',$guess['match_id'])}</a></span>
+												<span class="pull-right"><a class="submit-guess"
+													href="{:U('/matchgame/'.$guess['id'])}">竞猜</a></span></li>
+										</ul>
+									</div>
+								</li>
+								</volist>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- New GameMatch Video -->
+				<div class="row">
+					<div class="col-xs-12  column-content">
+						<div class="column-content-title">
+							<i class="title-tip-box"></i> <span class="title-tip"><a
+								href="#">最新比赛视频</a></span> <span class="recommend-tag"><a
+								href="#">英雄联盟</a> <a href="#">DOTA2</a> <a href="#">炉石传说</a> <a
+								href="#">穿越火线</a> <a href="#">地下城与勇士</a> </span> <span
+								class="pull-right"> <a href="#">更多联赛</a></span>
+						</div>
+					</div>
+					<div class="col-xs-12  column-content">
+						<div class="video-list">
+							<ul>
+								<volist name="videos" id="video">
+								<li>
+									<div class="video-thumb">
+										<a href="{:U('/video/'.$video['id'])}"> <img
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{:query_picture('url',$video['cover'])}"
+											alt="{$video['title']}" width="216px" height="120px">
+										</a>
+										<div class="video-name">
+											<span>{$video['title']}</span>
+										</div>
+									</div>
+									<div class="video-des">
+										<span class="pull-left"> <span
+											class="glyphicon glyphicon-facetime-video "></span> <span
+											class="game-des-online">{$video['views']}人</span></span> <span
+											class="pull-right ">
+											{:get_game($video['game_id'],'title')} </span>
+									</div>
+								</li>
+								</volist>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- series 系列赛事 -->
+				<div class="row">
+					<div class="col-xs-12  column-content">
+						<div class="column-content-title">
+							<i class="title-tip-box"></i> <span class="title-tip"><a
+								href="#">系列赛事</a></span> <span class="recommend-tag"><a href="#">英雄联盟</a>
+								<a href="#">DOTA2</a> <a href="#">炉石传说</a> <a href="#">穿越火线</a>
+								<a href="#">地下城与勇士</a> </span> <span class="pull-right"> <a
+								href="{:U('/series/index')}">更多系列赛</a></span>
+						</div>
+					</div>
+					<div class="col-xs-12  column-content">
+						<div class="series-list">
+							<ul>
+								<volist name="serieses" id="series">
+								<li>
+									<div class="series-thumb">
+										<a href="{:U('/series/'.$series['id'])}"> <img
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{:query_picture('url',$series['cover'])}"
+											alt="{$series['title']}" width="216px" height="120px">
+										</a>
+										<div class="series-name">
+											<span>{$series['title']}</span>
+										</div>
+									</div>
+									<div class="series-des">
+										<span class="pull-left"> <span
+											class="glyphicon glyphicon-facetime-video "></span> <span
+											class="game-des-online">{$series['match_count']}个赛季</span></span> <span
+											class="pull-right ">
+											{:get_game($series['game_id'],'title')} </span>
+									</div>
+								</li>
+								</volist>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- right side -->
+			<div class="col-xs-3">
+				<div>
+					<div class="right-want-box">
+						<div class="row">
+							<div class="col-xs-2">
+								<span class="glyphicon glyphicon-bell want-box-icon "></span>
+							</div>
+							<div class="col-lg-4">
+								<a href="#" class="want-box-text" rel="nofollow">我的关注</a>
+							</div>
+							<div class="col-xs-1">
+								<span class="glyphicon glyphicon-stats want-box-share-icon "></span>
+							</div>
+							<div class="col-xs-4">
+								<a href="#" class="want-box-text" rel="nofollow">我的竞猜</a>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="row">
+						<div class="col-xs-12  column-content">
+							<div class="column-content-title">
+								<i class="title-tip-box"></i> <span class="title-tip">热门比赛</span> <span class="pull-right"> <a href="{:U('/matchgame/index')}">更多比赛</a></span>
+							</div>
+
+							{:W('HotMatchGame/lists')}
+						</div>
+					</div>
+
+					<!-- hot team -->
+					<div class="row">
+						<div class="col-xs-12  column-content">
+							<div class="column-content-title">
+								<i class="title-tip-box"></i> <span class="title-tip"><a
+									href="#">热门战队</a></span> <span class="pull-right"> <a href="#">更多战队</a></span>
+							</div>
+							<div class="teams">
+								<ul>
+									<volist name="teams" id="team">
+									<li class="col-xs-4">
+										<div>
+											<a href="{:U('/team/'.$team['id'])}"> <img
+												src="__PUBLIC__/Core/images/placeholder.png"
+												lazy-src="{:query_team('cover',$team['id'])}"
+												alt="{$team['name']}" width="52" height="52"></a>
+										</div>
+										<div class="team_name">{$team['name']}</div>
+									</li>
+									</volist>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- hot player -->
+					<div class="row">
+						<div class="col-xs-12  column-content">
+							<div class="column-content-title">
+								<i class="title-tip-box"></i> <span class="title-tip"><a
+									href="#">热门选手</a></span> <span class="pull-right"> <a href="#">更多选手</a></span>
+							</div>
+							<div class="members">
+								<ul>
+									<volist name="members" id="member">
+									<li><php> $user =
+										query_user(array('avatar','username'),$member['uid']); </php>
+
+										<div class="anchors-thumb">
+											<a href="{:U('/user/'.$member['uid'])}"><img
+												src="__PUBLIC__/Core/images/placeholder.png"
+												lazy-src="{$user.avatar}" height="84" width="84" /> </a>
+										</div>
+										<div class="members-des">{$user.username}</div></li>
+									</volist>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 343);
+					}).resize();
+		});
+	</script>
+	<!-- /主体 -->
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

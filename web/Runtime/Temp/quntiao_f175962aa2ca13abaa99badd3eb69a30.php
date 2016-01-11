@@ -1,0 +1,3 @@
+<?php
+//000000086400a:22:{s:2:"id";s:1:"8";s:3:"uid";s:1:"8";s:5:"title";s:46:"QAQ 妈蛋,大号偷偷打了!我要打小号!";s:13:"online_membes";s:1:"0";s:11:"description";s:46:"QAQ 妈蛋,大号偷偷打了!我要打小号!";s:4:"rtmp";s:0:"";s:9:"rtmp_code";s:0:"";s:5:"cover";s:3:"140";s:11:"update_time";s:10:"1402043068";s:11:"online_time";s:1:"0";s:9:"next_time";s:1:"0";s:6:"status";s:1:"1";s:11:"play_status";s:1:"1";s:11:"create_time";s:10:"1402043068";s:4:"tags";s:14:"大号  小号";s:9:"from_site";s:1:"2";s:9:"flash_url";s:47:"http://yy.com/s/95431869/2220714118/jsscene.swf";s:7:"game_id";s:5:"10005";s:11:"start_times";s:1:"0";s:14:"verify_content";s:0:"";s:13:"flash_content";N;s:7:"follows";s:1:"0";}
+?>

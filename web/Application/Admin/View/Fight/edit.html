@@ -1,0 +1,140 @@
+<extend name="Public/base" />
+
+<block name="body">
+<div class="main-title">
+<h2>{:isset($fight['id'])?'编辑':'新增'}约战</h2>
+</div>
+<link href="/Public/Static/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link
+	href="/Public/Static/datetimepicker/css/bootstrap-datetimepicker.css"
+	rel="stylesheet" />
+<script type="text/javascript"
+	src="/Public/Static/datetimepicker/js/moment.js"></script>
+<script
+	src="/Public/Static/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript"
+	src="/Public/Static/bootstrap/js/bootstrap.min.js"></script>
+<script
+	src="/Public/Static/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+<form action="{:U()}" method="post" class="form-horizontal">
+
+<div class="form-item"><label class="item-label">归属游戏<span
+	class="check-tips">（是什么游戏的大赛）</span></label>
+<div class="controls">
+
+
+    <select name="game_id">
+                    <volist name="games" id="game">
+                    	 
+                        <option value="{$game.id}"  <eq name="fight['game_id']" value="$game.id"> selected</eq>>{$game.title_show}</option>
+                    </volist>
+                </select>
+</div>
+</div>
+
+<div class="form-item"><label class="item-label">开始时间<span
+	class="check-tips">（开始时间）</span></label>
+
+
+
+<div class="controls">
+
+
+
+<div class="form-item time-item">
+<div class='input-group date' id='datetimepicker'><input
+	data-date-format="MM/DD/YYYY hh:mm A/PM" type='text'
+	class="form-control" id="start_time" name="start_time"
+	value="{:date('m/d/Y H:i',$fight['start_time'])}"> <span
+	class="input-group-addon"><span
+	class="glyphicon glyphicon-calendar"></span> </span></div>
+</div>
+
+
+</div>
+
+
+</div>
+<div class="form-item"><label class="item-label">约战金币<span
+	class="check-tips">（约战金币）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="fight_coins" value="{$fight.fight_coins|default='0'}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">主队UID<span
+	class="check-tips">（主队UID）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="host_uid" value="{$fight.host_uid|default='0'}"></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">客队UID<span
+	class="check-tips">（客队UID）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="guest_uid" value="{$fight.guest_uid|default='0'}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">游戏性质<span
+	class="check-tips">（游戏性质）</span></label>
+<div class="controls"><select name="fight_type">
+	<option value="0">个人赛</option>
+	<option value="1">团队赛</option>
+</select></div>
+</div>
+
+<div class="form-item"><label class="item-label">约战状态<span
+	class="check-tips">（约战状态）</span></label>
+<div class="controls"><select name="fight_status">
+	<option value="0">邀战中</option>
+	<option value="1">迎战中</option>
+	<option value="2">战斗结束</option>
+</select></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">胜利UID<span
+	class="check-tips">（胜利UID）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="winner" value="{$fight.winner|default='0'}"></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">约战描述<span
+	class="check-tips">（约战描述）</span></label>
+<div class="controls"><label class="textarea input-large">
+<textarea name="description">{$fight.description|default=''}</textarea>
+</label></div>
+</div>
+<div class="form-item"><input type="hidden" name="id"
+	value="{$fight.id|default=''}">
+
+<button class="btn submit-btn ajax-post" id="submit" type="submit"
+	target-form="form-horizontal">确 定</button>
+<button class="btn btn-return"
+	onclick="javascript:history.back(-1);return false;">返 回</button>
+</div>
+</form>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script>
+
+<script type="text/javascript">
+ 
+
+$("#datetimepicker").datetimepicker({
+	 pickDate: true,
+   defaultDate: "01/01/2014",
+   minDate:'01/01/2014',
+});
+
+</script>
+
+
+
+
+</block>

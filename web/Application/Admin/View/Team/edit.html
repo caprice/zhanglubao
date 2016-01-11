@@ -1,0 +1,112 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>{:isset($team['id'])?'编辑':'新增'}战队</h2>
+    </div>
+    	<script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <form action="{:U()}" method="post" class="form-horizontal" >
+        <div class="form-item">
+            <label class="item-label">战队名称<span class="check-tips">（战队名称昵称）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="name" value="{$team.name|default=''}">
+            </div>
+        </div>
+        
+        <div class="form-item">
+            <label class="item-label">归属游戏<span class="check-tips">（是什么游戏的战队）</span></label>
+                    <div class="controls">
+                <select name="game_id">
+                    <volist name="games" id="game">
+                    	 
+                        <option value="{$game.id}"  <eq name="team['game_id']" value="$game.id"> selected</eq>>{$game.title_show}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+             <div class="form-item">
+            <label class="item-label">战队标签<span class="check-tips">（战队名称昵称）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="tags" value="{$team.tags|default=''}">
+            </div>
+        </div>
+        
+         <div class="form-item">
+						<label class="item-label">战队图腾</label>
+						<input type="file" id="upload_picture">
+						<input type="hidden" name="cover" id="cover" value="{$team['cover']|default=''}"/>
+						<div class="upload-img-box">
+						<notempty name="team['cover']">
+							<div class="upload-pre-item"><img src="{$team.cover|get_cover='url'}"/></div>
+						</notempty>
+						</div>
+					</div>
+					<script type="text/javascript">
+					//上传图片
+				    /* 初始化上传插件 */
+					$("#upload_picture").uploadify({
+				        "height"          : 30,
+				        "swf"             : "__STATIC__/uploadify/uploadify.swf",
+				        "fileObjName"     : "download",
+				        "buttonText"      : "上传图片",
+				        "uploader"        : "{:U('File/uploadTeamPic',array('session_id'=>session_id()))}",
+				        "width"           : 120,
+				        'removeTimeout'	  : 1,
+				        'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
+				        "onUploadSuccess" : uploadTeamPic,
+				        'onFallback' : function() {
+				            alert('未检测到兼容版本的Flash.');
+				        }
+				    });
+					function uploadTeamPic(file, data){
+				    	var data = $.parseJSON(data);
+				    	var src = '';
+				        if(data.status){
+				        	$("#cover").val(data.id);
+				        	src = data.url;
+				        	$("#cover").parent().find('.upload-img-box').html(
+				        		'<div class="upload-pre-item"><img src="' + src + '"/></div>'
+				        	);
+				        } else {
+				      
+				        	updateAlert(data.info);
+				        	setTimeout(function(){
+				                $('#top-alert').find('button').click();
+				                $(that).removeClass('disabled').prop('disabled',false);
+				            },1500);
+				        }
+				    }
+					</script>
+					
+					
+           <div class="form-item">
+            <label class="item-label">战队介绍<span class="check-tips">（战队名称昵称）</span></label>
+            <div class="controls">
+            <label class="textarea input-large">
+				<textarea name="description">{$team.description|default=''}</textarea>
+			</label>
+            </div>
+        </div>
+        
+                   <div class="form-item">
+            <label class="item-label">战队荣誉<span class="check-tips">（战队荣誉）</span></label>
+            <div class="controls">
+            <label class="textarea input-large">
+				<textarea name="honor">{$team.honor|default=''}</textarea>
+			</label>
+            </div>
+        </div>
+        <div class="form-item">
+        <input type="hidden" name="id" value="{$team.id|default=''}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script>
+</block>

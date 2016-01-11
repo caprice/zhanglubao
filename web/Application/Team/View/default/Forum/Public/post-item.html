@@ -1,0 +1,39 @@
+<php>
+    $user = query_user(array('avatar','username','uid'),
+    $document['uid']);
+</php>
+<div class="row">
+    <div class="col-md-2 col-xs-4 text-center">
+        <p>
+            <a href="{$user.space_url}">
+                <img src="{$user.avatar}" ucard="{$user.uid}" class="avatar-img" />
+            </a>
+        </p>
+    </div>
+    <div class="col-md-10 col-xs-12" >
+
+        <p>
+
+                <a class="forum_forum_name" href="{:U('/Team/Forum/forum',array('id'=>$document['forum_id']))}">[{$document.forum.title}]</a><a class="forum-list-title-link" title="{$document.title|htmlspecialchars}"
+                                                                                                                       href="{:U('Index/detail',array('id'=>$document['id']))}">{$document.title|htmlspecialchars|mb_substr=0,30,'utf-8'}
+        </a><eq name="document.is_top" value="2"><i class="post_top">全站</i>
+                    <else/>
+                    <eq name="document.is_top" value="1"><i class="post_top_forum">版块</i></eq>
+                </eq>
+
+
+        </p>
+
+        <p class="pull-right text-muted">
+            <span>阅读（{$document.view_count}）</span>
+            <span style="width: 1em; display: inline-block;">&nbsp;</span>
+            <span>回复（{$document.reply_count}）</span>
+        </p>
+
+        <p class="text-muted author">
+            <a href="{$user.space_url}" ucard="{$user.uid}">{$user.nickname|op_t}</a>{$user.icons_html}
+            发布：{$document.create_time|friendlyDate} |
+            回复：{$document.last_reply_time|friendlyDate}
+        </p>
+    </div>
+</div>

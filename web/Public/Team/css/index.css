@@ -1,0 +1,287 @@
+@CHARSET "UTF-8";
+
+#focus {
+	width: 597px;
+	height: 232px;
+	overflow: hidden;
+	position: relative;
+}
+
+#focus ul {
+	height: 232px;
+	position: absolute;
+}
+
+#focus ul li {
+	float: left;
+	width: 597px;
+	height: 232px;
+	overflow: hidden;
+	position: relative;
+	background: #000;
+}
+
+#focus ul li div {
+	position: absolute;
+	overflow: hidden;
+}
+
+/*#focus .btnBg{position:absolute;width:585px;height:20px;left:0;bottom:0;background:#000;}*/
+#focus .focusbtn {
+	position: absolute;
+	width: 450px;
+	height: 20px;
+	padding: 5px 10px;
+	right: 10px;
+	bottom: 10px;
+	text-align: right;
+	font-size: 12px;
+}
+
+#focus .focusbtn span {
+	display: inline-block;
+	_display: inline;
+	_zoom: 1;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	text-align: center;
+	border: #F3F3F3 1px solid;
+	margin-left: 5px;
+	cursor: pointer;
+	background: #FEFEFE;
+	color: #666666;
+}
+
+#focus .focusbtn span.on {
+	background: #47AB56;
+	color: #fff;
+	border: #76BE2F 1px solid;
+}
+
+/*#focus .preNext{width:45px;height:100px;position:absolute;top:90px;background:url(img/sprite.png) no-repeat 0 0;cursor:pointer;}*/
+#focus .pre {
+	left: 0;
+}
+
+.match-list li {
+	margin-bottom: 4.6%;
+}
+
+.match-list .match-des {
+	background-color: #F5F5F5;
+	height: 58px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+	width: 100%;
+}
+
+.game-list {
+	margin-left: -1%;
+}
+
+.game-des {
+	background: #48b87a;
+	height: 28px;
+	padding: 2%;
+	font-size: 1.0em;
+	color: #ffffff;
+}
+
+.game-list li {
+	float: left;
+	width: 19%;
+	margin-left: 1%;
+}
+
+.game-list li image {
+	width: 100%;
+}
+
+.hot-list li {
+	margin-bottom: 4%;
+	width: 100%;
+	height: 84px;
+	display: block; border : 1px #eee solid;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+	border: 1px #eee solid;
+}
+
+.hot-list .team-icon {
+	width: 80px;
+	height: 80px;
+	float: left;
+	display: block;
+}
+
+.hot-list .team-info {
+	float: right;
+	padding-left: 8px;
+	display: block;
+	width: 190px;
+	height: 80px;
+}
+
+.team-info {
+	line-height: 26px;
+}
+
+.team-list {
+	margin-left: -2%;
+}
+
+.team-list li {
+	margin-bottom: 2%;
+	width: 23%;
+	height: 84px;
+	margin-left: 2%;
+	float: left; display : block;
+	border: 1px #eee solid;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+	display: block;
+}
+
+.team-list .team-icon {
+	width: 80px;
+	height: 80px;
+	float: left;
+	display: block;
+}
+
+.team-list .team-info {
+	float: right;
+	padding-left: 8px;
+	display: block;
+	width: 120px;
+	height: 80px;
+}
+
+.video-list {
+	margin-left: -1%;
+}
+
+.video-list li {
+	float: left;
+	width: 24%;
+	margin-left: 1%;
+	margin-bottom: 1%;
+}
+
+.video-list li image {
+	width: 100%;
+}
+
+.video-name {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	word-wrap: normal;
+	color: #ffffff;
+	background: rgba(0, 0, 0, .45);
+	text-align: left;
+}
+
+.video-thumb {
+	position: relative;
+	height: 120px;
+}
+
+.video-name span {
+	position: relative;
+	z-index: 100;
+	color: #fff;
+}
+
+.video-des {
+	background: #F5F5F5;
+	height: 28px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+}
+
+.video-des .video-desc-member {
+	padding-left: 10%
+}
+
+.matches {
+	padding-top: 15px;
+}
+
+.matches li {
+	padding-bottom: 15px;
+}
+
+.matches  .vs {
+	font: normal 26px/50px "simhei";
+	letter-spacing: -2px;
+	color: #aaa;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.matches .match-team {
+	clear: both;
+	display: block;
+	height: 60px;
+	text-align: center;
+}
+
+.matches  .match-item-des {
+	margin-top: 2px;
+	background: #F5F5F5;
+	height: 58px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+	width: 100%;
+}
+
+.match-item-des  li {
+	width: 100%;
+	clear: both;
+	display: block;
+	height: 26px;
+	overflow: hidden;
+}
+
+.match-item-des  li .match-team {
+	text-align: center;
+}
+
+.match-team-name li {
+	width: 33.33333333333333%;
+	text-align: center;
+	float: left;
+}
+
+.match-item-des-left {
+	float: left;
+	width: 80%;
+}
+
+.match-item-des-right {
+	float: right;
+	text-align: right;
+	width: 20%;
+}
+
+.forum-list {
+	margin-left: -2%;
+}
+
+.forum-list li {
+	margin-left: 2%;
+	float:left;
+	width:48%;
+	line-height:29px;
+	border-bottom:1px dashed #ccc;
+}
+}

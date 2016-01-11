@@ -1,0 +1,3 @@
+<?php
+//000000086400a:15:{s:2:"id";s:2:"20";s:5:"title";s:54:"EP.C vs VG.P 第1场_德玛西亚杯第2赛季_32进16";s:3:"uid";s:1:"1";s:9:"video_url";s:60:"http://v.qq.com/cover/j/j0u9v3x7yltk1o0.html?vid=q01307i2pzs";s:5:"views";s:2:"40";s:4:"tags";s:42:"EP.C,VG.P,德玛西亚杯,英雄联盟,LOL";s:5:"cover";s:3:"244";s:11:"description";s:54:" EP.C vs VG.P 第1场 德玛西亚杯第2赛季32进16";s:7:"game_id";s:5:"10005";s:6:"status";s:1:"1";s:11:"update_time";s:10:"1403597127";s:9:"flash_url";s:59:"http://static.video.qq.com/TPout.swf?vid=q01307i2pzs&auto=1";s:3:"md5";s:32:"def15ebf67eb8b1f53460c99688be67f";s:11:"edit_status";s:1:"0";s:11:"create_time";s:10:"1403597127";}
+?>

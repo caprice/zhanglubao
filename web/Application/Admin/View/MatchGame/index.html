@@ -1,0 +1,120 @@
+<extend name="Public/base" />
+
+<block name="body">
+<!-- 标题栏 -->
+<div class="main-title">
+<h2>比赛列表</h2>
+
+
+</div>
+<div class="cf">
+<div class="fl"><a class="btn"
+	href="{:U('MatchGame/add?matchid='.$matchid)}">新 增</a>
+<button class="btn ajax-post confirm"
+	url="{:U('MatchGame/changeStatus',array('method'=>'deleteMatchGame'))}"
+	target-form="ids">删 除</button>
+</div>
+
+<!-- 高级搜索 -->
+<div class="search-form fr cf">
+<div class="sleft"><input type="text" name="nickname"
+	class="search-input" value="{:I('nickname')}" placeholder="团队名称或者ID">
+<a class="sch-btn" href="javascript:;" id="search" url="{:U('index')}"><i
+	class="btn-search"></i></a></div>
+</div>
+</div>
+<!-- 数据列表 -->
+<div class="data-table table-striped">
+<table class="">
+	<thead>
+		<tr>
+			<th class="row-selected row-selected"><input class="check-all"
+				type="checkbox" /></th>
+			<th class="">GID</th>
+			<th class="">蓝方</th>
+			<th class="">红方</th>
+			<th class="">时间</th>
+			<th class="">回合</th>
+			<th class="">结果</th>
+			<th class="">游戏状态</th>
+			<th class="">状态</th>
+			<th class="">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<notempty name="_list">
+		<volist name="_list" id="vo">
+		<tr>
+			<td><input class="ids" type="checkbox" name="id[]"
+				value="{$vo.id}" /></td>
+			<td>{$vo.id}</td>
+<if condition="$vo['blue_team'] neq '0'">
+			<td>{:get_team($vo['blue_team'],'name')}</td
+			><else/>
+			<td>弃权</td>
+			</if>
+
+			<if condition="$vo['red_team'] neq '0'">
+			<td>{:get_team($vo['red_team'],'name')}</td>
+			<else/>
+			<td>弃权</td>
+			</if>
+			<td>{:date('Y-m-d H:i:s',$vo['start_time'])}</td>
+			<td>{$vo.round}</td>
+			<td>{$vo.winner}</td>
+			<td>{$vo.game_status}</td>
+			<td>{$vo.status}</td>
+			<td>
+		 	<a href="{:U('MatchGame/addVideo?matchgameid='.$vo['id'])}">添加视频</a>
+			 <a
+				href="{:U('MatchGameDetail/index?matchgameid='.$vo['id'])}">添加场次</a>
+			
+			<eq name="vo.status" value="1"> <a
+				href="{:U('MatchGame/changeStatus?method=forbidMatchGame&id='.$vo['id'])}"
+				class="ajax-get">禁用</a> <else /> <a
+				href="{:U('MatchGame/changeStatus?method=resumeMatchGame&id='.$vo['id'])}"
+				class="ajax-get">启用</a> </eq> <a
+				href="{:U('MatchGame/edit?id='.$vo['id'])}" class="authorize">编辑</a>
+			<a
+				href="{:U('MatchGame/changeStatus?method=deleteMatchGame&id='.$vo['id'])}"
+				class="confirm ajax-get">删除</a></td>
+
+		</tr>
+		</volist>
+		<else />
+		<td colspan="9" class="text-center">aOh! 暂时还没有内容!</td>
+		</notempty>
+	</tbody>
+</table>
+</div>
+<div class="page">{$_page}</div>
+</block>
+
+<block name="script">
+<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+<script type="text/javascript">
+        //搜索功能
+        $("#search").click(function () {
+            var url = $(this).attr('url');
+            var query = $('.search-form').find('input').serialize();
+            query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+            query = query.replace(/^&/g, '');
+            if (url.indexOf('?') > 0) {
+                url += '&' + query;
+            } else {
+                url += '?' + query;
+            }
+            window.location.href = url;
+        });
+        //回车搜索
+        $(".search-input").keyup(function (e) {
+            if (e.keyCode === 13) {
+                $("#search").click();
+                return false;
+            }
+        });
+        //导航高亮
+        highlight_subnav("{:U('User / index')}");
+    </script>
+</block>

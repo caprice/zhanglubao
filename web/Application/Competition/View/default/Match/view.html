@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<link href="__CSS__/match.css" rel="stylesheet" />
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+		<div class="row">
+
+			<!-- left side -->
+			<div class="col-xs-9">
+				<div class="row">
+					<div class="col-xs-12 column-content">
+						<div class="match-cover">
+							<img src="__PUBLIC__/Core/images/placeholder.png"
+								lazy-src="{:query_picture('url',$match['cover'])}" width="216px"
+								height="120px">
+						</div>
+						<div class="match-info">
+							<div>
+								<h3>{$match.title}</h3>
+							</div>
+							<div class="match-info-time">活动时间：{:date('Y-m-d',$match['start_time'])}~{:date('Y-m-d',$match['end_time'])}</div>
+							<div class="match-info-description">{$match.description}</div>
+
+
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+
+					<div class="col-xs-12 column-content">
+						<ul>
+
+							<volist name="matchgames" id="games" key="key">
+							<li>
+								<div>
+									<div class="column-content-title">
+										<i class="title-tip-box"></i> <span class="title-tip">第{$key-1}轮</span>
+									</div>
+
+									<div class="column-content match-item-list">
+										<ul>
+
+
+											<volist name="games" id="game">
+
+
+											<li class="match-game-item">
+
+												<div class="hd">
+													<div class="status">
+														<switch name="game['game_status']"> <case
+															value="0"> 未开始 </case> <case value="1"> 正在进行 </case> <case
+															value="2"> 已结束 </case> </switch>
+													</div>
+													<div class="start-time">{:date('m-d
+														H:i',$game['start_time'])}</div>
+												</div>
+
+												<div class="bd">
+													<div class="team-icon">
+														<div class="width33">
+															<if condition="$game['blue_team']"> <a
+																href="{:U('/matchgame/'.$game['id'])}"> <img
+																src="__PUBLIC__/Core/images/placeholder.png"
+																lazy-src="{:query_team('cover',$game['blue_team'])}"
+																alt="{$video['title']}" width="30" height="30">
+															</a> <else />
+															<div class="vs">弃权</div>
+															</if>
+														</div>
+														<div class="width33">
+															<if condition="$game['game_status'] eq 2">
+															<div class="result-item">{$game['blue_result']}</div>
+															<div class="result-item">:</div>
+															<div class="result-item">{$game['red_result']}</div>
+															<else />
+															<div class="vs">VS</div>
+
+															</if>
+
+														</div>
+														<div class="width33">
+															<if condition="$game['red_team']"> <a
+																href="{:U('/matchgame/'.$game['id'])}"> <img
+																src="__PUBLIC__/Core/images/placeholder.png"
+																lazy-src="{:query_team('cover',$game['red_team'])}"
+																alt="{$video['title']}" width="30" height="30">
+															</a> <else />
+															<div class="vs">弃权</div>
+															</if>
+
+
+														</div>
+													</div>
+													<div class="team-name">
+														<div class="width33">
+															<if condition="$game['blue_team']"> <a
+																href="{:U('/matchgame/'.$game['id'])}">{:query_team('name',$game['blue_team'])}</a>
+															<else />
+															<div class="vs">弃权</div>
+															</if>
+
+
+														</div>
+														<div class="width33"></div>
+														<div class="width33">
+															<if condition="$game['red_team']"> <a
+																href="{:U('/matchgame/'.$game['id'])}">
+																{:query_team('name',$game['red_team'])}</a> <else />
+															<div class="vs">弃权</div>
+															</if>
+														</div>
+
+													</div>
+												</div>
+											</li>
+											</volist>
+										</ul>
+
+									</div>
+								</div>
+							</li>
+							</volist>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- right side -->
+			<div class="col-xs-3">
+
+				<div>
+					<div class="row">
+						<div class="col-xs-12  column-content">
+							<div class="column-content-title">
+								<i class="title-tip-box"></i> <span class="title-tip"><a
+									href="#">最新视频</a></span> <span class="pull-right"> <a href="#">更多视频</a></span>
+							</div>
+
+							<div class="column-content">
+								<div class="side-matchvideo-list">
+									<ul>
+										<volist name="matchvideos" id="matchvideo">
+										<li>
+
+											<div class="v-thumb">
+												<a href="{:U('/video/'.$matchvideo['id'])}"> <img
+													src="__PUBLIC__/Core/images/placeholder.png"
+													lazy-src="{:query_picture('url',$matchvideo['cover'])}"
+													alt="{$matchvideo['title']}" width="145px" height="80px"></a>
+
+											</div>
+
+											<div class="v-meta">
+
+												<div class="v-meta-title">
+													<a href="{:U('/video/'.$matchvideo['id'])}">{$matchvideo['title']}</a>
+
+												</div>
+
+												<div class="v-num">
+													<span class="glyphicon glyphicon-facetime-video  "></span>
+													<span class="game-des-online">{$matchvideo['views']}</span>
+												</div>
+											</div>
+
+										</li>
+										</volist>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 343);
+					}).resize();
+		});
+	</script>
+	<!-- /主体 -->
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

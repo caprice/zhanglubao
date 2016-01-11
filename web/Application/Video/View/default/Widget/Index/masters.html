@@ -1,0 +1,27 @@
+
+<div class="row">
+	<div class="col-xs-12  column-content">
+		<div class="column-content-title">
+			<i class="title-tip-box"></i> <span class="title-tip"><a
+				href="{:U('/master/list')}">游戏高手</a></span> <span class="pull-right">
+				<a href="{:U('/master/list')}">更多高手</a>
+			</span>
+		</div>
+
+		<div class="masters">
+			<ul>
+				<volist name="masters" id="master">
+				<li><php> $user =
+					query_user(array('avatar','username'),$master['uid']); </php>
+
+					<div class="masters-thumb">
+						<a href="{:U('/u/'.$master['uid'])}"><img
+							src="__PUBLIC__/Core/images/placeholder.png"
+							lazy-src="{$user.avatar}" height="84" width="84" /> </a>
+					</div>
+					<div class="masters-des">{$user.username}</div></li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+</div>

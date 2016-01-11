@@ -1,0 +1,591 @@
+@CHARSET "UTF-8";
+
+.game-list {
+	margin-left: -1%;
+}
+
+.game-des {
+	background: #48b87a;
+	height: 28px;
+	padding: 2%;
+	font-size: 1.0em;
+	color: #ffffff;
+}
+
+.game-list li {
+	float: left;
+	width: 19%;
+	margin-left: 1%;
+}
+
+.game-list li image {
+	width: 100%;
+}
+
+.live-list {
+	margin-left: -1%;
+}
+
+.live-list li {
+	float: left;
+	width: 24%;
+	margin-left: 1%;
+	margin-bottom: 1%;
+}
+
+.live-list li image {
+	width: 100%;
+}
+
+.live-name {
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	word-wrap: normal;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #ffffff;
+	height: 20px;
+	background: rgba(0, 0, 0, .45);
+}
+
+.live-thumb {
+	position: relative;
+	height: 120px;
+}
+
+.live-name span {
+	position: relative;
+	z-index: 100;
+	color: #fff;
+}
+
+.live-des {
+	background: #F5F5F5;
+	height: 28px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+}
+
+.live-des .live-desc-member {
+	padding-left: 10%
+}
+
+.video-left {
+	width: 350px;
+	float: left;
+}
+
+.video-right {
+	width: 538px;
+	float: right;
+}
+
+.video-thumb {
+	position: relative;
+}
+
+.live-name span {
+	position: relative;
+	z-index: 100;
+	color: #fff;
+}
+
+.video-row {
+	display: block;
+	clear: both;
+}
+
+.video-big-thumb {
+	width: 350px;
+	height: 218px;
+	position: relative;
+}
+
+.video-big-thumb img {
+	width: 350px;
+	height: 218px;
+}
+
+.video-name span {
+	position: relative;
+	color: #fff;
+	height:auto;
+	width:168px;
+}
+
+.video-big-thumb .mod_poster {
+	width: 350px;
+	height: 218px;
+}
+
+.video-name {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	word-wrap: normal;
+	color: #ffffff;
+	background: rgba(0, 0, 0, .45);
+	text-align:left;
+}
+
+.video-list {
+	
+}
+
+.video-list li {
+	float: left;
+	width: 168px;
+	margin-left: 2%;
+	margin-bottom: 2%;
+}
+
+.video-list li img {
+	width: 100%;
+}
+
+.video-thumb {
+	width: 168px;
+	height: 90px;
+	position: relative;
+	height: 90px;
+}
+
+.video-des {
+	background: #F5F5F5;
+	height: 28px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+}
+
+.video-rec-row {
+	margin-bottom: 3.6%;
+}
+
+.team-list {
+	margin-left: -2%;
+}
+
+.team-list li {
+	float: left;
+	width: 18%;
+	margin-left: 2%;
+	margin-bottom: 2%;
+}
+
+.team-list li .team-thumb {
+	margin: 0px auto;
+	display: block;
+}
+
+.team-list li .team-thumb  a {
+	margin: 0px auto;
+	display: block;
+}
+
+.team-list li .team-thumb    img {
+	margin: 0px auto;
+	display: block;
+}
+
+.team-name {
+	width: 100%;
+	height: 20px;
+	text-align: center;
+	z-index: 100;
+	color: #fff;
+	padding-top: 6px;
+	color: #999;
+}
+
+/***competition**/
+.matches {
+	padding-top: 15px;
+}
+
+.matches li {
+	padding-bottom: 15px;
+}
+
+.matches  .vs {
+	font: normal 26px/50px "simhei";
+	letter-spacing: -2px;
+	color: #aaa;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.matches .match-team {
+	clear: both;
+	display: block;
+	height: 60px;
+	text-align: center;
+}
+
+.matches  .match-item-des {
+	margin-top: 2px;
+	background: #F5F5F5;
+	height: 58px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+	width: 100%;
+}
+
+.match-item-des  li {
+	width: 100%;
+	clear: both;
+	display: block;
+	height: 26px;
+	overflow: hidden;
+}
+
+.match-item-des  li .match-team {
+	text-align: center;
+}
+
+.match-team-name li {
+	width: 33.33333333333333%;
+	text-align: center;
+	float: left;
+}
+
+.match-item-des-left {
+	float: left;
+	width: 80%;
+}
+
+.match-item-des-right {
+	float:right;
+	text-align:right;
+	width: 20%;
+}
+
+/***anchors**/
+.anchors {
+	padding-top: 15px;
+	margin-left: -3%;
+}
+
+.anchors li {
+	width: 29.33333333333333%;
+	margin-left: 4%;
+	margin-bottom: 5%;
+	float: left;
+	height: 106px;
+	float: left;
+}
+
+.anchors-des {
+	background: #F5F5F5;
+	height: 26px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+}
+
+/***fight*/
+.fight-list li {
+	border-bottom: 1px dashed #dbdbd6;
+	padding-bottom: 10px;
+	height: 128px;
+	color: #888;
+	padding-top: 10px;
+}
+
+.fight-list li.no_bor {
+	border-bottom: none
+}
+
+.fihght-des {
+	background: #F5F5F5;
+	height: 26px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+}
+
+.fihght-thumb {
+	width: 30%;
+	float: left
+}
+
+.fight-info {
+	width: 66%;
+	float: right;
+	line-height: 28px;
+}
+
+.fight-info-line {
+	width: 100%;
+	clear: both;
+	display: block;
+}
+
+.fight-info-line span .info-name {
+	width: 50%;
+	overflow: hidden;
+}
+
+/**album-list**/
+.album-list li {
+	width: 100%;
+	overflow: hidden;
+}
+
+.album-list li {
+	border-bottom: 1px dashed #dbdbd6;
+}
+
+.album-list li.no_bor {
+	border-bottom: none
+}
+
+.album-list li,.forum li a {
+	line-height: 34px
+}
+
+.album-list li a,.forum li span {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: middle
+}
+
+.album-list li a {
+	color: #111;
+	height: 33px;
+	color: #888;
+	padding-right: 10px;
+	overflow: hidden
+}
+
+.album-list li .album-item-name {
+	width: 30%;
+	float: left;
+}
+
+.album-list li .album-item-title {
+	width: 70%;
+	float: right;
+	overflow: hidden;
+}
+
+.album-list li .album-item-title a {
+	width: 100%;
+	overflow: hidden;
+}
+
+.album-list li a:hover,a:focus {
+	color: #328156;
+}
+
+
+
+.guess-list {
+	margin-left: -1%;
+}
+
+.guess-list .guess-item {
+	float: left;
+	width: 32.33333333333333%;
+	margin-left: 1%;
+	margin-bottom: 1%;
+}
+
+.guess-list .guess-item-content {
+	clear: both;
+	display: block;
+	height: 60px;
+}
+
+.guess-list  .vs {
+	font: normal 26px/50px "simhei";
+	letter-spacing: -2px;
+	color: #aaa;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.guess-list  .guess-item-des {
+	margin-top: 2px;
+	background: #F5F5F5;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+	width: 100%;
+	padding: 2%;
+}
+
+.guess-item-team {
+	text-align: center;
+}
+
+.guess-item-team a {
+	width: 50px;
+	display: block;
+}
+
+.guess-item-des li {
+	width: 100%;
+	clear: both;
+	display: block;
+	height: 26px;
+	line-height: 24px;
+	position: relative;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+.guess-coin-label {
+	left: 4px;
+	color: #999;
+	cursor: default;
+	font-weight: 200;
+	position: absolute;
+}
+
+.guess-coin {
+	width: 130px;
+	height: 24px;
+	line-height: 24px;
+	padding-left: 43px;
+	font-size: 13px;
+	color: #666;
+	border: 1px solid #d8d8d8;
+	outline: none;
+	text-align: left;
+}
+
+.submit-guess {
+	border: 0;
+	text-align: center;
+	width: 50px;
+	display: block;
+	background: #48b87a;
+	font-size: 13px;
+	color: #fff;
+	outline: none;
+	height: 25px;
+	line-height: 25px;
+	padding: 0px;
+}
+
+.guess-team-name li {
+	width: 33.33333333333333%;
+	text-align: center;
+	float: left;
+	display: block;
+	height: 30px;
+	line-height: 30px;
+}
+
+/***anchors**/
+.commentators {
+	padding-top: 15px;
+	margin-left: -3%;
+}
+
+.commentators li {
+	width: 29.33333333333333%;
+	margin-left: 4%;
+	margin-bottom: 4%;
+	float: left;
+	height: 106px;
+	float: left;
+}
+
+.commentators-des {
+	background: #F5F5F5;
+	height: 26px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+}
+
+#focus {
+	width: 610px;
+	height: 232px;
+	overflow: hidden;
+	position: relative;
+}
+
+#focus ul {
+	height: 232px;
+	position: absolute;
+}
+
+#focus ul li {
+	float: left;
+	width: 610px;
+	height: 232px;
+	overflow: hidden;
+	position: relative;
+	background: #000;
+	vertical-align: middle;
+	display: block;
+}
+
+#focus ul li div {
+	position: absolute;
+	overflow: hidden;
+}
+
+/*#focus .btnBg{position:absolute;width:585px;height:20px;left:0;bottom:0;background:#000;}*/
+#focus .focusbtn {
+	position: absolute;
+	width: 450px;
+	height: 20px;
+	padding: 5px 10px;
+	right: 10px;
+	bottom: 10px;
+	text-align: right;
+	font-size: 12px;
+}
+
+#focus .focusbtn span {
+	display: inline-block;
+	_display: inline;
+	_zoom: 1;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	text-align: center;
+	border: #F3F3F3 1px solid;
+	margin-left: 5px;
+	cursor: pointer;
+	background: #FEFEFE;
+	color: #666666;
+}
+
+#focus .focusbtn span.on {
+	background: #47AB56;
+	color: #fff;
+	border: #76BE2F 1px solid;
+}
+
+/*#focus .preNext{width:45px;height:100px;position:absolute;top:90px;background:url(img/sprite.png) no-repeat 0 0;cursor:pointer;}*/
+#focus .pre {
+	left: 0;
+}

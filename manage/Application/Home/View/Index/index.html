@@ -1,0 +1,206 @@
+<extend name="Public/base" />
+
+<block name="body">
+<div class="row">
+	<div class="col-lg-3 col-sm-6 col-xs-12">
+		<div class="main-box infographic-box">
+			<i class="fa fa-video-camera red-bg"></i> <span class="headline">全站视频</span>
+			<span class="value">{$videocount}</span>
+		</div>
+	</div>
+	<div class="col-lg-3 col-sm-6 col-xs-12">
+		<div class="main-box infographic-box">
+			<i class="fa fa-user emerald-bg"></i> <span class="headline">游戏明星</span>
+			<span class="value">{$verifycount}</span>
+		</div>
+	</div>
+	<div class="col-lg-3 col-sm-6 col-xs-12">
+		<div class="main-box infographic-box">
+			<i class="fa fa-list green-bg"></i> <span class="headline">视频专辑</span>
+			<span class="value">{$albumcount}</span>
+		</div>
+	</div>
+	<div class="col-lg-3 col-sm-6 col-xs-12">
+		<div class="main-box infographic-box">
+			<i class="fa fa-users yellow-bg"></i> <span class="headline">总用户数</span>
+			<span class="value">{$usercount}</span>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 col-lg-12">
+		<div class="main-box">
+			<div class="row">
+				<div class="col-md-9">
+					<div class="graph-box emerald-bg">
+						<h2>视频个数</h2>
+						<div class="graph" id="graph-line" style="max-height: 335px;"></div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="row graph-nice-legend">
+						<div class="graph-legend-row col-md-12 col-sm-4">
+							<div class="graph-legend-row-inner">
+								<span class="graph-legend-name"> 视频数目 </span> <span
+									class="graph-legend-value"> {$videocount} </span>
+							</div>
+						</div>
+						<div class="graph-legend-row col-md-12 col-sm-4">
+							<div class="graph-legend-row-inner">
+								<span class="graph-legend-name"> 用户数目 </span> <span
+									class="graph-legend-value"> {$usercount} </span>
+							</div>
+						</div>
+						<div class="graph-legend-row col-md-12 col-sm-4">
+							<div class="graph-legend-row-inner">
+								<span class="graph-legend-name"> 视频专辑 </span> <span
+									class="graph-legend-value"> {$albumcount} </span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<header class="main-box-header clearfix">
+				<h2 class="pull-left">最新视频</h2>
+				<div class="filter-block pull-right">
+				<div class="form-group pull-left search-form">
+						<input type="text"  name="video_title"  class="form-control search-input" placeholder="关键字..." value="{:I('video_title')}">
+						<i class="fa fa-search search-icon" id="search" url="{:U('Video/Video/index')}"></i>
+					</div>
+					<a href="{:U('Video/Video/index')}" class="btn btn-primary pull-right"> <i
+						class="fa fa-eye fa-lg"></i> 所有视频
+					</a>
+				</div>
+			</header>
+			<div class="main-box-body clearfix">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="text-left"><span>ID</span></th>
+								<th class="text-left"><span>标题</span></th>
+								<th class="text-center"><span>状态</span></th>
+								<th class="text-center"><span>添加时间</span></th>
+								<th class="text-center">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<notempty name="_videolist"> <volist name="_videolist" id="vo">
+							<tr>
+								<td>{$vo.id}</td>
+								<td>{$vo.video_title}</td>
+								<td class="text-center">
+								
+								
+								<if condition="$vo['status'] eq 0 ">
+									<span class="label label-warning">禁用</span> <else />
+									
+									 <span
+										class="label label-success">启用</span> </if>
+										
+										
+										</td>
+								<td class="text-center">{:date('Y-m-d
+									H:i:s',$vo['create_time'])}</td>
+								<td style="width: 15%;"><eq name="vo.status" value="1">
+									<a
+										href="{:U('Video/Video/changeStatus?method=forbid&id='.$vo['id'])}"
+										class="table-link ajax-get"><span class="fa-stack">
+											<i class="fa fa-square fa-stack-2x"></i> <i
+											class="fa    fa-power-off fa-stack-1x fa-inverse"></i>
+									</span></a> <else /> <a
+										href="{:U('Video/Video/changeStatus?method=resume&id='.$vo['id'])}"
+										class="ajax-get table-link"><span class="fa-stack">
+											<i class="fa fa-square fa-stack-2x"></i> <i
+											class="fa  fa-check-circle-o fa-stack-1x fa-inverse"></i>
+									</span></a> </eq> <a href="{:U('Video/Video/edit?id='.$vo['id'])}"
+									class="table-link"> <span class="fa-stack"> <i
+											class="fa fa-square fa-stack-2x"></i> <i
+											class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+									</span>
+								</a> <a
+									href="{:U('Video/Video/changeStatus?method=delete&id='.$vo['id'])}"
+									class="table-link danger confirm ajax-get"> <span
+										class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i>
+											<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a></td>
+							</tr>
+							</volist> <else />
+
+							<td colspan="6" class="text-center">aOh! 暂时还没有内容!</td>
+							</notempty>
+						</tbody>
+					</table>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+</block>
+
+<block name="script"> <script>
+	$(document).ready(function() {
+
+		graphLine = Morris.Line({
+			element : 'graph-line',
+			data : [  
+			        <php>
+			       		foreach($lines as $line)
+			       		{
+			       			echo "{date:'".$line['date']."',count:".$line['count']."},";
+			       			
+			       		}
+			        </php>
+		 
+			
+			],
+			lineColors : [ '#ffffff' ],
+			xkey : 'date',
+			ykeys : [ 'count' ],
+			labels : [ '数量' ],
+			pointSize : 3,
+			hideHover : 'auto',
+			gridTextColor : '#ffffff',
+			gridLineColor : 'rgba(255, 255, 255, 0.3)',
+			resize : true
+		});
+	});
+</script>
+
+
+
+<script type="text/javascript">
+        //搜索功能
+        $("#search").click(function () {
+            var url = $(this).attr('url');
+            var query = $('.search-form').find('input').serialize();
+            query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+            query = query.replace(/^&/g, '');
+            if (url.indexOf('?') > 0) {
+                url += '&' + query;
+            } else {
+                url += '?' + query;
+            }
+            window.location.href = url;
+        });
+        //回车搜索
+        $(".search-input").keyup(function (e) {
+            if (e.keyCode === 13) {
+                $("#search").click();
+                return false;
+            }
+        });
+       
+    </script>
+ </block>

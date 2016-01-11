@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<link href="__CSS__/matchgame.css" rel="stylesheet" />
+<script type="text/javascript" src="__JS__/scrollview.js"></script>
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+		<div class="row">
+			<!-- left side -->
+			<div class="col-xs-9">
+				<div class="vs-title-info">
+					<i class="vs-title-tip-box"></i> <span class="vs-title-tip">
+						<span class="title-content"> <span class="match-name"><a
+								href="{:U('/match/'.$matchgame['match_id'])}">{:query_match('title',$matchgame['match_id'])}</a></span>
+							<span class="match-game-title"><h3>
+									<a href="{:U('/team/'.$matchgame['blue_team'])}">
+										{:query_team('name',$matchgame['blue_team'])} </a><b>{$matchgame['blue_result']}:{$matchgame['red_result']}</b> <a
+										href="{:U('/team/'.$matchgame['red_team'])}">{:query_team('name',$matchgame['red_team'])}
+									</a>
+								</h3></span> <span class="match-game-category"> <a
+								href="{:U('/game/'.$matchgame['game_id'])}">{:get_game($matchgame['game_id'],'title')}</a>
+						</span>
+					</span>
+				</div>
+				<div class="vs-team-info">
+					<div class="vs-blue-team">
+						<ul>
+							<volist name="bluemembers" id="bluemember">
+							<li><div>
+								<a href="{:U('/u/'.$bluemember['uid'])}">	<img src="__PUBLIC__/Core/images/placeholder.png"
+										width="80px" height="80px"
+										lazy-src="{:query_user('avatar',$bluemember['uid'])}"></a>
+								</div>
+
+								<div class="vs-user-name">
+									<span> {:query_user('username',$bluemember['uid'])} </span>
+
+								</div></li>
+							</volist>
+						</ul>
+					</div>
+
+					<div class="vs-info">
+						<embed align="none" allowfullscreen="true"
+						allowscriptaccess="never" class="edui-faked-video" height="500"
+						loop="false" menu="false" play="true"
+						pluginspage="http://www.macromedia.com/go/getflashplayer"
+						src="<php>echo current($gamevideos)['flash_url']</php>"
+						type="application/x-shockwave-flash" width="730"
+						wmode="transparent">
+					</div>
+
+					<div class="vs-red-team">
+						<ul>
+							<volist name="redmembers" id="redmember">
+							<li>
+								<div>
+									<a href="{:U('/u/'.$redmember['uid'])}"><img src="__PUBLIC__/Core/images/placeholder.png"
+										width="80px" height="80px"
+										lazy-src="{:query_user('avatar',$redmember['uid'])}"></a>
+								</div>
+								<div class="vs-user-name">{:query_user('username',$redmember['uid'])}</div>
+							</li>
+							</volist>
+						</ul>
+					</div>
+				</div>
+				<!-- action row -->
+				<div class="vs-base-info">
+					<div class="mod－action">
+						<div class="action-item action-collect">
+							<a> <span class="glyphicon glyphicon-star  action-item-icon"></span><span
+								class="action-item-text"> 收藏</span>
+							</a>
+						</div>
+						<div class="action-item action-share">
+							<a> <span class="glyphicon glyphicon-share action-item-icon"></span><span
+								class="action-item-text"> 分享</span>
+							</a>
+						</div>
+						<div class="action-item action-phone">
+							<a> <span class="glyphicon glyphicon-phone action-item-icon"></span><span
+								class="action-item-text">手机观看</span>
+							</a>
+						</div>
+					</div>
+
+					<div class="vs-match-game-tag">
+						<span>标签:</span>
+						<ul>
+							<volist name="matchgame['format_tags']" id="format_tag">
+							<li><a href="{:U('/tag/'.$format_tag)}">{$format_tag}</a>
+							<li>
+							</volist>
+						</ul>
+					</div>
+
+				</div>
+
+				<div class="other-match-game">
+
+					<span id="prev_btn"
+						class="other-match-game-prev glyphicon glyphicon-chevron-left"></span>
+
+					<div class="inner" id="inner">
+						<ul class="inner-ul">
+							<volist name="nearmatchgames" id="nearmatchgame">
+							<li>
+								<div class="match-team">
+									<div class="match-team-item">
+										<if condition="$nearmatchgame['blue_team']"> <a
+											href="{:U('/matchgame/'.$nearmatchgame['id'])}"> <img
+											src="{:query_team('cover',$nearmatchgame['blue_team'])}"
+											width="50" height="50">
+										</a> <else />
+										<div class="vs">弃权</div>
+										</if>
+
+									</div>
+									<div class="match-team-vs">VS</div>
+									<div class="match-team-item">
+										<if condition="$nearmatchgame['red_team']"> <a
+											href="{:U('/matchgame/'.$nearmatchgame['id'])}"> <img
+											src="{:query_team('cover',$nearmatchgame['red_team'])}"
+											width="50" height="50">
+										</a> <else />
+										<div class="vs">弃权</div>
+										</if>
+
+									</div>
+
+								</div>
+
+								<div class="match-info">
+									<div class="match-team-item">
+										<a href="{:U('/matchgame/'.$nearmatchgame['id'])}">{:query_team('name',$nearmatchgame['blue_team'])}</a>
+									</div>
+									<div class="match-team-vs">:</div>
+									<div class="match-team-item">
+										<a href="{:U('/matchgame/'.$nearmatchgame['id'])}">{:query_team('name',$nearmatchgame['red_team'])}</a>
+									</div>
+								</div>
+
+
+							</li>
+							</volist>
+
+						</ul>
+					</div>
+					<span id="next_btn"
+						class="other-match-game-next glyphicon glyphicon-chevron-right"></span>
+				</div>
+
+				<div class="comment">
+					<!-- 多说评论框 start -->
+					<div class="ds-thread" data-thread-key="matchgame-{$matchgame['id']}"
+						data-title="{:query_team('name',$matchgame['blue_team'])} vs {:query_team('name',$matchgame['red_team'])}"
+						data-url="http://www.quntiao.com/matchgame/{$matchgame.id}.html"></div>
+					<!-- 多说评论框 end -->
+					<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+					<script type="text/javascript">
+						var duoshuoQuery = {
+							short_name : "quntiao"
+						};
+						(function() {
+							var ds = document.createElement('script');
+							ds.type = 'text/javascript';
+							ds.async = true;
+							ds.src = (document.location.protocol == 'https:' ? 'https:'
+									: 'http:')
+									+ '//static.duoshuo.com/embed.js';
+							ds.charset = 'UTF-8';
+							(document.getElementsByTagName('head')[0] || document
+									.getElementsByTagName('body')[0])
+									.appendChild(ds);
+						})();
+					</script>
+					<!-- 多说公共JS代码 end -->
+
+				</div>
+
+
+			</div>
+			<!-- right side -->
+			<div class="col-xs-3">
+				<!-- guess -->
+				<div class="row">
+					<div class="guess-detail-win">
+						<div class="guess-item-detail">
+							<span class="guess-item-detail-win">{:query_team('name',$matchgame['blue_team'])}
+								胜</span> <span class="guess-item-detail-even">平</span> <span
+								class="guess-item-detail-win">{:query_team('name',$matchgame['red_team'])}
+								胜</span>
+						</div>
+					</div>
+
+				</div>
+				
+
+				<if condition="$gamevideos">
+				<div class="row">
+					<div class="col-xs-12  column-content">
+						<div class="column-content-title">
+							<i class="title-tip-box"></i> <span class="title-tip"><a
+								href="{:U('competition/video')}">本场视频</a></span> <span
+								class="pull-right"> <a href="{:U('competition/videos')}">更多视频</a></span>
+						</div>
+					</div>
+					<div class="col-xs-12  column-content">
+						<div class="side-matchvideo-list">
+							<ul>
+								<volist name="gamevideos" id="gamevideo">
+								<li>
+
+									<div class="v-thumb">
+										<a href="{:U('/video/'.$gamevideo['id'])}" onclick=""> <img
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{:query_picture('url',$gamevideo['cover'])}"
+											alt="{$gamevideo['title']}" width="145px" height="80px"></a>
+
+									</div>
+
+									<div class="v-meta">
+
+										<div class="v-meta-title">
+											<a href="{:U('/video/'.$gamevideo['id'])}">{$gamevideo['title']}</a>
+
+										</div>
+
+										<div class="v-num">
+											<span class="glyphicon glyphicon-facetime-video  "></span> <span
+												class="game-des-online">{$gamevideo['views']}</span>
+										</div>
+									</div>
+
+								</li>
+								</volist>
+							</ul>
+						</div>
+					</div>
+				</div>
+				</if>
+
+
+				<!-- new video -->
+				<div class="row">
+					<div class="col-xs-12  column-content">
+						<div class="column-content-title">
+							<i class="title-tip-box"></i> <span class="title-tip"><a
+								href="{:U('competition/video')}">最新比赛视频</a></span> <span
+								class="pull-right"> <a href="{:U('competition/video')}">更多视频</a></span>
+						</div>
+					</div>
+					<div class="col-xs-12  column-content">
+						<div class="side-matchvideo-list">
+							<ul>
+								<volist name="matchvideos" id="matchvideo">
+								<li>
+
+									<div class="v-thumb">
+										<a href="{:U('/video/'.$matchvideo['id'])}"> <img
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{:query_picture('url',$matchvideo['cover'])}"
+											alt="{$matchvideo['title']}" width="145px" height="80px"></a>
+
+									</div>
+
+									<div class="v-meta">
+
+										<div class="v-meta-title">
+											<a href="{:U('/video/'.$matchvideo['id'])}">{$matchvideo['title']}</a>
+
+										</div>
+
+										<div class="v-num">
+											<span class="glyphicon glyphicon-facetime-video  "></span> <span
+												class="game-des-online">{$matchvideo['views']}</span>
+										</div>
+									</div>
+
+								</li>
+								</volist>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 343);
+					}).resize();
+		});
+		
+		 
+		
+		
+	</script>
+	<!-- /主体 -->
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

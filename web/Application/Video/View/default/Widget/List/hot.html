@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col-xs-12  column-content">
+		<div class="column-content-title">
+			<i class="title-tip-box"></i> <span class="title-tip"><a
+				href="{:U('／video/recommend')}">推荐视频</a></span> <span class="pull-right"></span>
+		</div>
+	</div>
+	<div class="col-xs-12  column-content">
+		<div class="side-matchvideo-list">
+			<ul>
+				<volist name="hots" id="hot">
+				<li>
+
+					<div class="v-thumb">
+						<a href="{:U('/video/'.$hot['id'])}" > <img
+							src="__PUBLIC__/Core/images/placeholder.png"
+							lazy-src="{:query_picture('url',$hot['cover'])}"
+							alt="{$hot['title']}" width="145px" height="80px"></a>
+
+					</div>
+
+					<div class="v-meta">
+
+						<div class="v-meta-title">
+							<a href="{:U('/video/'.$hot['id'])}">{$hot['title']}</a>
+
+						</div>
+
+						<div class="v-num">
+							<span class="glyphicon glyphicon-facetime-video  "></span> <span
+								class="v-meta-des">{$hot['views']}</span>
+						</div>
+					</div>
+
+				</li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+</div>

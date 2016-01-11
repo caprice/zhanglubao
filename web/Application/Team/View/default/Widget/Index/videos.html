@@ -1,0 +1,34 @@
+
+<div class="col-xs-12  column-content">
+	<div class="column-content-title">
+		<i class="title-tip-box"></i> <span class="title-tip"><a
+			href="{:U('/video/index')}">最新比赛视频</a></span>  <span class="pull-right"> <a href="{:U('/video/index')}">更多联赛</a></span>
+	</div>
+</div>
+<div class="col-xs-12 column-content">
+	<div class="video-list">
+		<ul>
+			<volist name="videos" id="video">
+			<li>
+				<div class="video-thumb">
+					<a href="{:U('/video/'.$video['id'])}"> <img
+						src="__PUBLIC__/Core/images/placeholder.png"
+						lazy-src="{:query_picture('url',$video['cover'])}"
+						alt="{$video['title']}" width="216px" height="120px">
+					</a>
+					<div class="video-name">
+						<span>{$video['title']}</span>
+					</div>
+				</div>
+				<div class="video-des">
+					<span class="pull-left"> <span
+						class="glyphicon glyphicon-facetime-video "></span> <span
+						class="game-des-online">{$video['views']}人</span></span> <span
+						class="pull-right "> {:get_game($video['game_id'],'title')}
+					</span>
+				</div>
+			</li>
+			</volist>
+		</ul>
+	</div>
+</div>

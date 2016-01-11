@@ -1,0 +1,218 @@
+<extend name="Base/common" />
+
+<block name="style">
+<link href="__CSS__/shops.css" rel="stylesheet" type="text/css" />
+</block>
+
+<block name="body">
+
+<div>
+
+	<div class="shop">
+		<nav class="shop_navbar" role="navigation">
+
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div>
+				<ul class="shop-nav">
+					<li><a href="{:U('/shop/index')}" class=" shop-index">商城首页</a></li>
+					<li><a href="{:U('goods')}" <if condition="$category_id eq 0">class="current"</if>>所有分类</a></li>
+					<volist name="tree" id="top"> <if
+						condition="$top['status'] eq 1">
+					<li><a href="{:U('goods',array('category_id'=>$top['id']))}" <if condition="$category_id eq $top['id']"> class="current"</if>>{$top.title}</a>
+					</li>
+
+					</if> </volist>
+				</ul>
+				<div class="fl_right">
+
+
+					<ul class="">
+						<!--一级菜单-->
+						<li class=""><a onclick="if(MID==0){op_info('没有登录，请先登录！','提示信息');return false;}" href="{:U('myGoods')}"> <i
+								class="glyphicon glyphicon-list-alt"></i> 我的订单
+						</a></li>
+
+						<!--一级菜单-->
+						<if condition="is_login() neq 0"> <li class=""><a href=""> <i
+								class="glyphicon glyphicon-stats"></i> 当前金币：{$my_quntiao_money}
+						</a></li></if>
+					</ul>
+
+
+					 
+				</div>
+			</div>
+			<!-- /.navbar-collapse -->
+		</nav>
+            <div class="col-md-12  app_block clearfix">
+                <div class="row pad_15">
+                    <if condition="$top_category eq ''">
+                        <h2 class="title_content">所有商品</h2>
+                        <else/>
+                        <h2 class="title_content">分类&nbsp;->&nbsp;<a
+                                href="{:U('goods',array('category_id'=>$top_category))}">{$category_name}</a>
+                            <if condition="$child_category_name neq '' && $child_category_name neq null">
+                                &nbsp;->&nbsp;<a
+                                    href="{:U('goods',array('category_id'=>$category_id))}">{$child_category_name}</a>
+                            </if>
+                        </h2>
+                    </if>
+                    <volist name="contents" id="vo">
+                        <div class="col-lg-3 col-md-4  goods">
+                            <div class="item_goods position_re">
+                                <if condition="$vo['sell_num'] egt $hot_num"><i class="ico_hot"></i>
+                                    <else/>
+                                    <if condition="$vo['is_new'] eq 1"><i class="ico_new"></i></if>
+                                </if>
+                                <dl>
+                                    <dt>
+                                    
+                                    
+                                    
+                                        <a href="{:U('Shop/Index/goodsDetail',array('id'=>$vo['id']))}">
+                                        <img class="img-responsive" src="{:query_picture('url',$vo['goods_ico'])}" height="150px" width="222px">
+                                        </a>
+                                    </dt>
+                                    <dd>
+                                        <div class="left" style="width: 140px">
+                                            <a class="text-more color_33"
+                                               href="{:U('Shop/Index/goodsDetail',array('id'=>$vo['id']))}"
+                                               style="width: 100%;">
+                                                <font title="{$vo.goods_name|op_t}">{$vo.goods_name}</font>
+                                            </a>
+                                        </div>
+                                        <div class="right" style="color: #d61f39;"><a><font title="所需{$quntiao_money_name}"><i
+                                                class="ico_to_money"></i>&nbsp;{$vo.quntiao_money_need}</font></a></div>
+                                        <div class="clearfix"></div>
+                                    </dd>
+                                    <dd class="color_84  font_s_14">
+                                        <div class="left">库存：{$vo.goods_num}</div>
+                                        <php>
+                                            $class='';
+                                            if(is_login()){
+                                            if($my_quntiao_money>=$vo['quntiao_money_need']){
+                                            $class='open-popup-link';
+                                            }else{
+                                            $class='money_not_enough ';
+                                            }
+                                            }
+                                        </php>
+                                        <div class="right">
+                                            <a href="#frm-post-popup" class="{$class} btn exchange_goods"
+                                               style="border: 1px solid #E0DBDB"
+                                               goods_id="{$vo['id']}">兑&nbsp;&nbsp;换</a>
+                                        </div>
+                                    </dd>
+                                    <div class="clearfix"></div>
+                                </dl>
+                            </div>
+                        </div>
+                    </volist>
+                    <if condition="count($contents) eq 0">
+                        <div style="font-size:3em;padding:2em 0;color: #ccc;text-align: center">该分类下现在还没有商品哦。O(∩_∩)O~
+                        </div>
+                    </if>
+                </div>
+            </div>
+            <div class="pull-right">
+                {:getPagination($totalPageCount,16)}
+            </div>
+        </div>
+        <if condition="is_login()">
+            <!-- Modal -->
+            <div id="frm-post-popup" class="white-popup mfp-hide" style="max-width: 500px;">
+                <h2>收货信息填写<span style="font-size: 12px;color: #BEBEBE;">(为了确保您能收到商品，请正确填写收货信息)</span></h2>
+
+                <div class="aline" style="margin-bottom: 10px"></div>
+                <div class="row">
+                    <form class="form-horizontal  ajax-form" role="form" action="{:U('Shop/Index/goodsBuy')}"
+                          method="post">
+                        <input type="hidden" id="goods_id" name="id" value="">
+                        <input type="hidden" name="address_id" value="{$shop_address['id']}">
+
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label" style="width: 20%">姓名</label>
+
+                            <div class="col-sm-10" style="width: 60%">
+                                <input id="name" name="name" type="text" class="form-control"
+                                       value="{$shop_address['name']}"
+                                       placeholder="姓名"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-sm-2 control-label" style="width: 20%">收货地址</label>
+
+                            <div class="col-sm-10" style="width: 60%">
+                                <textarea id="address" name="address" class="form-control" placeholder="收货地址"
+                                          style="max-width: 310px">{$shop_address['address']}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipcode" class="col-sm-2 control-label" style="width: 20%">邮编</label>
+
+                            <div class="col-sm-10" style="width: 60%">
+                                <input id="zipcode" name="zipcode" type="text" class="form-control"
+                                       value="{$shop_address['zipcode']}" placeholder="邮编"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-2 control-label" style="width: 20%">手机号码</label>
+
+                            <div class="col-sm-10" style="width: 60%">
+                                <input id="phone" name="phone" type="text" class="form-control"
+                                       value="{$shop_address['phone']}"
+                                       placeholder="手机号码"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary ">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+            <!-- /.modal -->
+        </if>
+    </div>
+    <input type="hidden" id="quntiao_money_name" value="{$quntiao_money_name}"/>
+</block>
+
+<block name="script">
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Core/js/ext/magnific/magnific-popup.css"/>
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Core/js/ext/magnific/jquery.magnific-popup.min.js"></script>
+    <script>
+        var quntiao_money_name = $('#quntiao_money_name').val().trim();
+        $(function () {
+            $('.exchange_goods').click(function () {
+                if (MID == 0) {
+                    op_info('登录后才能兑换商品！', '提示消息');
+                    return false;
+                }
+                var goods_id = this.getAttribute('goods_id');
+                $('#goods_id').val(goods_id);
+            });
+            if (MID != 0) {
+                $('.money_not_enough').click(function () {
+                    op_info('你的' + quntiao_money_name + '不足！', '提示消息');
+                    return false;
+                });
+                $('.open-popup-link').magnificPopup({
+                    type: 'inline',
+                    midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+                    closeOnBgClick: false
+                });
+            }
+            $('.item_goods').mouseover(function () {
+                $(this).addClass('item_goods_box_shadow');
+            });
+            $('.item_goods').mouseleave(function () {
+                $(this).removeClass('item_goods_box_shadow');
+            });
+        })
+    </script>
+</block>

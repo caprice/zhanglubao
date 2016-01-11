@@ -1,0 +1,129 @@
+<extend name="Public/base" />
+
+<block name="body">
+<div class="main-title">
+<h2>{:isset($commentator['id'])?'编辑':'新增'}解说</h2>
+</div>
+<script type="text/javascript"
+	src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+<form action="{:U()}" method="post" class="form-horizontal">
+<div class="form-item"><label class="item-label">解说UID<span
+	class="check-tips">（解说UID）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="uid" value="{$commentator.uid|default=''}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">归属游戏<span
+	class="check-tips">（是什么游戏的解说）</span></label>
+<div class="controls"><select name="game_id">
+	<volist name="games" id="game">
+
+	<option value="{$game.id}"<eq name="commentator['game_id']"
+		value="$game.id"> selected</eq>>{$game.title_show}</option>
+	</volist>
+</select></div>
+</div>
+<div class="form-item"><label class="item-label">解说标签<span
+	class="check-tips">（解说名称昵称）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="tags" value="{$commentator.tags|default=''}"></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">解说真名<span
+	class="check-tips">（解说真名）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="name" value="{$commentator.name|default=''}"></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">解说微博<span
+	class="check-tips">（解说微博）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="weibo" value="{$commentator.weibo|default=''}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">解说游戏昵称<span
+	class="check-tips">（解说游戏昵称）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="game_nick_name" value="{$commentator.game_nick_name|default=''}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">解说风格<span
+	class="check-tips">（解说风格）</span></label>
+<div class="controls">
+<label class="textarea input-large">
+<textarea name="c_style">{$commentator.c_style|default=''}</textarea>
+</label>
+</div>
+</div>
+<div class="form-item"><label class="item-label">解说介绍<span
+	class="check-tips">（解说介绍）</span></label>
+<div class="controls"><label class="textarea input-large">
+<textarea name="description">{$commentator.description|default=''}</textarea>
+</label></div>
+</div>
+
+<div class="form-item"><label class="item-label">解说图腾</label> <input
+	type="file" id="upload_picture"> <input type="hidden"
+	name="cover" id="cover" value="{$commentator['cover']|default=''}" />
+<div class="upload-img-box"><notempty name="commentator['cover']">
+<div class="upload-pre-item"><img
+	src="{$commentator.cover|get_cover='url'}" /></div>
+</notempty></div>
+</div>
+<script type="text/javascript">
+					//上传图片
+				    /* 初始化上传插件 */
+					$("#upload_picture").uploadify({
+				        "height"          : 30,
+				        "swf"             : "__STATIC__/uploadify/uploadify.swf",
+				        "fileObjName"     : "download",
+				        "buttonText"      : "上传图片",
+				        "uploader"        : "{:U('File/uploadCommentatorPic',array('session_id'=>session_id()))}",
+				        "width"           : 120,
+				        'removeTimeout'	  : 1,
+				        'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
+				        "onUploadSuccess" : uploadCommentatorPic,
+				        'onFallback' : function() {
+				            alert('未检测到兼容版本的Flash.');
+				        }
+				    });
+					function uploadCommentatorPic(file, data){
+				    	var data = $.parseJSON(data);
+				    	var src = '';
+				        if(data.status){
+				        	$("#cover").val(data.id);
+				        	src = data.url;
+				        	$("#cover").parent().find('.upload-img-box').html(
+				        		'<div class="upload-pre-item"><img src="' + src + '"/></div>'
+				        	);
+				        } else {
+				      
+				        	updateAlert(data.info);
+				        	setTimeout(function(){
+				                $('#top-alert').find('button').click();
+				                $(that).removeClass('disabled').prop('disabled',false);
+				            },1500);
+				        }
+				    }
+					</script>
+
+
+
+<div class="form-item"><input type="hidden" name="id"
+	value="{$commentator.id|default=''}">
+<button class="btn submit-btn ajax-post" id="submit" type="submit"
+	target-form="form-horizontal">确 定</button>
+<button class="btn btn-return"
+	onclick="javascript:history.back(-1);return false;">返 回</button>
+</div>
+</form>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Commen/index')}');
+    </script>
+</block>

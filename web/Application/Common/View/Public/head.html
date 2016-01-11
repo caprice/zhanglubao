@@ -1,0 +1,59 @@
+<meta charset="UTF-8" />
+<include file="Public/seo" />
+<link href="__STATIC__/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link type="text/css" rel="stylesheet"
+	href="__STATIC__/qtip/jquery.qtip.css" />
+<link type="text/css" rel="stylesheet"
+	href="__PUBLIC__/Core/js/ext/toastr/toastr.min.css" />
+<link href="__PUBLIC__/Core/css/core.css" rel="stylesheet" />
+<block name="style"></block>
+
+<!-- 增强IE兼容性 -->
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]><!-->
+<script src="__STATIC__/bootstrap/js/html5shiv.js"></script>
+<script src="__STATIC__/bootstrap/js/respond.js"></script>
+<!--<!--[endif]-->
+
+
+
+<!--[if lt IE 9]> 
+<script type="text/javascript" src="__STATIC__/jquery-1.11.1.min.js"></script>
+ <![endif]-->
+
+<!--[if gte IE 9]><!-->
+<script type="text/javascript" src="__STATIC__/jquery-2.1.1.min.js"></script>
+<!--<![endif]-->
+
+
+
+<!-- Bootstrap库 -->
+<script type="text/javascript"
+	src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- 其他库 -->
+<script src="__STATIC__/qtip/jquery.qtip.js"></script>
+<script type="text/javascript"
+	src="__PUBLIC__/Core/js/ext/toastr/toastr.min.js"></script>
+<script type="text/javascript"
+	src="__PUBLIC__/Core/js/ext/slimscroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript"
+	src="__STATIC__/jquery.iframe-transport.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/Core/js/core.js"></script>
+
+<include file="Public/var" />
+
+<script>
+//全局内容的定义
+	var _ROOT_ = "__ROOT__";
+	var MID = "{:is_login()}";
+	var MODULE_NAME="<php>echo MODULE_NAME;</php>";
+	var ACTION_NAME="<php>echo ACTION_NAME;</php>";
+	var MODULE_NAME = "<php>echo MODULE_NAME;</php>";
+</script>
+
+<audio id="music" src="" autoplay="autoplay"></audio>
+
+
+{:hook('pageHeader')}

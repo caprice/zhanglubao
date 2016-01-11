@@ -1,0 +1,102 @@
+<extend name="Public/base" />
+
+<block name="body">
+<div class="main-title">
+<h2>{:isset($matchgamedetail['id'])?'编辑':'新增'}场次结果</h2>
+</div>
+<link href="/Public/Static/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link
+	href="/Public/Static/datetimepicker/css/bootstrap-datetimepicker.css"
+	rel="stylesheet" />
+<script type="text/javascript"
+	src="/Public/Static/datetimepicker/js/moment.js"></script>
+<script
+	src="/Public/Static/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript"
+	src="/Public/Static/bootstrap/js/bootstrap.min.js"></script>
+<script
+	src="/Public/Static/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<form action="{:U()}" method="post" class="form-horizontal">
+ 
+<div class="form-item"><label class="item-label">场序<span
+	class="check-tips">场序</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="game_order" value="{$matchgamedetail.game_order|default='0'}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">胜利队伍<span
+	class="check-tips">胜利队伍</span></label>
+<div class="controls">
+
+<select name="winner"/>
+<option value="{$matchgame.red_team}"<eq name="matchgame['red_team']"
+		value="$matchgamedetail.winner"> selected</eq>>{:query_team('name',$matchgame['red_team'])}</option>
+		
+		
+<option value="{$matchgame.blue_team}"<eq name="matchgame['blue_team']"
+		value="$matchgamedetail.winner"> selected</eq>>{:query_team('name',$matchgame['blue_team'])}</option>		
+		
+</select>
+ </div>
+</div>
+
+<div class="form-item"><label class="item-label">蓝队结果:{:query_team('name',$matchgame['blue_team'])}<span
+	class="check-tips">蓝队结果</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="blue_team" value="{$matchgamedetail.blue_team|default='0'}"></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">红队结果:{:query_team('name',$matchgame['red_team'])}<span
+	class="check-tips">红队结果</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="red_team" value="{$matchgamedetail.red_team|default='0'}"></div>
+</div>
+
+ 
+ <div class="form-item"><label class="item-label">视频ID<span
+	class="check-tips">视频ID</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="video_id" value="{$matchgamedetail.video_id|default='0'}"></div>
+</div>
+
+
+<div class="form-item"><input type="hidden" name="id"
+	value="{$matchgamedetail.id|default=''}"> <if condition="$matchgamedetail">
+<input type="hidden" name="match_game_id"
+	value="{$matchgamedetail.match_game_id|default=''}"> <else /> <input
+	type="hidden" name="match_game_id" value="{$match_game_id}"> </if>
+	
+		<input type="hidden" name="match_id"
+	value="{$matchgame.match_id|default=''}"> 
+	
+	
+	<input type="hidden" name="blue_team_id"
+	value="{$matchgame.blue_team|default=''}"> 
+	
+	<input type="hidden" name="red_team_id"
+	value="{$matchgame.red_team|default=''}"> 
+	
+	
+<button class="btn submit-btn ajax-post" id="submit" type="submit"
+	target-form="form-horizontal">确 定</button>
+<button class="btn btn-return"
+	onclick="javascript:history.back(-1);return false;">返 回</button>
+</div>
+</form>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script>
+
+<script type="text/javascript">
+    $("#datetimepicker").datetimepicker({
+    	 pickDate: true,
+        defaultDate: "01/01/2014",
+        minDate:'01/01/2014',
+    });
+</script>
+</block>

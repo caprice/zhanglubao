@@ -1,0 +1,3 @@
+<?php
+//000000021600a:13:{s:2:"id";s:2:"28";s:8:"place_id";s:1:"1";s:8:"rec_type";s:1:"1";s:9:"rec_title";s:34:"LOL特色模式前瞻 有限火力";s:9:"rec_views";s:1:"0";s:11:"rec_content";s:34:"LOL特色模式前瞻 有限火力";s:11:"click_times";s:1:"0";s:7:"rec_url";s:30:"http://v.quntiao.com/1522.html";s:10:"picture_id";s:2:"36";s:11:"create_time";s:10:"1427779746";s:11:"update_time";s:10:"1427779746";s:6:"status";s:1:"1";s:11:"rec_picture";s:63:"http://img.quntiao.net/recommend/2015/0331/01/551a309dc150b.jpg";}
+?>

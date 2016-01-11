@@ -1,0 +1,112 @@
+<extend name="Public/base" />
+
+<block name="body">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<header class="main-box-header clearfix">
+				<h2 class="pull-left">视频列表</h2>
+				<div class="filter-block pull-right">
+					 
+					<a href="{:U('/Recommend/RecommendPlace/addContent/place_id/'.$place_id)}" class="btn btn-primary pull-right">
+						<i class="fa fa-plus-circle fa-lg"></i> 添加内容
+					</a>
+				</div>
+			</header>
+			<div class="main-box-body clearfix">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="text-left"><span>ID</span></th>
+								<th class="text-left"><span>标题</span></th>
+								<th class="text-center"><span>状态</span></th>
+								<th class="text-center"><span>添加时间</span></th>
+								<th class="text-center">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<notempty name="_list"> <volist name="_list" id="vo">
+							<tr>
+								<td>{$vo.id}</td>
+								<td>{$vo.rec_title}</td>
+								<td class="text-center">
+								
+								
+								<if condition="$vo['status'] eq 0 ">
+									<span class="label label-warning">禁用</span> <else />
+									
+									 <span
+										class="label label-success">启用</span> </if>
+										
+										
+										</td>
+								<td class="text-center">{:date('Y-m-d
+									H:i:s',$vo['create_time'])}</td>
+								<td style="width: 15%;"><eq name="vo.status" value="1">
+									<a
+										href="{:U('Recommend/RecommendContent/changeStatus?method=forbid&id='.$vo['id'])}"
+										class="table-link ajax-get"><span class="fa-stack">
+											<i class="fa fa-square fa-stack-2x"></i> <i
+											class="fa    fa-power-off fa-stack-1x fa-inverse"></i>
+									</span></a> <else /> <a
+										href="{:U('Recommend/RecommendContent/changeStatus?method=resume&id='.$vo['id'])}"
+										class="ajax-get table-link"><span class="fa-stack">
+											<i class="fa fa-square fa-stack-2x"></i> <i
+											class="fa  fa-check-circle-o fa-stack-1x fa-inverse"></i>
+									</span></a> </eq> <a href="{:U('Recommend/RecommendContent/edit?id='.$vo['id'])}"
+									class="table-link"> <span class="fa-stack"> <i
+											class="fa fa-square fa-stack-2x"></i> <i
+											class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+									</span>
+								</a> <a
+									href="{:U('Recommend/RecommendContent/changeStatus?method=delete&id='.$vo['id'])}"
+									class="table-link danger confirm ajax-get"> <span
+										class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i>
+											<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a></td>
+							</tr>
+							</volist> <else />
+
+							<td colspan="6" class="text-center">aOh! 暂时还没有内容!</td>
+							</notempty>
+						</tbody>
+					</table>
+				</div>
+
+				<div>{$_page}</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+</block>
+
+<block name="script"> 
+
+<script type="text/javascript">
+        //搜索功能
+        $("#search").click(function () {
+            var url = $(this).attr('url');
+            var query = $('.search-form').find('input').serialize();
+            query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+            query = query.replace(/^&/g, '');
+            if (url.indexOf('?') > 0) {
+                url += '&' + query;
+            } else {
+                url += '?' + query;
+            }
+            window.location.href = url;
+        });
+        //回车搜索
+        $(".search-input").keyup(function (e) {
+            if (e.keyCode === 13) {
+                $("#search").click();
+                return false;
+            }
+        });
+       
+    </script>
+
+</block>

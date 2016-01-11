@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="fill_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:id="@+id/naviBar"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:background="@color/nav_background"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/page_padding"
+            android:layout_weight="1.0"
+            android:background="@drawable/navi_search_bar"
+            android:hint="输入关键词搜索 ^_^"
+            android:imeOptions="actionSearch"
+            android:maxLength="50"
+            android:paddingLeft="32.0dip"
+            android:singleLine="true"
+            android:textColor="@color/light_gray"
+            android:textColorHint="@color/light_light_gray"
+            android:textSize="15.0sp" />
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="60.0dip"
+            android:layout_height="48.0dip"
+            android:background="@color/transparent"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="15.0sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/seperate_line" />
+
+
+</LinearLayout>

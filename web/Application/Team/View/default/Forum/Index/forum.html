@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<link href="__CSS__/forum.css" rel="stylesheet" />
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+
+
+		<div class="row">
+			<!-- 左边 -->
+			<div class="col-xs-9">
+				<div class="row">
+
+					<div class="col-xs-12">
+						<div class="team-info">
+							<div class="team-icon">
+								<a href="{:U('/team/'.$team['id'])}"> <img
+									src="__PUBLIC__/Core/images/placeholder.png"
+									lazy-src="{$team.cover|get_cover=url}" height="80" width="80" />
+								</a>
+							</div>
+							<div class="pull-left team-info">
+								<div class="title">
+									<h4>{$team.name}</h4>
+								</div>
+
+								<div class="team-navs">
+									<a id="nav-home" class="team-nav" href="{:U('/team/'.$teamid)}">首页</a>
+									<a id="nav-video" class="team-nav"
+										href="{:U('/team/video/'.$teamid)}">视频</a> <a id="nav-album"
+										class="team-nav team-nav-current"
+										href="{:U('/team/forum/'.$teamid)}">论坛</a> <a id="nav-album"
+										class="team-nav" href="{:U('/team/album/'.$teamid)}">专辑</a> <a
+										id="nav-album" class="team-nav"
+										href="{:U('/team/match/'.$teamid)}">比赛</a>
+								</div>
+							</div>
+							<div class="pull-right">
+
+								<div class="follow">
+									<a href="javascript:;" class="btn-team-subscription"
+										id="mod_follow_btn" data-value="1">+ 订阅</a>
+
+								</div>
+
+								<div class="join">
+
+									<a href="javascript:;" class="btn-team-join"
+										id="mod_follow_btn" data-value="1">加入</a>
+								</div>
+							</div>
+
+						</div>
+
+
+						<if condition="$list_top">
+						<div class="fourm-posts common_block_border">
+							<div class="common_block_title">置顶帖子</div>
+							<div class="col-xs-12">
+								<section id="contents">
+									<volist name="list_top" id="document"> <php>
+									$user = query_user(array('avatar','username','uid'),
+									$document['uid']); </php>
+									<div class="row">
+										<div class="col-md-2 col-xs-4 text-center">
+											<p>
+												<a href="{:U('/u/'.$user['uid'])}"> <img
+													src="{$user.avatar}" width='64px' height='64px'
+													ucard="{$user.uid}" class="avatar-img" />
+												</a>
+											</p>
+										</div>
+										<div class="col-md-10 col-xs-12">
+
+											<p>
+												<a class="forum-list-title-link"
+													title="{$document.title|htmlspecialchars}"
+													href="{:U('/Team/Forum/detail',array('id'=>$document['id']))}">{$document.title|htmlspecialchars|mb_substr=0,30,'utf-8'}
+												</a>
+
+											</p>
+
+											<p class="pull-right text-muted">
+												<span>阅读（{$document.view_count}）</span> <span
+													style="width: 1em; display: inline-block;">&nbsp;</span> <span>回复（{$document.reply_count}）</span>
+											</p>
+
+											<p class="text-muted author">
+												<a href="{$user.space_url}" ucard="{$user.uid}">{$user.nickname|op_t}</a>{$user.icons_html}
+												发布：{$document.create_time|friendlyDate} |
+												回复：{$document.last_reply_time|friendlyDate}
+											</p>
+										</div>
+									</div>
+
+									<if condition="$i neq count($list_top)">
+									<hr class="forum-list-hr" />
+									<else />
+									<div class="forum-list-no-hr"></div>
+									</if> </volist>
+								</section>
+							</div>
+						</div>
+						</if>
+
+						<div class="fourm-posts common_block_border">
+
+							<div class="common_block_title">
+								帖子列表
+								<div class="pull-right text-right" style="margin-right: 15px">
+									<div class="btn-group forum_order">
+										<button type="button" class="btn btn-primary dropdown-toggle"
+											data-toggle="dropdown">
+											<eq name="order" value="0">回复时间<else />发表时间</eq>
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu text-left" role="menu">
+											<li><a
+												href="{:U('forum',array('id'=>$forum_id,'order'=>'ctime'))}">发表时间</a></li>
+											<li><a
+												href="{:U('forum',array('id'=>$forum_id,'order'=>'reply'))}">回复时间</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="col-xs-12">
+								<section id="contents">
+									<if condition="!$list">
+									<div>
+										<div class="col-xs-12">
+											<p class="text-muted"
+												style="text-align: center; font-size: 3em;">
+												<br /> <br /> 暂时没有帖子～ <br /> <br /> <br />
+											</p>
+										</div>
+									</div>
+									</if>
+									<volist name="list" id="document"> <php> $user =
+									query_user(array('avatar','username','uid'), $document['uid']);
+									</php>
+									<div class="row">
+										<div class="col-md-2 col-xs-4 text-center">
+											<p>
+												<a href="{:U('/u/'.$user['uid'])}"> <img
+													src="{$user.avatar}" width='64px' height='64px'
+													ucard="{$user.uid}" class="avatar-img" />
+												</a>
+											</p>
+										</div>
+										<div class="col-md-10 col-xs-12">
+
+											<p>
+												<a class="forum-list-title-link"
+													title="{$document.title|htmlspecialchars}"
+													href="{:U('/Team/Forum/detail',array('id'=>$document['id']))}">{$document.title|htmlspecialchars|mb_substr=0,30,'utf-8'}
+												</a>
+
+											</p>
+
+											<p class="pull-right text-muted">
+												<span>阅读（{$document.view_count}）</span> <span
+													style="width: 1em; display: inline-block;">&nbsp;</span> <span>回复（{$document.reply_count}）</span>
+											</p>
+
+											<p class="text-muted author">
+												<a href="{$user.space_url}" ucard="{$user.uid}">{$user.nickname|op_t}</a>{$user.icons_html}
+												发布：{$document.create_time|friendlyDate} |
+												回复：{$document.last_reply_time|friendlyDate}
+											</p>
+										</div>
+									</div>
+
+
+
+									<if condition="$i neq count($list)">
+									<hr class="forum-list-hr" />
+									<else />
+									<div class="forum-list-no-hr"></div>
+									</if> </volist>
+									<div class="pull-right">{:getPagination($totalCount)}</div>
+								</section>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-3">
+				<div>
+
+
+					<div class="right-want-box">
+						<div class="row">
+							<div class="col-xs-2">
+								<span class=" glyphicon glyphicon-flash want-box-icon "></span>
+							</div>
+							<div class="col-lg-4">
+								<a href="#" class="want-box-text" rel="nofollow">我要约战</a>
+							</div>
+							<div class="col-xs-1">
+								<span
+									class="glyphicon glyphicon-facetime-video  want-box-share-icon "></span>
+							</div>
+							<div class="col-xs-4">
+								<a href="#" class="want-box-text" rel="nofollow">我要直播</a>
+							</div>
+						</div>
+					</div>
+
+
+					{:W('TeamSide/hot',array($teamid))}
+
+
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 280);
+					}).resize();
+		});
+	</script>
+	<!-- /主体 -->
+
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="Addons/Checkin/View/Css/check.css">
+<div style="position: relative"  <eq name="check.ischeck" value="1"> class="checked"</eq>>
+    <div class="box1" id="checkdiv">
+
+        <div class="row">
+
+            <div class="col-md-2" style="float: left">
+
+                <i class="glyphicon glyphicon-calendar calendar"></i>
+
+            </div>
+
+            <div class="col-md-6 row" style="float: left;margin-left:5px">
+
+                <div class="col-md-6 dateinfo">
+
+                    <div>{$check.week}</div>
+
+                    <div>{$check.day}</div>
+                </div>
+
+
+                <div class="col-md-6 checkinfo">
+
+                    <div> DAYS</div>
+
+                    <div>{$connum}</div>
+
+                </div>
+            </div>
+
+
+            <div style="padding-top:21px">
+
+                <eq name="check.ischeck" value="1">
+
+                <span id="checkin" class="btn-sign-h" style="font-size: 20px;padding-top: 10px">已签到</span>
+
+                    <else/>
+
+                    <a href="javascript:void(0)" id="checkin" onclick="checkin()" class="btn-sign">签到</a>
+
+                </eq>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <eq name="check.ischeck" value="1">
+        <div class="sign-wrap" style="display:none" id="checkdetail">
+
+            <i class="arrow-y"></i>
+
+            <div class="sign-box" style="text-align: center">
+
+                <h3 id="checkinfo" style="font-size: 20px">
+                    <php>if($check['ischeck']){</php>
+                    签到成功
+                    <php>}else{</php>
+                    未签到
+                    <php>}</php>
+                </h3>
+
+                <div><p>连签<font id="con_num">{$connum}</font>天，累签<font id="total_num">{$totalnum}</font>天，超{$over_rate}用户
+                </p></div>
+
+            </div>
+        </div>
+
+    </eq>
+</div>
+
+<script>
+    var isshow = 1;
+    $(function () {
+        <php>
+        if ($check['ischeck']) {</php>
+        $('#checkdetail').hover(function () {
+            isshow = 2;
+        }, function () {
+            setTimeout(function () {
+                if (isshow == 1) {
+                    $('#checkdetail').hide();
+                }
+                isshow = 1;
+            }, 100);
+        });
+            $('#checkin').hover(function () {
+                $('#checkdetail').show();
+            }, function () {
+                setTimeout(function () {
+                    if (isshow == 1) {
+                        $('#checkdetail').hide();
+                    }
+                    isshow = 1;
+                }, 100);
+            });
+        <php>
+        }
+        </php>
+    });
+
+    function checkin() {
+
+
+        $('#checkin').text('已签到');
+        $('#checkin').attr('onclick', '');
+        $('#checkin').attr('class', 'btn-sign-h');
+        /* $('#checkdiv').attr('class' , 'sign-in-h' );*/
+        $('#checkinfo').text('签到成功');
+        //var totalnum = $check['total_num'] + 1;
+
+        //http://localhost/betav01/index.php?s=/Home/Addons/execute/_addons/Checkin/_controller/Checkin/_action/check_in.html
+//alert("{:addons_url("Checkin://Checkin/check_in")}");
+
+
+        $.post('{:addons_url("Checkin://Checkin/check_in")}' , {} , function (res){
+
+                if (res) {
+                    var connum = res;
+                    $('#con_num').text(connum);
+                    $('#con_num_day').text(connum);
+                    //$('#total_num').text(totalnum);
+                    $('#checkdetail').hover(function () {
+                        isshow = 2;
+                    }, function () {
+                        setTimeout(function () {
+                            if (isshow == 1) {
+                                $('#checkdetail').hide();
+                            }
+                            isshow = 1;
+                        }, 100);
+                    });
+                    $('#checkin').hover(function () {
+                        $('#checkdetail').show();
+                    }, function () {
+                        setTimeout(function () {
+                            if (isshow == 1) {
+                                $('#checkdetail').hide();
+                            }
+                            isshow = 1;
+                        }, 100);
+                    });
+                }
+        location.reload();
+    });
+
+    }
+</script>

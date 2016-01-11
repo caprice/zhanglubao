@@ -1,0 +1,23 @@
+
+<!-- fight end -->
+<div class="row">
+	<div class="col-xs-12  column-content">
+		<div class="column-content-title">
+			<i class="title-tip-box"></i> <span class="title-tip"><a
+				href="{:U('/album/index')}">专题</a></span> <span class="pull-right">
+				<a href="{:U('/album/index')}">更多专题</a>
+			</span>
+		</div>
+
+		<div class="album-list">
+			<ul>
+				<volist name="albums" id="album">
+				<li><span class="album-item-name"><a
+						href="{:U('/game/'.$album['game_id'])}">[{:get_game($album['game_id'],'title')}]</a></span><span
+					class="album-item-title"> <a
+						href="{:U('/album/'.$album['id'])}">{$album['title']} </a></span></li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+</div>

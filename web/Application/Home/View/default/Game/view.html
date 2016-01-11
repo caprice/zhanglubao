@@ -1,0 +1,57 @@
+<extend name="Base/common" />
+
+<block name="style">
+<link href="__CSS__/game.css" rel="stylesheet" type="text/css" />
+</block>
+
+<block name="body">
+
+<div class="row">
+<div class='col-xs-12 sub-nav-head'>
+
+<div class="sub-nav_title"><i
+	class="sub-nav_ico_i glyphicon glyphicon-th-large"> </i>{$game['title']}
+</div>
+<div>
+<div class="aline"></div>
+</div>
+
+
+<div class="sub_nav">
+<ul id="top_nav" class="nav_list clearfix">
+
+	<li><a href="{:U('index')}">全部</a></li>
+
+	<li><a href="{:U('index')}">在线直播</a></li>
+	<li><a href="{:U('index')}">在线约战</a></li>
+	<li><a href="{:U('index')}">最新比赛</a></li>
+
+	<li><a href="{:U('index')}">最新视频</a></li>
+
+
+
+	<li><a href="{:U('index')}">视频专辑</a></li>
+
+	<li><a href="{:U('index')}">游戏战队</a></li>
+
+	<li><a href="{:U('index')}">战绩排行榜</a></li>
+
+	<li><a href="{:U('index')}">在线讨论</a></li>
+
+	<li class="pull-right btn-submit">
+
+	<button class="btn btn-primary "><i
+		class="glyphicon glyphicon-fire"></i>&nbsp;我要约战</button>
+
+	<button class="btn btn-primary "><i
+		class="glyphicon glyphicon-send"></i>&nbsp;分享视频</button>
+
+	</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="row"></div>
+
+</block>

@@ -1,0 +1,3 @@
+<?php
+//000000086400a:13:{s:3:"uid";s:1:"6";s:8:"username";s:3:"lcs";s:8:"nickname";s:3:"LCS";s:8:"group_id";s:1:"5";s:10:"country_id";s:1:"3";s:9:"avatar_id";s:1:"7";s:14:"user_signature";s:21:"快来看游戏视频";s:11:"user_verify";s:1:"1";s:14:"verify_content";s:15:"LCS职业联赛";s:14:"avatar_big_url";s:60:"http://img.quntiao.net/avatar/2014/1020/02/5444061147654.jpg";s:14:"avatar_mid_url";s:72:"http://img.quntiao.net/avatar/2014/1020/02/5444061147654.jpg@60w_60h.jpg";s:10:"group_name";s:12:"职业联赛";s:12:"country_name";s:6:"美国";}
+?>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_comment"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#fffafafa"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="#ffd9d9d9" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="9.0dip"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="9.0dip"
+        android:background="#fffafafa">
+
+        <RelativeLayout
+            android:id="@+id/aaa"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="7.0dip"
+            android:layout_toLeftOf="@+id/btn_comment"
+            android:background="@drawable/bg_input_box"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/text_length"
+                style="@style/FontC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10.0dip"
+                android:paddingLeft="7.0dip"
+                android:text="140"
+                android:textColor="#ffcecece" />
+
+            <com.zhanglubao.lol.view.video.EditTextForMeizu
+                android:id="@+id/edit_comment"
+                style="@style/detail_comment_edit_hint"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:layout_toLeftOf="@+id/text_length"
+                android:background="@null"
+                android:hint="@string/new_detail_comment_Text_hint"
+                android:inputType="textMultiLine"
+                android:maxLength="140"
+                android:maxLines="3"
+                android:minHeight="30.0dip"
+                android:textColor="#ff252525" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/btn_comment"
+            style="@style/detail_comment_send_text"
+            android:layout_width="58.0dip"
+            android:layout_height="40.0dip"
+            android:layout_alignBottom="@+id/aaa"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10.0dip"
+            android:background="@drawable/btn_send_comment"
+            android:gravity="center"
+            android:text="@string/new_detail_comment_Text_send" />
+    </RelativeLayout>
+</LinearLayout>

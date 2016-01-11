@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<link href="__CSS__/series.css" rel="stylesheet" />
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+		<div class="row">
+
+			<!-- left side -->
+			<div class="col-xs-9">
+				<div class="row ">
+					<div class="col-xs-12">
+						<div class="series-cover">
+							<img src="__PUBLIC__/Core/images/placeholder.png"
+								lazy-src="{:query_picture('url',$series['cover'])}"
+								width="216px" height="120px">
+						</div>
+						<div class="series-info">
+							<div>
+								<h3>{$series.title}</h3>
+							</div>
+
+							<div class="series-info-tags">
+								<span>标签 ：</span>
+								<ul>
+									<volist name="series['format_tags']" id="format_tag">
+									<li><a href="{:U('/tag/'.$format_tag)}">{$format_tag}</a>
+									<li>
+									</volist>
+								</ul>
+
+							</div>
+
+
+							<div class="series-info-description">
+								<span>简介 ：</span>{$series.description}
+							</div>
+
+
+						</div>
+
+					</div>
+				</div>
+
+				<div class="row">
+
+
+					<div class="col-xs-12 column-content">
+						<div class="column-content-title">
+							<i class="title-tip-box"></i> <span class="title-tip">赛季</span>
+						</div>
+
+						<div class="match-list column-content ">
+							<ul>
+								<volist name="matches" id="match">
+								<li>
+									<div class="match-thumb">
+										<a href="{:U('/match/'.$match['id'])}"> <img
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{:query_picture('url',$match['cover'])}"
+											alt="{$match['title']}" width="216px" height="120px">
+										</a>
+										<div class="match-name">
+											<span>{$match['title']}</span>
+										</div>
+									</div>
+								</li>
+								</volist>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12  column-content">
+						<div class="column-content-title">
+							<i class="title-tip-box"></i> <span class="title-tip">最新视频</span>
+						</div>
+
+						<div class="video-list column-content">
+							<ul>
+								<volist name="videos" id="video">
+								<li>
+									<div class="video-thumb">
+										<a href="{:U('/video/'.$video['id'])}"> <img
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{:query_picture('url',$video['cover'])}"
+											alt="{$video['title']}" width="216px" height="120px">
+										</a>
+										<div class="video-name">
+											<span>{$video['title']}</span>
+										</div>
+									</div>
+									<div class="video-des">
+										<span class="pull-left"> <span
+											class="glyphicon glyphicon-facetime-video "></span> <span
+											class="game-des-online">{$video['views']}人</span></span> <span
+											class="pull-right ">
+											{:get_game($video['game_id'],'title')} </span>
+									</div>
+								</li>
+								</volist>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- right side -->
+			<div class="col-xs-3">
+				<div class="row">
+					<div class="col-xs-12  column-content">
+						<div class="column-content-title">
+							<i class="title-tip-box"></i> <span class="title-tip">最新比赛</span>
+							<span class="pull-right"></span>
+						</div>
+
+
+						<div class="new-matches">
+
+							<ul>
+
+								<volist name="newmatches" id="newmatch">
+								<li>
+									<div class="new-match-team">
+										<div class="col-xs-4">
+											<if condition="$newmatch['blue_team']"> <a
+												href="{:U('/matchgame/'.$newmatch['id'])}"> <img
+												src="__PUBLIC__/Core/images/placeholder.png"
+												lazy-src="{:query_team('cover',$newmatch['blue_team'])}"
+												width="50" height="50">
+											</a> <else />
+											<div class="vs">弃权</div>
+											</if>
+
+										</div>
+										<div class="col-xs-4 vs">VS</div>
+										<div class="col-xs-4">
+											<if condition="$newmatch['red_team']"> <a
+												href="{:U('/matchgame/'.$newmatch['id'])}"> <img
+												src="__PUBLIC__/Core/images/placeholder.png"
+												lazy-src="{:query_team('cover',$newmatch['red_team'])}"
+												width="50" height="50">
+											</a> <else />
+											<div class="vs">弃权</div>
+											</if>
+
+										</div>
+
+									</div>
+									<div class="new-match-team-name">
+
+										<ul>
+											<li><if condition="$newmatch['blue_team']"> <a
+													href="{:U('/matchgame/'.$newmatch['id'])}">{:query_team('name',$newmatch['blue_team'])}</a>
+												<else /> 弃权 </if></li>
+											<li></li>
+											<li><if condition="$newmatch['red_team']"> <a
+													href="{:U('/matchgame/'.$newmatch['id'])}">{:query_team('name',$newmatch['red_team'])}</a>
+												<else /> 弃权 </if></li>
+
+										</ul>
+									</div>
+									<div class="new-match-item-des">
+										<ul>
+
+
+											<li><span class="pull-left"> <a
+													href="{:U('/matchgame/'.$newmatch['id'])}">{:get_game($newmatch['game_id'],'title')}</a></span>
+												<span class="pull-right"> <switch
+														name="newmatch['game_status']"> <case value="0">
+													未开始 </case> <case value="1"> 正在进行 </case> <case value="2">
+													已结束 </case> </switch>
+											</span></li>
+
+											<li><span class="match-item-des-left"> <a
+													href="{:U('/matchgame/'.$newmatch['id'])}">{:query_match('title',$newmatch['match_id'])}</a></span>
+
+												<span class="match-item-des-right">{:date('m-d
+													H:i',$newmatch['start_time'])}</span></li>
+
+										</ul>
+									</div>
+								</li>
+								</volist>
+
+							</ul>
+
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 343);
+					}).resize();
+		});
+	</script>
+	<!-- /主体 -->
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

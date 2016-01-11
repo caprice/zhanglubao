@@ -1,0 +1,122 @@
+<hr/>
+
+<div class="row insert-face-container">
+    <div class="col-md-12">
+        <h3 class="text-primary">评论</h3>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    <textarea id="comment-content" style="height: 8em; width: 100%;"
+                              class="form-control insert-face-textarea"
+                              placeholder="说点什么吧～"></textarea>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <a href="javascript:" onclick="insertFace($(this))"><img src="__STATIC__/image/bq.png"/></a>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-block btn-primary" id="submit-comment"
+                        data-url="{:tox_addons_url('LocalComment/Index/addComment', array('app'=>$app,'mod'=>$mod, 'row_id'=>$row_id,'uid'=>$uid))}">
+                    发表
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr/>
+            </div>
+        </div>
+        <if condition="!$list">
+            <p class="text-muted" style="text-align:center;padding-top:2em;padding-bottom:2em;font-size:2em;">
+                暂时没有评论～
+            </p>
+        </if>
+        <volist name="list" id="comment">
+            <div class="row">
+                <div class="col-sm-12">
+                    <eq name="comment.uid" value="0">
+                        <a class="pull-left">
+                            <img src="Addons/Avatar/default_64_auto.jpg" style="width: 64px;"
+                                 class="avatar-img"/>
+                        </a>
+                        <else/>
+                        <a href="{$comment.user.space_url}" class="pull-left">
+                            <img src="{$comment.user.avatar64}" style="width: 64px;" ucard="{$comment.user.uid}"
+                                 class="avatar-img"/>
+                        </a>
+                    </eq>
+
+
+                    <div style="overflow: hidden">
+                        <div class="" style="padding-left: 16px;">
+
+                            <p><eq name="comment.uid" value="0">
+                                <a>游客</a>
+                                <else/>
+                                <a href="{$comment.user.space_url}"
+                                  ucard="{$comment.user.uid}">{$comment.user.username|op_t}</a> </eq></p>
+
+
+                            <p>{$comment.content|parse_comment_content}</p>
+
+                            <p>
+                                <span class="text-muted">{$comment.create_time|friendlyDate}</span>
+                                <a class="pull-right local-comment-reply" data-uid="{$comment.uid}" data-username="{$comment.user.username|op_t}">回复</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+        </volist>
+        <div class="pull-right">
+            {:getPagination($total_count, $count)}
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#submit-comment').click(function (e) {
+            e.preventDefault();
+
+            var url = $(this).attr('data-url');
+            var content = $('#comment-content').val();
+            var $this = $(this);
+            $.post(url, {content: content}, function (a) {
+                handleAjax(a);
+            });
+        });
+    })
+</script>
+
+<script src="__PUBLIC__/static/oneplus/js/insertFace.js"></script>
+
+<script type="text/javascript" src="__STATIC__/oneplus/js/ext/atwho/atwho.js"></script>
+<link type="text/css" rel="stylesheet" href="__STATIC__/oneplus/js/ext/atwho/atwho.css"/>
+
+<script>
+    $(function () {
+        var config = {
+            at: "@",
+            data: "{:U('Weibo/Index/atWhoJson')}",
+            tpl: "<li data-value='@${username}'><img class='avatar-img' style='width:2em;margin-right: 0.6em' src='${avatar32}'/>${username}</li>",
+            show_the_at: true,
+            search_key: 'search_key',
+            start_with_space: false
+        };
+        $('#comment-content').atwho(config);
+    });
+
+    $(function(){
+        $('.local-comment-reply').click(function(e){
+            var $textarea = $('#comment-content');
+            var username = $(this).attr('data-username');
+            $textarea.focus();
+            $textarea.append('回复 @' + username + ' ：');
+        });
+    })
+</script>

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<link href="__CSS__/listview.css" rel="stylesheet" />
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+		<div class="row">
+			<!-- 左边 -->
+			<div class="col-xs-9">
+				<div class="row">
+					<div class="col-xs-12">
+
+						<div class="column-content">
+							<div class="game-category-area">
+								<ul>
+									<volist name="games" id="game">
+									<li <if condition="$game['id'] eq $gameid">
+										class="selected"</if>><a href="{:U('/fight/list/'.$game['id'])}"
+										title="{$game.title}">{$game.title}</a></li>
+									</li>
+									</volist>
+								</ul>
+							</div>
+						</div>
+
+
+
+						<div class="fight-list column-content">
+							<ul>
+								<volist name="_list" id="fight">
+								<li><php> $host
+									=query_user(array('avatar','username'),$fight['host_uid']);
+									$guest=query_user(array('avatar','username'),$fight['guest_uid']);
+
+									</php>
+									<div class="fight-info">
+
+										<div class="fight-info-member">
+											<a href="{:U('/fight/'.$fight['id'])}"><img
+												src="__PUBLIC__/Core/images/placeholder.png"
+												lazy-src="{$host['avatar']}" width="69" height="69"></a>
+										</div>
+										<div class="fight-info-member vs">VS</div>
+										<div class="fight-info-member">
+											<if condition="$fight['guest_uid'] lt 0"> <a
+												href="{:U('/fight/'.$fight['id'])}"><img
+												src="__PUBLIC__/Core/images/placeholder.png"
+												lazy-src="{$guest['avatar']}" width="69" height="69"></a>
+											<else /> <span class="fight-invite"><a
+												href="{:U('/fight/'.$fight['id'])}">战</a></span> </if>
+
+
+
+										</div>
+									</div>
+
+									<div class="fight-info-name">
+										<div class="fight-member-name">
+											<a href="{:U('/fight/'.$fight['id'])}">{$host['username']}</a>
+										</div>
+										<div class="fight-member-name"></div>
+										<div class="fight-member-name">
+
+											<if condition="$fight['guest']"> <a
+												href="{:U('/fight/'.$fight['id'])}">{$guest['username']}</a>
+											</if>
+
+										</div>
+
+									</div>
+									<div class="fight-des">
+										<span class="fight-coin">金币: {$fight['fight_coins']}</span> <span
+											class="fight-game">{:get_game($fight['game_id'],'title')}</span>
+									</div></li>
+								</volist>
+							</ul>
+						</div>
+					</div>
+
+
+
+				</div>
+				
+				<div class="row">
+
+					<div class="pull-right">
+						<div class="page">{$_page}</div>
+					</div>
+				</div>
+			</div>
+			<!-- 右边 -->
+			<div class="col-xs-3">
+				<div>
+
+					<div class="right-want-box">
+						<div class="row">
+							<div class="col-xs-2">
+								<span class=" glyphicon glyphicon-facetime-video want-box-icon "></span>
+							</div>
+							<div class="col-lg-4">
+								<a href="#" class="want-box-text" rel="nofollow">我要约战</a>
+							</div>
+							<div class="col-xs-1">
+								<span class="glyphicon glyphicon-share want-box-share-icon "></span>
+							</div>
+							<div class="col-xs-4">
+								<a href="#" class="want-box-text" rel="nofollow">分享视频</a>
+							</div>
+						</div>
+					</div>
+					{:W('IndexFightRank/lists')}
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 343);
+					}).resize();
+		});
+	</script>
+	<!-- /主体 -->
+
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

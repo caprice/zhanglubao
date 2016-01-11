@@ -1,0 +1,41 @@
+<extend name="Public/usercenter"/>
+
+<block name="body">
+    <div class="row">
+        <div class="col-xs-12">
+            <p>&nbsp;</p>
+            <h4>解绑手机</h4>
+            <hr class="oneuser-title-hr"/>
+        </div>
+    </div>
+
+    <form action="{:U('UserCenter/Index/doUnbindMobile')}" method="post" class="ajax-form">
+        <div class="row">
+            <div class="col-xs-3">
+                <p class="pull-right">短信验证码：</p>
+            </div>
+            <div class="col-xs-6">
+                <p><input type="text" class="form-control" name="verify" placeholder="输入手机验证码"/></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">&nbsp;</div>
+            <div class="col-xs-6">
+                <p class="text-success">
+                    验证码已经以短信形式发送到您的手机，请稍后查收～
+                </p>
+                <p class="text-error" id="submitTip"></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                &nbsp;
+            </div>
+            <div class="col-xs-6">
+                <p><input type="submit" class="btn btn-primary" value="解绑手机"/></p>
+            </div>
+        </div>
+    </form>
+</block>

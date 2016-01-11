@@ -1,0 +1,181 @@
+.fighter-list li {
+	margin-bottom: 4%;
+	width: 100%;
+	height: 80px;
+	display: block;
+	border: 1px #eee solid;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+}
+
+.fighter-list .avatar {
+	width: 80px;
+	height: 80px;
+	float: left;
+	display: block;
+}
+
+.fighter-list .fighter-info {
+	float: right;
+	margin-left: 4px;
+	display: block;
+	width: 190px;
+	height: 80px;
+
+}
+
+.fighter-info {
+	line-height: 24px;
+}
+
+.fighter-invite {
+	height: 30px;
+	width: 30px;
+	border-radius: 1.0em;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+	background: #48b87a;
+	margin-right: 6px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.fighter-invite:hover {
+	background-color: #307E54;
+}
+
+.fighter-invite a {
+	color: #fff;
+}
+
+.fighter-invite a:hover {
+	color: #fff;
+}
+
+.fight-list {
+	margin-left: -2%;
+}
+
+.fight-des {
+	background: #F5F5F5;
+	height: 28px;
+	padding: 2%;
+	font-size: 1.0em;
+	color: #999;
+}
+
+.fight-list li {
+	float: left;
+	width: 23%;
+	margin-left: 2%;
+	margin-bottom: 2%;
+	border: 1px #eee solid;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+}
+
+.fight-list li .fight-info {
+	height: 69px;
+	display: block;
+	
+}
+
+.fight-list li image {
+	width: 100%;
+}
+
+.fight-list li .fight-info-member {
+	float: left;
+	width: 33.33333333%;
+}
+.fight-info-name
+{
+	height:20px;
+	display:block;
+	line-height:20px;
+	clear:both;
+}
+
+.fight-list li .fight-member-name
+{
+	float: left;
+	width: 33.33333333%;
+	overflow:hidden;
+	height:20px;
+	display:block;
+	text-align:center;
+}
+.fight-list li .fight-member-name a
+{
+	font-size:12px;
+	height:20px;
+	display:block;
+}
+.fight-list li .vs {
+	font: normal 26px/50px "simhei";
+	letter-spacing: -2px;
+	color: #aaa;
+	text-align: center;
+	margin: 0 auto;
+	line-height: 80px;
+}
+
+.fight-list li .fight-invite {
+	height: 48px;
+	width: 48px;
+	border-radius: 10.0em;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+	background: #48b87a;
+	text-align: center;
+	line-height: 48px;
+	margin-top:11px;
+	display: block;
+}
+
+.fight-list li .fight-invite:hover {
+	background-color: #307E54;
+}
+
+.fight-list li .fight-invite a {
+	color: #fff;
+	font-size: 24px;
+}
+.fight-list li .fight-des
+{
+	padding:4px;
+}
+.fight-list li .fight-coin
+{
+	float:left;
+	
+}
+.fight-list li .fight-game
+{
+	float:right;
+	
+}
+
+.game-category-area {
+	width: 100%;
+	padding: 20px;
+	background: #f0f0f0;
+	overflow: hidden;
+	zoom: 1;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+}
+
+.game-category-area li {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 10px;
+	vertical-align: top;
+	color: #333;
+}
+
+.game-category-area  .selected {
+	background: #48b87a;
+
+}
+.game-category-area  .selected >a{
+		color: #fff;
+}

@@ -1,0 +1,132 @@
+<extend name="Base/common"/>
+
+
+<block name="body">
+    <link href="__PUBLIC__/Weibo/css/weibo.css" rel="stylesheet"/>
+
+    <!--微博内容列表部分-->
+    <div class="weibo_left col-md-9">
+        <div class="common_block_title" style="margin-left: 50px">查找结果 —— 关键词 <span style="color: red">{$_REQUEST.keywords}</span></div>
+        <div id="weibo_list">
+            <include file="loadweibo"/>
+        </div>
+
+        <div id="load_more" class="text-center text-muted">
+            <p id="load_more_text">载入更多</p>
+        </div>
+
+        <div id="index_weibo_page" style=" <if condition='$page eq 1'>display:none</if>">
+            <div class="pull-right">
+                {:getPagination($total_count,30)}
+            </div>
+        </div>
+    </div>
+
+
+    <!--微博内容列表部分结束-->
+
+    <!--首页右侧部分-->
+    <div class="weibo_right col-md-3">
+        <!--登录后显示个人区域-->
+        <if condition="is_login()">
+            <div class="forum_module" style="font-size: 14px;">
+                <p>
+                        <span>
+                        <div class="weibo_avatar" style="margin-left: 10px">
+                            <a href="{$self.space_url}" ucard="{$self.uid}"><img src="{$self.avatar128}"
+                                                                                 class="avatar-img"
+                                                                                 style="width: 96px;"/></a>
+                            <a href="{:U('Usercenter/Config/index',array('tab'=>'avatar'))}"
+                               class="weibo_change_avatar">修改头像</a>
+                        </div>
+                       </span>
+
+                        <span class="name_touxian">
+                        <a ucard="{$self.user.uid}"
+                           href="{$self.space_url}" class="user_name">{$self.nickname|htmlspecialchars}
+                        </a><br/>
+                             <if condition="$self['rank_link'][0]['num']">
+                                 <volist name="self['rank_link']" id="vl">
+                                     <if condition="$vl['is_show']"><img src="{$vl.logo_url}" title="{$vl.title}"
+                                                                         alt="{$vl.title}"
+                                                                         style="width: 18px;height: 18px;vertical-align: middle;margin-left: 2px;"/>
+                                     </if>
+                                 </volist>
+                                 <else/>
+                                 暂无头衔
+                             </if>
+                        </span>
+                </p>
+
+                <div style="color: #8c8c8c;margin-bottom: 10px;width: 188px;height: 42px;">
+                    <div class="col-xs-4 text-center">
+                        <a href="{:U('Weibo/Index/index',array('uid'=>is_login()))}">{$self.weibocount}</a><br/>微博
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <a href="{:U('Usercenter/Index/fans')}">{$self.fans}</a><br/>粉丝
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <a href="{:U('Usercenter/Index/following')}">{$self.following}</a><br/>关注
+                    </div>
+                </div>
+
+                <p class="btn_exchange text-primary" style="margin-left:16px;margin-top:8px; ">
+                    {$tox_money_name}：{$tox_money}&nbsp;&nbsp;<a href="{:U('Shop/Index/index')}" class="btn btn-primary"
+                                                                 title="{$tox_money_name}兑换">兑换商品</a>
+                </p>
+
+                <p class="text-primary" style="margin-left:16px;">等级：{$self.title}</p>
+
+
+            </div>
+        </if>
+        <!--登录后显示个人区域部分结束-->
+
+        <div>
+            {:hook('checkin')}
+            {:hook('Rank')}
+            {:W('TopUserList/lists',array(null,'score desc','活跃用户','top'))}
+            {:W('UserList/lists')}
+
+        </div>
+    </div>
+    <!--首页右侧部分结束-->
+
+
+</block>
+
+<block name="script">
+
+    <script src="__JS__/weibo.js"></script>
+    <script>
+        var SUPPORT_URL = "{:addons_url('Support://Support/doSupport')}";
+        var noMoreNextPage = false;
+        var isLoadingWeibo = false;
+        var currentPage = '{$page}';
+        var loadCount = 1;
+        var lastId = '{$lastId}';
+        var url = "{$loadMoreUrl}";
+        $(function () {
+            //当屏幕滚动到底部时
+
+            if (currentPage == 1) {
+                $(window).on('scroll', function () {
+                    if (noMoreNextPage) {
+                        return;
+                    }
+                    if (isLoadingWeibo) {
+                        return;
+                    }
+                    if (isLoadMoreVisible()) {
+                        loadNextPage();
+                    }
+                });
+                $(window).trigger('scroll');
+            }
+            else {
+                loadNextPage();
+            }
+
+        });
+    </script>
+</block>

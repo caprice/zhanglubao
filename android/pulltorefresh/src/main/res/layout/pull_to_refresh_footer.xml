@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="62.0dip"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingTop="15.0dip">
+
+        <ImageView
+            android:id="@+id/refreshImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.0dip"
+            android:background="@drawable/pull_up"
+            android:scaleType="fitXY" />
+
+        <ProgressBar
+            android:id="@+id/refreshProgressBar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.0dip"
+            android:indeterminate="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/refreshTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5.0dip"
+            android:text="@string/pull_to_refresh_from_bottom_pull_label"
+            android:textColor="#ff878787"
+            android:textSize="14.0dip"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/emptyLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="54.0dip"
+        android:background="#00000000" />
+</LinearLayout>

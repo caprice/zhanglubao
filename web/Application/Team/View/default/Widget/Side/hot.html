@@ -1,0 +1,59 @@
+<div class="">
+
+
+<if condition="$allow_publish"  class="column-content">
+    <div style="margin-bottom: 12px;margin-top:12px;">
+        <a type="button" class="btn btn-large btn-primary forum_post_btn"
+           href="{:U('Forum/edit',array('forum_id'=>$forum_id))}">
+
+            发表新帖
+        </a>
+    </div>
+   
+</if>
+
+</div>
+
+<if condition="$sidevideos">
+<div class="">
+	<div class="column-content" >
+		<div class="column-content-title" style="margin-bottom: 12px;">
+			<i class="title-tip-box"></i> <span class="title-tip"><a
+				href="{:U('/fight/hot')}">战队最新视频</a></span>
+		</div>
+		 
+		 
+		 <div class="side-matchvideo-list">
+							<ul>
+								<volist name="sidevideos" id="nearvideo">
+								<li>
+
+									<div class="v-thumb">
+										<a href="{:U('/video/'.$nearvideo['id'])}" onclick=""> <img
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{:query_picture('url',$nearvideo['cover'])}"
+											alt="{$nearvideo['title']}" width="145px" height="80px"></a>
+
+									</div>
+
+									<div class="v-meta">
+
+										<div class="v-meta-title">
+											<a href="{:U('/video/'.$nearvideo['id'])}">{$nearvideo['title']}</a>
+
+										</div>
+
+										<div class="v-num">
+											<span class="glyphicon glyphicon-facetime-video  "></span> <span
+												class="v-meta-des">{$nearvideo['views']}</span>
+										</div>
+									</div>
+
+								</li>
+								</volist>
+							</ul>
+						</div>
+						
+	</div>
+</div>
+</if>

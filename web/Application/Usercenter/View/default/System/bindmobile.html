@@ -1,0 +1,67 @@
+<extend name="Public/usercenter"/>
+
+<block name="body">
+    <div class="row">
+        <div class="col-xs-12">
+            <p>&nbsp;</p>
+            <h4>绑定手机</h4>
+            <hr class="oneuser-title-hr"/>
+        </div>
+    </div>
+
+    <form action="{:U('UserCenter/Index/doBindMobile2')}" method="post" class="ajax-form">
+        <div class="row">
+            <div class="col-xs-3">
+                <p class="pull-right">手机号码：</p>
+            </div>
+            <div class="col-xs-3">
+                <p><input type="text" name="mobile" id="inputMobile" class="form-control" placeholder="输入手机号码"/></p>
+            </div>
+            <div class="col-xs-3">
+                <a id="sendSms" class="btn btn-default btn-block" data-url="{:U('UserCenter/Index/doBindMobile')}">发送手机验证码</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <p class="pull-right">验证码：</p>
+            </div>
+            <div class="col-xs-3">
+                <p><input type="text" name="verify" class="form-control" placeholder="输入手机验证码"/></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">&nbsp;</div>
+            <div class="col-xs-6">
+                <p class="text-danger" id="errorTip"></p>
+                <p class="text-success" id="successTip"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <p class="pull-right"></p>
+            </div>
+            <div class="col-xs-6">
+                <p>
+                    <input type="submit" class="btn btn-primary" value="绑定手机"/>
+                </p>
+            </div>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script>
+        //点击发送验证码
+        $(function(){
+            var $button = $('#sendSms');
+            $button.click(function(){
+                $button.addClass('disabled',true);
+                var url = $button.attr('data-url');
+                var mobile = $('#inputMobile').val();
+                $.post(url, {mobile:mobile}, function(a){
+                    handleAjax(a);
+                });
+            });
+        });
+    </script>
+</block>

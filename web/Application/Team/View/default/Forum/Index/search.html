@@ -1,0 +1,28 @@
+<extend name="Public/forum" />
+
+<block name="body">
+<div class="row common_block_border">
+	<div class="common_block_title">
+		查找结果 —— 关键词 <span style="color: red">{$_REQUEST.keywords}</span>
+	</div>
+	<div class="col-xs-12">
+		<section id="contents">
+			<if condition="!$list">
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="text-muted" style="text-align: center; font-size: 3em;">
+						<br />
+						<br /> 暂时没有帖子～ <br />
+						<br />
+						<br />
+					</p>
+				</div>
+			</div>
+			</if>
+			<volist name="list" id="document"> <include
+				file="/Forum/Public/post-item" /> </volist>
+			<div class="pull-right">{:getPagination($totalCount)}</div>
+		</section>
+	</div>
+</div>
+</block>

@@ -1,0 +1,87 @@
+<extend name="Public/usercenter"/>
+
+<block name="body">
+    <div class="row">
+        <div class="col-xs-12">
+            <p>&nbsp;</p>
+            <h4>基本资料</h4>
+            <hr class="oneuser-title-hr"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 text-muted">
+            <p><span class="text-muted">昵称：</span> {$user.nickname|op_t}</p>
+
+            <p><span class="text-muted">邮箱：</span> {$user.email|htmlspecialchars}</p>
+            <if condition="$uid==is_login()">
+                <p><span class="text-muted">最近登录：</span> {$user.last_login_time|time_format}</p>
+
+                <p><span class="text-muted">最近登录IP：</span> {$user.last_login_ip|long2ip}</p>
+
+                <p><span class="text-muted">注册时间：</span> {$user.reg_time|time_format}</p>
+
+                <p><span class="text-muted">手机：</span> {$user.mobile|htmlspecialchars}
+                    <if condition="$user['mobile']">
+                        <a href="{:U('UserCenter/Index/unbindMobile')}">解除绑定</a>
+                        <else/>
+                        <a href="{:U('UserCenter/Index/bindMobile')}">立即绑定</a>
+                    </if>
+                </p>
+            </if>
+            <p><span class="text-muted">积分：</span> {$user.score}</p>
+
+            <p><span class="text-muted">等级：</span> {$user.title|htmlspecialchars}</p>
+
+        </div>
+        <div class="col-xs-4">
+            <img class="avatar-img" src="{$user.avatar256}"/>
+        </div>
+
+        <div class="col-xs-2">
+            &nbsp;
+        </div>
+    </div>
+    <div>
+
+        <p><span class="text-muted">头衔：</span>
+            <if condition="$user['rank_link']">
+                <table class="tb_rank">
+                    <thead>
+                    <tr>
+                        <th>图标</th>
+                        <th>头衔名称</th>
+                        <th>颁发理由</th>
+                        <th>是否显示</th>
+                        <th>颁发时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="user['rank_link']" id="vl">
+                        <tr>
+                            <td><img src="{$vl.logo_url}" title="{$vl.title}"
+                                     alt="{$vl.title}"
+                                     style="width: 18px;height: 18px;vertical-align: middle;margin-left: 2px;"/></td>
+                            <td>{$vl.title}</td>
+                            <td>{$vl.reason}</td>
+                            <td>
+                                <eq name="vl.is_show" value="1">显示
+                                    <else/>
+                                    不显示
+                                </eq>
+                            </td>
+                            <td>{$vl.create_time|friendlyDate}</td>
+
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+
+
+                <else/>
+                暂无头衔，努力为社区做点贡献吧！O(∩_∩)O~
+            </if>
+        </p>
+    </div>
+</block>

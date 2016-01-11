@@ -1,0 +1,18 @@
+<div class="team-list">
+	<ul>
+		<volist name="teams" id="team">
+		<li>
+			<div class="team-thumb">
+				<a href="{:U('/team/'.$team['id'])}"> <img
+					src="__PUBLIC__/Core/images/placeholder.png"
+					lazy-src="{:query_picture('url',$team['cover'])}"
+					alt="{$team['name']}" width="140" height="140">
+				</a>
+			</div>
+			<div class="team-name">
+				<span>{$team['name']}</span>
+			</div>
+		</li>
+		</volist>
+	</ul>
+</div>

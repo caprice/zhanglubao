@@ -1,0 +1,81 @@
+<extend name="Public/usercenter"/>
+
+<block name="body">
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <p>&nbsp;</p>
+            <h4>消息中心</h4>
+            <hr class="oneuser-title-hr"/>
+
+            <ul class="nav nav-pills ucenter-tab">
+                <li
+                <eq name="tab" value="unread"> class="active"</eq>
+                ><a href="{:U('Usercenter/Message/message',array('tab'=>'unread'))}">未读消息</a></li>
+                <li
+                <eq name="tab" value="all"> class="active"</eq>
+                ><a href="{:U('Usercenter/Message/message',array('tab'=>'all'))}">全部消息</a></li>
+                <li
+                <eq name="tab" value="system"> class="active"</eq>
+                ><a href="{:U('Usercenter/Message/message',array('tab'=>'system'))}">系统消息</a></li>
+                <li
+                <eq name="tab" value="user"> class="active"</eq>
+                ><a href="{:U('Usercenter/Message/message',array('tab'=>'user'))}">用户消息</a></li>
+                <li
+                <eq name="tab" value="app"> class="active"</eq>
+                ><a href="{:U('Usercenter/Message/message',array('tab'=>'app'))}">应用消息</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <if condition="count($messages) eq 0"><p class="text-muted" style="text-align: center; font-size: 3em;">
+        <br><br>
+        该分类暂无消息～
+        <br><br><br>
+    </p></if>
+    <volist name="messages" id="message">
+        <div class="row message-body">
+            <div class="col-xs-2">
+                <div class="message_icon">
+                    <img style="width: 55%;" class="avatar-img" ucard="{$message.from_uid}"
+                         src="{$message.from_user.avatar64}"><br/>
+                    {$message.from_user.space_link}
+                </div>
+            </div>
+            <div class="col-xs-10">
+                <dl>
+                    <dt>
+                    <div class="row">
+                        <div class="col-xs-9"><a href="{$message.url}">{$message.title}</a>
+                            <eq name="message.is_read" value="0"><span class="badge-primary">未读</span></eq>
+                            <if condition=" ($message['apptype'] neq '')">
+                                <if condition=" ($message['appname'] neq '')  AND ($message['talk_id'] eq 0)">
+                                    <a href="{:U('UserCenter/Message/talk',array('message_id'=>$message['id']))}">
+                                        <span class="badge-success">开始对话</span>
+                                    </a>
+                                    <else/>
+                                    <a href="{:U('UserCenter/Message/talk',array('talk_id'=>$message['talk_id']))}">
+                                        <span class="badge-success">继续对话</span>
+                                    </a>
+                                    <a href="{:U('UserCenter/Message/doDeleteTalk',array('talk_id'=>$message['talk_id']))}" class="ajax-post" data-confirm="您确实要删除该会话吗？">
+                                        <span class="badge-danger">删除</span>
+                                    </a>
+                                </if>
+                                <else/>
+
+                            </if>
+                        </div>
+                        <div class="col-xs-3 message-ctime">{$message.create_time|friendlyDate}</div>
+                    </div>
+                    </dt>
+                    <dd>{$message.content}</dd>
+                </dl>
+            </div>
+        </div>
+    </volist>
+    <div class="pull-right">
+        {:getPagination($totalCount)}
+    </div>
+
+</block>

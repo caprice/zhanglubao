@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit();?>群挑网是专业的英雄联盟视频网站，本站提供LOL比赛视频,LOL高手视频,LOL教学视频以及LOL解说视频，各种视频应有尽有。

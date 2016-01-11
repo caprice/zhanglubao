@@ -1,0 +1,120 @@
+<php>
+    $currentSession=D('Common/Talk')->getCurrentSessions();
+</php>
+<div id="session_panel_main">
+    <h2>快捷会话</h2>
+
+    <div class="session_more clearfix">
+        <a title="会话面板" onclick="$('#friend_panel_main').toggle();$('#session_panel_main').toggle()"
+           class="btn_session_more col-md-6 active tab_chat">正在聊天</i>
+        </a>
+        <a title="好友面板" onclick="$('#friend_panel_main').toggle();$('#session_panel_main').toggle()"
+           class="btn_session_more col-md-6 tab_friend">我的好友</i>
+        </a>
+    </div>
+
+    <div id="scrollArea_session" class="row ">
+        <div id="scrollContainer_session">
+            <ul class="friend_list">
+                <volist name="currentSession" id="session">
+                    <li id="chat_li_{$session.id}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a title=" {$session.title|op_t} " class="session_ico" onclick="open_chat_box({$session.id})">
+                                    <img src="{$session.first_user.avatar64}" class="avatar-img" style="width: 45px;">
+                                    <eq name="session.new" value="1">
+                                        <span class="badge_new">&nbsp;</span>
+                                    </eq>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <a class="text-more " style="width: 100%" target="_blank"
+                                       title="{$session.title|op_t}" >
+                                        {$session.title}
+                                    </a>
+                                </div>
+                                <div>
+                                    <a onclick="chat_exit({$session.id})"><i style="color: red" title="退出会话"
+                                                                             class="glyphicon glyphicon-off"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+
+                </volist>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        $('#scrollArea_session').slimScroll({
+            height: '430px',
+            alwaysVisible: true
+        });
+        var last_toast_talk_message_time = "{:time()}";//最后提示会话消息的时间
+    </script>
+    <!--结束会话版-->
+</div>
+<!--开始好友板-->
+<div id="friend_panel_main" style="display: none">
+    <php>
+        $friends=D('Common/Follow')->getAllFriends();
+    </php>
+    <h2>快捷会话</h2>
+
+    <div class="session_more">
+        <a title="会话面板" onclick="$('#friend_panel_main').toggle();$('#session_panel_main').toggle()"
+           class="btn_session_more col-md-6 tab_chat">正在聊天</i>
+        </a>
+        <a title="好友面板" onclick="$('#friend_panel_main').toggle();$('#session_panel_main').toggle()"
+           class="btn_session_more col-md-6 active tab_friend">我的好友</i>
+        </a>
+    </div>
+    <div id="scrollArea_friend" class="row ">
+        <div id="scrollContainer_friend">
+            <ul class="friend_list">
+                <volist name="friends" id="friend">
+                    <php>
+                        $friend=query_user(array('avatar64','nickname','space_url','uid'),$friend['follow_who'])
+                    </php>
+                    <li id="friends_li_{$friend.id}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a target="_blank" title=" {$friend.nickname|op_t}"
+                                   href="{$friend.space_url}">
+                                    <img src="{$friend.avatar64}" class="avatar-img" style="width: 45px;">
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <a class="text-center" style="width: 100%" target="_blank"
+                                       title=" {$friend.nickname|op_t}"
+                                       href="{$friend.space_url}">
+                                        {$friend.nickname}
+                                    </a>
+                                </div>
+                                <div>
+                                    <a onclick="start_talk({$friend.uid})"><i title="发起新会话"
+                                                                              class="glyphicon glyphicon-send"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $('#scrollArea_friend').slimScroll({
+            height: '430px',
+            alwaysVisible: true
+        });
+    </script>
+
+
+</div>
+<!--结束会话版-->

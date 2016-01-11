@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:padding="5.0dip">
+
+    <ImageView
+        android:id="@+id/noitfy_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginTop="7.0dip" />
+
+    <TextView
+        android:id="@+id/notify_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/notify_text"
+        android:layout_below="@+id/notify_text"
+        android:layout_marginTop="5.0dip"
+        android:text="缓存中"
+        android:textColor="@color/grey" />
+
+
+
+    <ProgressBar
+        android:id="@+id/notify_processbar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="6.0dip"
+        android:layout_below="@+id/notify_state"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="5.0dip"
+        android:layout_marginTop="5.0dip"
+        android:progressDrawable="@drawable/progress_horizontal" />
+
+    <TextView
+        android:id="@+id/notify_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40.0dip"
+        android:text="猪猪侠第二集"
+        android:textColor="@color/white" />
+</RelativeLayout>

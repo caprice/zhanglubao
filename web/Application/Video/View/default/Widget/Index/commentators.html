@@ -1,0 +1,27 @@
+
+<div class="row">
+	<div class="col-xs-12  column-content">
+		<div class="column-content-title">
+			<i class="title-tip-box"></i> <span class="title-tip"><a
+				href="{:U('/commentator/list')}">热门解说</a></span> <span class="pull-right">
+				<a href="{:U('/commentator/list')}">更多解说</a>
+			</span>
+		</div>
+
+		<div class="commentators">
+			<ul>
+				<volist name="commentators" id="commentator">
+				<li><php> $user =
+					query_user(array('avatar','username'),$commentator['uid']); </php>
+
+					<div class="commentators-thumb">
+						<a href="{:U('/u/'.$commentator['uid'])}"><img
+							src="__PUBLIC__/Core/images/placeholder.png"
+							lazy-src="{$user.avatar}" height="84" width="84" /> </a>
+					</div>
+					<div class="commentators-des">{$user.username}</div></li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+</div>

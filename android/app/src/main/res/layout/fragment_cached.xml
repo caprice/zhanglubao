@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/cache_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cache_title"
+        android:background="@color/lf_background_black_f0f0f0"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="11.0dip"
+        android:paddingRight="11.0dip"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/cache_edit"
+            android:layout_width="0.0dip"
+            android:layout_height="40.0dip"
+            android:layout_marginBottom="11.0dip"
+            android:layout_marginTop="11.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/cache_right_edit_selector"
+            android:gravity="center"
+            android:text="编辑"
+            android:textColor="#ff333333"
+            android:textSize="15.0sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/cut"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_below="@+id/cache_layout"
+        android:background="#ffd9d9d9" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/bottom_area"
+        android:layout_below="@+id/cut"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/caching_all_edit_mlr"
+            android:layout_marginRight="@dimen/caching_all_edit_mlr"
+            android:cacheColorHint="#00000000"
+            android:horizontalSpacing="10.0dip"
+            android:listSelector="#00000000"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbarThumbVertical="@drawable/transparent"
+            android:scrollbars="none" />
+
+        <include
+            android:id="@+id/loadingBar"
+            layout="@layout/sub_layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            android:id="@+id/netWorkError"
+            layout="@layout/sub_layout_net_work_error"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_area"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/cached_delete_ll_height"
+        android:layout_alignParentBottom="true"
+        android:background="#ffd9d9d9"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/btn_all_select"
+            style="@style/edit_button_selectall"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_margin="1.0px"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_white_selected"
+            android:gravity="center"
+            android:text="全选" />
+
+        <TextView
+            android:id="@+id/btn_del_select"
+            style="@style/edit_button_nodelete"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="1.0px"
+            android:layout_marginRight="1.0px"
+            android:layout_marginTop="1.0px"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_white_selected"
+            android:gravity="center"
+            android:text="删除" />
+    </LinearLayout>
+
+
+</RelativeLayout>

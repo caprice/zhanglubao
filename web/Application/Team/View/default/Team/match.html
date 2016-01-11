@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<link href="__CSS__/match.css" rel="stylesheet" />
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+		<div class="row">
+			<!-- 左边 -->
+			<div class="col-xs-9">
+				<div class="row">
+
+					<div class="col-xs-12">
+						<div class="team-info">
+							<div class="team-icon">
+								<a href="{:U('/team/'.$team['id'])}"> <img
+									src="__PUBLIC__/Core/images/placeholder.png"
+									lazy-src="{$team.cover|get_cover=url}" height="80" width="80" />
+								</a>
+							</div>
+							<div class="pull-left team-info">
+								<div class="title">
+									<h4>{$team.name}</h4>
+								</div>
+
+								<div class="team-navs">
+									<a id="nav-home" class="team-nav" href="{:U('/team/'.$teamid)}">首页</a>
+									<a id="nav-video" class="team-nav"
+										href="{:U('/team/video/'.$teamid)}">视频</a> <a id="nav-album"
+										class="team-nav" href="{:U('/team/forum/'.$teamid)}">论坛</a> <a
+										id="nav-album" class="team-nav"
+										href="{:U('/team/album/'.$teamid)}">专辑</a> <a id="nav-album"
+										class="team-nav team-nav-current"
+										href="{:U('/team/match/'.$teamid)}">比赛</a>
+								</div>
+							</div>
+							<div class="pull-right">
+
+								<div class="follow">
+									<a href="javascript:;" class="btn-team-subscription"
+										id="mod_follow_btn" data-value="1">+ 订阅</a>
+
+								</div>
+
+								<div class="join">
+
+									<a href="javascript:;" class="btn-team-join"
+										id="mod_follow_btn" data-value="1">加入</a>
+								</div>
+							</div>
+
+						</div>
+
+
+
+						<if condition="$matches">
+
+						<div class="column-content">
+
+
+							<div class="match-list">
+								<ul>
+									<volist name="matches" id="match">
+									<li class="match-item">
+										<div class="match-item-content">
+											<div class="col-xs-4">
+												<if condition="$match['blue_team']"> <a
+													href="{:U('/matchgame/'.$match['id'])}"> <img
+													src="__PUBLIC__/Core/images/placeholder.png"
+													lazy-src="{:query_team('cover',$match['blue_team'])}"
+													alt="{$video['title']}" width="50" height="50">
+												</a> <else />
+												<div class="vs">弃权</div>
+												</if>
+											</div>
+											<div class="col-xs-4 vs">VS</div>
+											<div class="col-xs-4">
+												<if condition="$match['red_team']"> <a
+													href="{:U('/matchgame/'.$match['id'])}"> <img
+													src="__PUBLIC__/Core/images/placeholder.png"
+													lazy-src="{:query_team('cover',$match['red_team'])}"
+													alt="{$video['title']}" width="50" height="50">
+												</a> <else />
+												<div class="vs">弃权</div>
+												</if>
+											</div>
+										</div>
+										<div class="match-team-name">
+											<ul>
+												<li><if condition="$match['blue_team']"> <a
+														href="{:U('/matchgame/'.$match['id'])}">{:query_team('name',$match['blue_team'])}</a>
+													<else /> 弃权 </if></li>
+												<li></li>
+												<li><if condition="$match['red_team']"> <a
+														href="{:U('/matchgame/'.$match['id'])}">{:query_team('name',$match['red_team'])}</a>
+													<else /> 弃权 </if></li>
+											</ul>
+										</div>
+										<div class="match-item-des">
+											<ul>
+												<li><span class="pull-left"><a
+														href="{:U('/matchgame/'.$match['id'])}">{:get_game($match['game_id'],'title')}</a></span>
+													<span class="pull-right">{:date('m-d
+														H:i',$match['start_time'])}</span></li>
+												<li><span class="pull-left"><a
+														href="{:U('/matchgame/'.$match['id'])}">{:query_match('title',$match['match_id'])}</a></span>
+													<span class="pull-right"><a class="submit-match"
+														href="{:U('/matchgame/'.$match['id'])}">竞猜</a></span></li>
+											</ul>
+										</div>
+									</li>
+									</volist>
+								</ul>
+							</div>
+
+						</div>
+						</if>
+
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="pull-right">
+						<div class="page">{$_page}</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- 右边 -->
+			<div class="col-xs-3">
+				<div>
+
+
+					<div class="right-want-box">
+						<div class="row">
+							<div class="col-xs-2">
+								<span class=" glyphicon glyphicon-flash want-box-icon "></span>
+							</div>
+							<div class="col-lg-4">
+								<a href="#" class="want-box-text" rel="nofollow">我要约战</a>
+							</div>
+							<div class="col-xs-1">
+								<span
+									class="glyphicon glyphicon-facetime-video  want-box-share-icon "></span>
+							</div>
+							<div class="col-xs-4">
+								<a href="#" class="want-box-text" rel="nofollow">我要直播</a>
+							</div>
+						</div>
+					</div>
+
+
+{:W('TeamSide/hot',array($teamid))}
+
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 280);
+					}).resize();
+		});
+	</script>
+	<!-- /主体 -->
+
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

@@ -1,0 +1,303 @@
+.video-info {
+	width: 100%;
+	float: left;
+	display: inline;
+	height: 542px;
+	background: #1c1c1c;
+}
+
+.middle-video-info {
+	width: 100%;
+	float: left;
+}
+
+.video-team-info {
+	display: block;
+	height: 542px;
+	width: 100%;
+}
+
+.video-title-info {
+	height: 45px;
+	width: 100%;
+	margin: auto;
+	box-shadow: 0px -2px 4px rgba(217, 217, 217, .8);
+	background-color: #f8f8f8;
+}
+
+.video-base-info {
+	z-index: 3;
+	height: 45px;
+	width: 100%;
+	margin: auto;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+	background-color: #f8f8f8;
+}
+
+.video-title-tip-box {
+	width: 3px;
+	height: 45px;
+	margin-right: 5px;
+	line-height: 45px;
+	background: #48b87a;
+	float: left;
+	background: #48b87a;
+}
+
+.video-title-tip h3 {
+	color: #48b87a;
+	line-height: 45px;
+	text-align: center;
+	font-size: 24px;
+}
+
+.mod－action {
+	width: 360px;
+	height: 45px;
+	display: block;
+	float: left;
+}
+
+.mod－action .action-item {
+	float: left;
+	display: block;
+	font-size: 16px;
+	color: #48b87a;
+	height: 45px;
+	text-align: center
+}
+
+.mod－action .action-item:hover {
+	background: #e6e6e6;
+}
+
+.mod－action .action-collect {
+	width: 100px;
+}
+
+.mod－action .action-share {
+	width: 100px;
+}
+
+.mod－action .action-phone {
+	width: 120px;
+}
+
+.mod－action .action-item-icon {
+	font-size: 16px;
+	color: #48b87a;
+	line-height: 45px;
+}
+
+.mod－action .action-item-text {
+	color: #48b87a;
+	font-size: 16px;
+	line-height: 45px;
+}
+
+.match-game-title b {
+	color: #48b87a;
+	line-height: 45px;
+	text-align: center;
+	font-size: 24px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.title-content {
+	line-height: 45px;
+}
+
+.match-name {
+	float: left;
+}
+
+.match-game-category {
+	float: right;
+	text-align: right;
+}
+
+.video-match-game-tag {
+	float: right;
+	line-height: 45px;
+	padding-right: 6px;
+}
+.video-match-game-tag span
+{
+	margin-left:8px;
+}
+.video-match-game-tag ul {
+	float: left;
+}
+
+.video-match-game-tag li {
+	float: left;
+	margin-left: 8px;
+}
+
+.video-match-game-tag span {
+	float: left;
+}
+
+.side-matchvideo-list li {
+	margin-bottom: 10px;
+	height: 80px;
+	width: 100%;
+}
+
+.side-matchvideo-list .v-thumb {
+	float: left;
+	width: 145px;
+	height: 80px;
+}
+
+.side-matchvideo-list .v-meta {
+	float: right;
+	padding-left: 10px;
+	padding-right: 5px;
+	font-size:12px;
+	overflow: hidden;
+	zoom: 1;
+	width: 131px;
+}
+
+.side-matchvideo-list .v-meta  .v-meta-title {
+	height: auto;
+	margin: 0;
+}
+
+.side-matchvideo-list .v-meta  .v-num
+{
+	color:#888;
+}
+
+.video-user-info {
+	min-height: 100px;
+	margin: 8px 0 0 0;
+	padding: 8px;
+	width: 100%;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+	background-color: #f8f8f8;
+	width: 100%;
+}
+
+.video-user-info .user-area {
+	width: 280px;
+	border-right: 1px solid #DDD;
+	height: 84px;
+	display: block;
+	float: left;
+}
+
+.video-user-info .user-thumb {
+	float: left;
+	border: solid 1px #d9d9d9;
+}
+
+.video-user-info .user-info {
+	float: left;
+	margin-left: 8px;
+}
+
+.video-user-info .user-name {
+	float: left;
+	font-size: 16px;
+	height: 20px;
+	display: block;
+}
+
+.video-user-info  .user-subscription {
+	height: 28px;
+	display: block;
+	clear: both;
+	text-align: center;
+	padding-top: 14px;
+}
+
+.video-user-info  .btn-user-subscription {
+	height: 28px;
+	box-shadow: 0 0 5px #cccccc;
+	background-color: #48b87a;
+	width: 72px;
+	color: #ffffff;
+	display: block;
+	line-height: 28px;
+}
+
+.video-user-info  .user-subscription a:hover {
+	background-color: #307E54;
+	width: 72px;
+	color: #ffffff;
+}
+
+.video-user-info .video-info-area {
+	padding-left: 8px;
+	height: 84px;
+	display: block;
+	float: left;
+}
+.video-user-info .video-info-area h4
+{
+	color: #48b87a;
+}
+
+.video-user-info .video-info-area .tags
+{
+	line-height:40px;
+	color:#999;
+	height:40px;
+	display:block;
+}
+.video-info-area .tags span
+{
+	float:left;
+}
+.video-info-area .tags li
+{
+	float:left;
+	margin-left:6px;
+}
+ .video-user-info .video-info-area  .info-label
+ {
+	padding-right:6px;
+ 	float:left;
+ }
+.video-user-info .video-info-area .description
+{
+	color:#999;
+}
+
+
+.author-video-list {
+	margin-left: -1%;
+}
+
+.author-video-list li {
+	float: left;
+	width: 24%;
+	margin-left: 1%;
+	margin-bottom: 1%;
+}
+
+.author-video-list li image {
+	width: 100%;
+}
+
+ 
+
+.author-video-thumb {
+	position: relative;
+	height: 120px;
+}
+
+ 
+.author-video-des {
+	background: #F5F5F5;
+	height: 52px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+}
+
+ 

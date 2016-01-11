@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FF0000"
+    android:orientation="vertical">
+
+
+    <com.zhanglubao.lol.view.widget.TabPageIndicator
+        android:id="@+id/home_indicator"
+        style="@style/CustomTabPageIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/indicator_height"
+        android:background="@color/nav_background"></com.zhanglubao.lol.view.widget.TabPageIndicator>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

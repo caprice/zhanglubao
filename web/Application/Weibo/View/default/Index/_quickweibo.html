@@ -1,0 +1,95 @@
+<if condition="is_login()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-md-2 col-sm-2 col-xs-12 text-center" style="position: relative">
+                <a class="s_avatar" href="{$self.space_url}" ucard="{$self.uid}">
+                    <img src="{$self.avatar128}"
+                         class="avatar-img"
+                         style="width: 64px;"/>
+                </a>
+                <br/>
+                <!--  筛选部分-->
+                <if condition="is_login()">
+                    <div id="weibo_filter" style="margin-top:15px;">
+                        <div class="btn-group forum_order">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                {$filter_tab} <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu text-left" role="menu">
+                                <li><a href="{:U('Weibo/Index/index')}">全站动态</a></li>
+                                <li><a href="{:U('Weibo/Index/myconcerned')}">我的关注</a></li>
+                            </ul>
+                        </div>
+                    </div><script>
+/*                    $('#nav_bar_container').append( $('#weibo_filter'));*/
+                </script>
+
+                </if>
+
+
+                <!--筛选部分结束-->
+            </div>
+            <div class="col-md-10 col-sm-8 col-xs-12">
+                <div class="weibo_content weibo_post_box">
+                    <div class="weibo_content_sj pull-left hidden-xs"></div>
+                    <p class="pull-left">
+                        <a ucard="{$self.uid}"
+                           href="{$self.space_url}" class="user_name">{$self.nickname|htmlspecialchars}
+                        </a>
+                        {$weibo.user.icons_html}
+                        <volist name="self['rank_link']" id="vl">
+                            <if condition="$vl['is_show']">
+                                <img src="{$vl.logo_url}" title="{$vl.title}" alt="{$vl.title}"
+                                     class="rank_html"/>
+                            </if>
+                        </volist>
+                    </p>
+                    <div class="pull-right show_num_quick">还可以输入{:C('WEIBO_WORDS_COUNT')}个字</div>
+                    <div class="weibo_content_p">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p><textarea class="form-control weibo_content_quick" id="weibo_content" style="height: 6em;"
+                                             placeholder="写点什么吧～～" onfocus="startCheckNum_quick($(this))" onblur="endCheckNum_quick()"></textarea></p>
+                                <a href="javascript:" onclick="insertFace($(this))"><img src="__STATIC__/image/bq.png"/></a>
+                                <script>
+                                    $(function(){
+                                        $('.weibo_content_quick').atwho(atwho_config);
+                                    })
+                                </script>
+                                {:hook('weiboType')}
+                                <p class="pull-right"><input type="submit" value="发表 Ctrl+Enter"
+                                                             class="btn btn-primary send_weibo_button" data-url="{:U('Weibo/Index/doSend')}"/>
+                                </p>
+                            </div>
+                        </div>
+                        <div id="emot_content" class="emot_content"></div>
+                        <div id="hook_show" class="emot_content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+            var ID_setInterval;
+            function checkNum_quick(obj){
+                var value=obj.val();
+                var value_length=value.length;
+                var can_in_num=initNum-value_length;
+                if(can_in_num<0){
+                    value=value.substr(0,initNum);
+                    obj.val(value);
+                    can_in_num=0;
+                }
+                var html="还可以输入"+can_in_num+"个字";
+                $('.show_num_quick').html(html);
+            }
+            function startCheckNum_quick(obj){
+                ID_setInterval=setInterval(function(){
+                    checkNum_quick(obj);
+                },250);
+            }
+            function endCheckNum_quick(){
+                clearInterval(ID_setInterval);
+            }
+        </script>
+</if>

@@ -1,0 +1,53 @@
+<extend name="Public/base" />
+
+<block name="body">
+<div class="main-title">
+<h2>{:isset($matchgame['id'])?'编辑':'新增'}视频</h2>
+</div>
+<form action="{:U()}" method="post" class="form-horizontal">
+
+<div class="form-item"><label class="item-label">视频ID<span
+	class="check-tips">（视频ID）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="video_id" value="{$matchvideo.video_id|default=''}"></div>
+</div>
+
+
+<div class="form-item"><input type="hidden" name="id"
+	value="{$matchgame.id|default=''}"> 
+	
+		<input type="hidden" name="blue_team_id"
+	value="{$matchgame.blue_team|default=''}"> 
+	
+	<input type="hidden" name="red_team_id"
+	value="{$matchgame.red_team|default=''}"> 
+	
+	<input type="hidden" name="match_game_id"
+	value="{$matchgame.id|default=''}">
+	
+	<if condition="$matchgame">
+<input type="hidden" name="match_id"
+	value="{$matchgame.match_id|default=''}"> <else /> <input
+	type="hidden" name="match_id" value="{$match_id}"> </if>
+<button class="btn submit-btn ajax-post" id="submit" type="submit"
+	target-form="form-horizontal">确 定</button>
+<button class="btn btn-return"
+	onclick="javascript:history.back(-1);return false;">返 回</button>
+</div>
+</form>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script>
+
+<script type="text/javascript">
+    $("#datetimepicker").datetimepicker({
+    	 pickDate: true,
+        defaultDate: "01/01/2014",
+        minDate:'01/01/2014',
+    });
+</script>
+</block>

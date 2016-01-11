@@ -1,0 +1,3 @@
+<?php
+//000000086400a:22:{s:2:"id";s:5:"10008";s:4:"name";s:2:"cf";s:5:"title";s:12:"穿越火线";s:3:"pid";s:1:"1";s:4:"sort";s:1:"4";s:10:"meta_title";s:63:"dnf_穿越火线_比赛_视频_在线直播_战队_职业联赛";s:8:"keywords";s:0:"";s:11:"description";s:0:"";s:4:"type";s:0:"";s:7:"link_id";s:1:"0";s:13:"allow_publish";s:1:"1";s:7:"display";s:1:"1";s:5:"reply";s:1:"1";s:5:"check";s:1:"0";s:11:"reply_model";s:0:"";s:6:"extend";s:0:"";s:11:"create_time";s:10:"1401689073";s:11:"update_time";s:10:"1405593555";s:6:"status";s:1:"1";s:5:"cover";s:2:"45";s:13:"online_member";i:3504;s:10:"fight_area";s:0:"";}
+?>

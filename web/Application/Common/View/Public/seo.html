@@ -1,0 +1,12 @@
+<php> $quntiao_seo_meta = get_seo_meta($vars); </php>
+<if condition="$quntiao_seo_meta['title']">
+<title>{$quntiao_seo_meta['title']}</title>
+<else />
+<title>{:C('WEB_SITE_TITLE')}</title>
+</if>
+<if condition="$quntiao_seo_meta['keywords']">
+<meta name="keywords" content="{$quntiao_seo_meta['keywords']}" />
+</if>
+<if condition="$quntiao_seo_meta['description']">
+<meta name="description" content="{$quntiao_seo_meta['description']}" />
+</if>

@@ -1,0 +1,88 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>{:isset($liverecommend['id'])?'编辑':'新增'}推荐</h2>
+    </div>
+    	<script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <form action="{:U()}" method="post" class="form-horizontal" >
+        <div class="form-item">
+            <label class="item-label">推荐名称<span class="check-tips">（推荐标题）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="title" value="{$liverecommend.title|default=''}">
+            </div>
+        </div>
+       
+        
+        <div class="form-item">
+            <label class="item-label">直播ID<span class="check-tips">（直播ID）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="live_id" value="{$liverecommend.live_id|default='1'}">
+            </div>
+        </div>
+   
+        
+        
+         <div class="form-item">
+						<label class="item-label">推荐封面</label>
+						<input type="file" id="upload_picture">
+						<input type="hidden" name="cover" id="cover" value="{$liverecommend['cover']|default=''}"/>
+						<div class="upload-img-box">
+						<notempty name="liverecommend['cover']">
+							<div class="upload-pre-item"><img src="{$liverecommend.cover|get_cover='url'}"/></div>
+						</notempty>
+						</div>
+					</div>
+					<script type="text/javascript">
+					//上传图片
+				    /* 初始化上传插件 */
+					$("#upload_picture").uploadify({
+				        "height"          : 30,
+				        "swf"             : "__STATIC__/uploadify/uploadify.swf",
+				        "fileObjName"     : "download",
+				        "buttonText"      : "上传图片",
+				        "uploader"        : "{:U('File/uploadLiveRecommendPic',array('session_id'=>session_id()))}",
+				        "width"           : 120,
+				        'removeTimeout'	  : 1,
+				        'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
+				        "onUploadSuccess" : uploadLiveRecommendPic,
+				        'onFallback' : function() {
+				            alert('未检测到兼容版本的Flash.');
+				        }
+				    });
+					function uploadLiveRecommendPic(file, data){
+				    	var data = $.parseJSON(data);
+				    	var src = '';
+				        if(data.status){
+				        	$("#cover").val(data.id);
+				        	src = data.url;
+				        	$("#cover").parent().find('.upload-img-box').html(
+				        		'<div class="upload-pre-item"><img src="' + src + '"/></div>'
+				        	);
+				        } else {
+				      
+				        	updateAlert(data.info);
+				        	setTimeout(function(){
+				                $('#top-alert').find('button').click();
+				                $(that).removeClass('disabled').prop('disabled',false);
+				            },1500);
+				        }
+				    }
+					</script>
+					
+					
+          
+        <div class="form-item">
+        <input type="hidden" name="id" value="{$liverecommend.id|default=''}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script>
+</block>

@@ -1,0 +1,93 @@
+.game-category-area {
+	width: 100%;
+	padding: 20px;
+	background: #f0f0f0;
+	overflow: hidden;
+	zoom: 1;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+}
+
+.game-category-area li {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 10px;
+	vertical-align: top;
+	color: #333;
+}
+
+.game-category-area  .selected {
+	background: #48b87a;
+
+}
+.game-category-area  .selected >a{
+		color: #fff;
+}
+
+
+.video-list {
+	margin-left: -1%;
+	clear:both;
+}
+
+.video-list li {
+	float: left;
+	width: 24%;
+	margin-left: 1%;
+	margin-bottom: 1%;
+}
+
+.video-list li image {
+	width: 100%;
+}
+
+
+
+.video-thumb {
+	position: relative;
+	height: 120px;
+}
+
+ 
+.video-des {
+	height: 48px;
+	padding: 2%;
+	color: #666;
+	font-size: 1.0em;
+	overflow: hidden;
+}
+
+
+.side-matchvideo-list li {
+	margin-bottom: 10px;
+	height: 80px;
+	width: 100%;
+}
+
+.side-matchvideo-list .v-thumb {
+	float: left;
+	width: 145px;
+	height: 80px;
+}
+
+.side-matchvideo-list .v-meta {
+	float: right;
+	padding-left: 10px;
+	padding-right: 5px;
+	font-size:12px;
+	overflow: hidden;
+	zoom: 1;
+	width: 131px;
+}
+
+.side-matchvideo-list .v-meta  .v-meta-title {
+	height: auto;
+	margin: 0;
+}
+
+.side-matchvideo-list .v-meta  .v-num
+{
+	color:#888;
+}

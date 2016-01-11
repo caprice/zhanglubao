@@ -1,0 +1,93 @@
+<extend name="Public/base" />
+<block name="style">
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/compiled/wizard.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/libs/dropzone.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/lib/selectize/css/selectize.default.css">
+
+</block>
+
+<block name="body">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix" style="min-height: 1180px;">
+			<header class="main-box-header clearfix">
+				<h2>{$team.nickname}成员</h2>
+			</header>
+			<div class="main-box-body clearfix">
+				<form class="form-horizontal" action="{:U()}" method="post">
+
+					<input type="hidden" name="id" value="{$team['uid']}"> 
+					<div class="form-group">
+						<label for="users" class="col-lg-1 control-label">玩家</label>
+						<div class="col-lg-11">
+							<input type="text" id="teamUsers" name="team_users" value="{$userids}"
+								placeholder="成员 | 如不修改请不要填写" />
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<button type="submit" class="btn btn-success ajax-post"
+								target-form="form-horizontal">提交</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+</block>
+
+
+<block name="script"> <script
+	src="__STATIC__/lib/selectize/js/standalone/selectize.js"></script> <script
+	type="text/javascript">
+ 
+ $('#teamUsers')
+	.selectize(
+			{
+				plugins : [ 'remove_button' ],
+				valueField : 'uid',
+				labelField : 'nickname',
+				searchField : 'nickname',
+				options :{$users},
+				create : false,
+				render : {
+					item : function(data, escape) {
+						return '<div>"' + escape(data.nickname)
+								+ '"</div>';
+					}
+				},
+				onDelete : function(values) {
+					return confirm(values.length > 1 ? '你确定要删除 '
+							+ values.length + ' 标签么?' : '你确定要删除 "'
+							+ values[0] + '"?');
+				},
+				load : function(query, callback) {
+					if (!query.length)
+						return callback();
+					$.ajax({
+						url : '{:U("User/User/ajax")}',
+						type : 'GET',
+						data : {
+							nickname : query,
+						},
+						error : function() {
+							callback();
+						},
+						success : function(res) {
+							callback(res.users);
+						}
+					});
+				}
+			});
+
+
+ </script> </block>

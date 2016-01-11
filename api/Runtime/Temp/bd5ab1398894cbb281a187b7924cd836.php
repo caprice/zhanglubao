@@ -1,0 +1,3 @@
+<?php
+//000000086400a:13:{s:2:"id";s:2:"27";s:8:"place_id";s:1:"1";s:8:"rec_type";s:1:"1";s:9:"rec_title";s:60:"lol 诅咒解说 哪里都有我 打野人马光速支援流";s:9:"rec_views";s:1:"0";s:11:"rec_content";s:60:"lol 诅咒解说 哪里都有我 打野人马光速支援流";s:11:"click_times";s:1:"0";s:7:"rec_url";s:30:"http://v.quntiao.com/1519.html";s:10:"picture_id";s:2:"35";s:11:"create_time";s:10:"1427779032";s:11:"update_time";s:10:"1427779032";s:6:"status";s:1:"1";s:11:"rec_picture";s:63:"http://img.quntiao.net/recommend/2015/0331/01/551a2dd7c459c.jpg";}
+?>

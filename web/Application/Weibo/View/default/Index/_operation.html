@@ -1,0 +1,7 @@
+{:Hook('support',array('table'=>'weibo','row'=>$weibo['id'],'app'=>'Weibo','uid'=>$weibo['uid']))}
+{:Hook('repost',array('weiboId'=>$weibo['id']))}
+&nbsp;&nbsp;&nbsp;
+
+<span class="weibo-comment-link cpointer" data-weibo-id="{$weibo.id}">
+    评论<if condition="$weiboCommentTotalCount">（{$weiboCommentTotalCount}）</if>
+</span>

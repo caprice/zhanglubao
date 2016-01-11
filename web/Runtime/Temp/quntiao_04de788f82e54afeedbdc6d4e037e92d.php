@@ -1,0 +1,3 @@
+<?php
+//000000086400a:12:{s:2:"id";s:1:"4";s:5:"title";s:36:"柚子不平教你寡妇刷存在感";s:9:"video_num";s:1:"0";s:3:"uid";s:1:"1";s:7:"game_id";s:5:"10005";s:6:"status";s:1:"1";s:11:"description";s:36:"柚子不平教你寡妇刷存在感";s:4:"tags";s:14:"柚子,寡妇,";s:11:"update_time";s:10:"1401993219";s:5:"cover";s:3:"127";s:11:"create_time";s:10:"1401993219";s:7:"picture";s:69:"http://image.quntiao.net/album/picture/2014/0606/02/5390b7ff70026.jpg";}
+?>

@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-xs-12  column-content">
+		<div class="column-content-title">
+			<i class="title-tip-box"></i> <span class="title-tip">作者最新视频</span> <span class="pull-right"></span>
+		</div>
+	</div>
+	<div class="col-xs-12  column-content">
+		<div class="side-matchvideo-list">
+			<ul>
+				<volist name="uservideos" id="uservideo">
+				<li>
+
+					<div class="v-thumb">
+						<a href="{:U('/video/'.$uservideo['id'])}" > <img
+							src="__PUBLIC__/Core/images/placeholder.png"
+							lazy-src="{:query_picture('url',$uservideo['cover'])}"
+							alt="{$uservideo['title']}" width="145px" height="80px"></a>
+
+					</div>
+
+					<div class="v-meta">
+
+						<div class="v-meta-title">
+							<a href="{:U('/video/'.$uservideo['id'])}">{$uservideo['title']}</a>
+
+						</div>
+
+						<div class="v-num">
+							<span class="glyphicon glyphicon-facetime-video  "></span> <span
+								class="v-meta-des">{$uservideo['views']}</span>
+						</div>
+					</div>
+
+				</li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+</div>

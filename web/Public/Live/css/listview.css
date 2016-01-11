@@ -1,0 +1,82 @@
+@CHARSET "GB18030";
+
+.live-list {
+	margin-left: -1%;
+}
+
+.live-list li {
+	float: left;
+	width: 24%;
+	margin-left: 1%;
+	margin-bottom: 1%;
+}
+
+.live-list li image {
+	width: 100%;
+}
+
+.live-name {
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	word-wrap: normal;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #ffffff;
+	height: 20px;
+	background: rgba(0, 0, 0, .45);
+}
+
+.live-thumb {
+	position: relative;
+	height: 120px;
+}
+
+.live-name span {
+	position: relative;
+	z-index: 100;
+	color: #fff;
+}
+
+.live-des {
+	background: #F5F5F5;
+	height: 28px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+}
+
+.live-des .live-desc-member {
+	padding-left: 10%
+}
+
+.anchors {
+	padding-top: 15px;
+	margin-left: -3%;
+}
+
+.anchors li {
+	width: 29.33333333333333%;
+	margin-left: 4%;
+	margin-bottom: 5%;
+	float: left;
+	height: 106px;
+	float: left;
+}
+
+.anchors-des {
+	background: #F5F5F5;
+	height: 26px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+}
+

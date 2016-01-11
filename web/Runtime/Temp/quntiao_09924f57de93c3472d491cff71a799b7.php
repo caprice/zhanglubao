@@ -1,0 +1,3 @@
+<?php
+//000000086400a:19:{s:2:"id";s:1:"9";s:3:"uid";s:1:"1";s:5:"title";s:17:"S3世界总决赛";s:4:"tags";s:32:"英雄联盟 世界总决赛 LOL";s:11:"description";s:164:"万众期待的英雄联盟S3世界总决赛进入到最终总决赛的冠军争夺，中国战队皇族将与韩国战队SKT1角逐S3世界英雄联盟的巅峰。";s:5:"cover";s:3:"192";s:9:"game_tags";s:25:"正赛视频 精彩花絮";s:7:"live_id";s:1:"8";s:10:"video_nums";s:1:"0";s:10:"start_time";s:10:"1378396800";s:6:"status";s:1:"1";s:7:"game_id";s:5:"10005";s:8:"end_time";s:10:"1381766400";s:13:"champion_team";s:1:"0";s:11:"create_time";s:10:"1402988777";s:11:"update_time";s:10:"1402988777";s:9:"series_id";s:1:"9";s:12:"match_status";s:1:"2";s:4:"days";d:-341;}
+?>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="Addons/Rank_checkin/Css/rank.css">
+<div class="box" style="margin-top: 10px">
+    <div class="titlerank">签到牛人榜</div>
+    <if condition="count($rank) eq 0">
+        <div class="default">虚位以待，赶紧签到。</div>
+        <else/>
+        <volist name="rank" id="v">
+            <div class="paiming" style="width: 70px">
+                <switch name="i">
+                    <case value="1">牛A</case>
+                    <case value="2">牛B</case>
+                    <case value="3">牛C</case>
+                    <case value="4">牛D</case>
+                    <case value="5">牛F</case>
+                    <default/>
+                    第{$i}名
+                </switch>
+            </div>
+            <div class="list">
+                 <div> <img src="{$v.userInfo.avatar32}"></div>
+                <div class="listitem">
+                    <div class="text_more" style="width:80px;"><a  ucard="{$v.uid}" href="{$v.userInfo.space_url}"> {$v.userInfo.username}</a></div>
+                     <div>
+                        <php> echo(date('H:i:s',$v[ctime]))</php>
+                    </div>
+                </div>
+            </div>
+        </volist>
+    </if>
+</div>
+<div style="height: 10px"></div>

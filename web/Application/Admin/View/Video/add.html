@@ -1,0 +1,115 @@
+<extend name="Public/base" />
+
+<block name="body">
+<div class="main-title">
+	<h2>{:isset($video['id'])?'编辑':'新增'}视频</h2>
+</div>
+<form action="{:U()}" method="post" class="form-horizontal">
+	<div class="form-item">
+		<label class="item-label">视频地址<span class="check-tips">（支持youku.com
+				qq.com tudou.com）</span></label>
+		<div class="controls">
+			<input type="text" class="text input-large" id="video_url"
+				name="video_url" value="{$video.video_url|default=''}"> <label
+				class="btn  video_get">获取</label>
+		</div>
+
+		<div class="controls" id="cover_div"></div>
+	</div>
+	<div class="form-item">
+		<label class="item-label">归属游戏<span class="check-tips">（归属游戏）</span></label>
+		<div class="controls">
+			<select name="game_id">
+				<volist name="games" id="game">
+				<option value="{$game.id}"
+					<eq name="video['game_id']" value="$game.id"> selected</eq>
+					>{$game.title_show}
+				</option>
+				</volist>
+			</select>
+		</div>
+	</div>
+	<div class="form-item">
+		<label class="item-label">视频标题<span class="check-tips">视频标题</span></label>
+		<div class="controls">
+			<input type="text" class="text input-large" name="title" id="title"
+				value="{$video.title|default=''}">
+		</div>
+	</div>
+
+	<div class="form-item">
+		<label class="item-label">视频标签<span class="check-tips">视频标签</span></label>
+		<div class="controls">
+			<input type="text" class="text input-large" name="tags"
+				value="{$video.tags|default=''}">
+		</div>
+	</div>
+
+	<div class="form-item">
+		<label class="item-label">编辑标签<span class="check-tips">编辑标签</span></label>
+		<div class="controls">
+			<select name="edit_status">
+
+				<option value="0"
+					<eq name="video['edit_status']" value="0"> selected</eq>>
+					不推荐
+				</option>
+				<option value="1"
+					<eq name="video['edit_status']" value="1"> selected</eq>>
+					推荐
+				</option>
+
+			</select>
+		</div>
+	</div>
+	<div class="form-item">
+		<label class="item-label">视频介绍<span class="check-tips">（视频介绍）</span></label>
+		<div class="controls">
+			<label class="textarea input-large"> <textarea
+					name="description">{$video.description|default=''}</textarea>
+			</label>
+		</div>
+	</div>
+	<div class="form-item">
+		<input type="hidden" name="id" value="{$video.id|default=''}">
+		<input type="hidden" name="cover" value="{$video.cover|default=''}">
+		<input type="hidden" name="cover_url" id="cover_url" /> <input
+			type="hidden" name="flash_url" id="flash_url"
+			value="{$video.flash_url|default=''}">
+		<button class="btn submit-btn ajax-post" id="submit" type="submit"
+			target-form="form-horizontal">确 定</button>
+		<button class="btn btn-return"
+			onclick="javascript:history.back(-1);return false;">返 回</button>
+	</div>
+</form>
+</block>
+
+<block name="script"> <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script> <script type="text/javascript">
+$(function(){
+       $('.video_get').click(function(){
+    	  var url=$("#video_url").val();
+    	   $.post("{:U('Video/getVideoInfo')}",{link:url}).success(function(data){
+		    	var src = '';
+		    	
+		        if(data.status){
+		        	$("#cover_url").val(data.image_url);
+		        	$("#flash_url").val(data.flash_url);
+		         	$("#title").val(data.title);
+		        	$("#cover_div").html(
+		        		'<div class="upload-pre-item"><img src="' + data.image_url + '"/></div>'
+		        	);
+		        } else {
+		        	updateAlert(data.info);
+		        	setTimeout(function(){
+		                $('#top-alert').find('button').click();
+		                $(that).removeClass('disabled').prop('disabled',false);
+		            },1500);
+		        }
+    	   });
+       }
+       )
+    });
+    </script> </block>

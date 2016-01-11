@@ -1,0 +1,137 @@
+<extend name="Public/base" />
+<block name="style"> </block>
+
+<block name="body">
+<div class="row">
+
+	<div class="col-lg-12">
+		<div class="main-box clearfix" style="min-height: 1180px;">
+			<header class="main-box-header clearfix">
+				<h2>{:isset($info['id'])?'编辑':'新增'}广告</h2>
+			</header>
+			<div class="main-box-body clearfix">
+				<form class="form-horizontal" action="{:U()}" method="post">
+					<input type="hidden" name="id" value="{$category.id}">
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-2 control-label">广告名称</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputTitle"
+								name="title" placeholder="广告名称"
+								value="{$info['title']|default=''}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputUrl" class="col-lg-2 control-label">广告类型</label>
+						<div class="col-lg-10">
+							  <select name="type" class="form-control">
+
+								<option value='1' <eq name="info.type" value="1">selected</eq>>视频</option>
+								<option value='2' <eq name="info.type" value="2">selected</eq>>新闻</option>
+								<option value='3' <eq name="info.type" value="3">selected</eq>>知道</option>
+								<option value='4' <eq name="info.type" value="4">selected</eq>>比赛</option>
+								<option value='5' <eq name="info.type" value="5">selected</eq>>网页</option>
+								<option value='6' <eq name="info.type" value="6">selected</eq>>下载</option>
+								<option value='7' <eq name="info.type" value="7">selected</eq>>其他</option>
+
+
+							</select>
+
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="inputUrl" class="col-lg-2 control-label">跳转地址</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputUrl" name="url"
+								placeholder="跳转地址" value="{$info['url']|default=''}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputValueId" class="col-lg-2 control-label">VALUEID</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputValueId"
+								name="value_id" placeholder="VALUEID"
+								value="{$info['value_id']|default='0'}">
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="articleIntro" class="col-lg-2 control-label">广告图片</label>
+						<div class="col-lg-10">
+							<input type="file" id="upload_picture"> <input id="cover_id"
+								type="hidden" name="cover_id" value="{$info['cover_id']}" />
+							<div class="upload-img-box">
+								<notempty name="info['cover_id']">
+								<div class="upload-pre-item">
+									<img src="{$info['cover_id']|get_slide_cover='url'}" />
+								</div>
+								</notempty>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+						<input type="hidden" name="id" value="{$info.id}"/>
+							<button type="submit" class="btn btn-success ajax-post"
+								target-form="form-horizontal">提交</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</block>
+
+<block name="script"> <script type="text/javascript"
+	src="__STATIC__/js/uploadify/jquery.uploadify.min.js"></script> <script
+	type="text/javascript">
+		//上传图片
+		/* 初始化上传插件 */
+		$("#upload_picture")
+				.uploadify(
+						{
+							"height" : 30,
+							"swf" : "__STATIC__/js/uploadify/uploadify.swf",
+							"fileObjName" : "download",
+							"buttonText" : "上传图片",
+							"uploader" : "{:U('App/File/uploadPicture',array('session_id'=>session_id()))}",
+							"width" : 120,
+							'removeTimeout' : 1,
+							'fileTypeExts' : '*.jpg; *.png; *.gif;',
+							"onUploadSuccess" : uploadFilecover_id,
+							'onFallback' : function() {
+								alert('未检测到兼容版本的Flash.');
+							}
+						});
+		function uploadFilecover_id(file, data) {
+
+			var data = $.parseJSON(data);
+
+			if (data.status) {
+				var name = "cover_id";
+				$("input[name=" + name + "]").val(data.id);
+				$("input[name=" + name + "]")
+						.parent()
+						.find('.upload-img-box')
+						.html(
+								"<div class=\"upload-pre-file\"><span class=\"upload_icon_all\"></span> <img src='"
+										+ data.url + "'/></div>");
+			} else {
+				updateAlert(data.info);
+				setTimeout(function() {
+					$('#top-alert').find('button').click();
+					$(that).removeClass('disabled').prop('disabled', false);
+				}, 1500);
+			}
+		}
+	</script> </block>

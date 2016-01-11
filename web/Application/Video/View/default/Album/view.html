@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<link href="__CSS__/list.css" rel="stylesheet" />
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+		<div class="row">
+			<div class="col-xs-9">
+
+				<div class="row">
+				
+				<div class="col-xs-12  column-content">
+						<div class="column-content-title">
+							<i class="title-tip-box"></i> <span class="title-tip">{$album.title}</span> </span> <span class="pull-right">
+								 
+							</span>
+						</div>
+					</div>
+					
+					<div class="col-xs-12  column-content">
+					 
+
+
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12  column-content">
+						<div class="video-list">
+							<ul>
+
+								<volist name="_list" id="video">
+								<li>
+									<div class="video-thumb">
+										<a href="{:U('/video/'.$video['id'])}"> <img
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{:query_picture('url',$video['cover'])}"
+											alt="{$video['title']}" width="216px" height="120px">
+										</a>
+
+									</div>
+									<div class="video-des"><a href="{:U('/video/'.$video['id'])}">{$video.title}</a></div>
+
+								</li>
+								</volist>
+
+
+							</ul>
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+
+					<div class="pull-right">
+						<div class="page">{$_page}</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+			
+			{:W('AlbumUserVideo/lists',array($album['uid']))}
+			
+			
+			</div>
+
+
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 343);
+					}).resize();
+		});
+	</script>
+	<!-- /主体 -->
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

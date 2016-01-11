@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/topBg"
+        android:layout_width="fill_parent"
+        android:layout_height="4.0dip"
+        android:background="@drawable/login_top_round_bg_4dp" />
+
+    <ImageView
+        android:id="@+id/bgView"
+        android:layout_width="fill_parent"
+        android:layout_height="146.0dip"
+        android:layout_below="@+id/topBg"
+        android:background="@color/white"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_user_login" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bgView"
+        android:background="@drawable/login_bottom_round_bg_4dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="12.0dip">
+
+        <ImageView
+            android:id="@+id/weiboBtn"
+            android:layout_width="135.0dip"
+            android:layout_height="50.0dip"
+            android:layout_marginRight="10.0dip"
+            android:scaleType="fitCenter"
+            android:src="@drawable/user_login_sina" />
+
+        <ImageView
+            android:id="@+id/qzoneBtn"
+            android:layout_width="135.0dip"
+            android:layout_height="50.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:scaleType="fitCenter"
+            android:src="@drawable/user_login_qq" />
+    </LinearLayout>
+</RelativeLayout>

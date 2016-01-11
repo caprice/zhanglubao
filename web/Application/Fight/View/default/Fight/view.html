@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<link href="__CSS__/view.css" rel="stylesheet" />
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+		<div class="row">
+			<!-- 左边 -->
+			<div class="col-xs-9">
+
+
+				<div class="vs-title-info">
+					<i class="vs-title-tip-box"></i> <span class="vs-title-tip">
+						<span class="title-content"> <span class="match-name">{:date('Y-m-d H:i',$fight['start_time'])}</span>
+							<span class="match-game-title"><h3>
+									<a href="{:U('/u/'.$fight['host_uid'])}">{$fight['host']['username']}</a>
+									<if condition="$fight['guest']"> <b>vs</b> <a
+										href="{:U('/u/'.$fight['guest_uid'])}">{$fight['guest']['username']}</a>
+									</if>
+
+
+								</h3></span> <span class="match-game-category"> <a
+								href="{:U('/fight/list/'.$fight['game_id'])}">{:get_game($fight['game_id'],'title')}-{$fight.game_area}</a>
+						</span>
+					</span>
+				</div>
+
+
+				<div class="fight-area">
+					<div class="fight-member">
+						<a href="{:U('/fight/'.$fight['id'])}"><img
+							src="__PUBLIC__/Core/images/placeholder.png"
+							lazy-src="{$fight['host']['avatar']}" width="150" height="150"></a>
+					</div>
+					<div class="fight-member vs">VS</div>
+					<div class="fight-member">
+
+						<if condition="$fight['guest']">
+
+						<div class="blue_team">
+							<a href="{:U('/fight/'.$fight['id'])}"><img
+								src="__PUBLIC__/Core/images/placeholder.png"
+								lazy-src="{$fight['guest']['avatar']}" width="150" height="150"></a>
+
+						</div>
+						<else />
+						<div class="fight-invite－area">
+							<span class="fight-invite"> <a
+								href="{:U('/fight/'.$fight['id'])}">战</a></span>
+
+						</div>
+						</if>
+
+					</div>
+				</div>
+
+				<div class="fight-coins-area">
+					<span class="fight-coins"> 金币：{$fight.fight_coins} </span>
+				</div>
+
+
+				<if condition="$joins">
+
+				<div class="column-content">
+					<div class="column-content-title">
+						<i class="title-tip-box"></i> <span class="title-tip"><a
+							href="{:U('/fight/join/list/'.$fight['id'])}">参战人员</a></span> <span
+							class="pull-right"> <a
+							href="{:U('/fight/join/list/'.$fight['id'])}">更多参战</a>
+						</span>
+					</div>
+
+					<div class="join-list">
+						<ul>
+							<volist name="joins" id="join">
+							<li>
+
+								<div class="cl">
+									<div class="avatar">
+
+										<a href="{:U('/u/'.$join['uid'])}"> <img
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{$join.user.avatar}" width="80" height="80">
+										</a>
+									</div>
+									<div class="fighter-info">
+
+										<div>
+											<a href="{:U('/u/'.$join['uid'])}">{$join.user.username}</a>
+										</div>
+
+										<div class="pull-left">
+											<div>赚取: {$join.user.win_coins}</div>
+
+											<div>场次: {$join.user.total_fights}</div>
+										</div>
+
+									</div>
+								</div>
+
+							</li>
+							</volist>
+						</ul>
+					</div>
+
+				</div>
+				</if>
+				
+				
+				<div class="comment">
+					<!-- 多说评论框 start -->
+					<div class="ds-thread" data-thread-key="video-{$fight['id']}"
+						data-title="{$fight['host']['username']}"
+						data-url="http://www.quntiao.com/fight/{$fight.id}.html"></div>
+					<!-- 多说评论框 end -->
+					<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+					<script type="text/javascript">
+						var duoshuoQuery = {
+							short_name : "quntiao"
+						};
+						(function() {
+							var ds = document.createElement('script');
+							ds.type = 'text/javascript';
+							ds.async = true;
+							ds.src = (document.location.protocol == 'https:' ? 'https:'
+									: 'http:')
+									+ '//static.duoshuo.com/embed.js';
+							ds.charset = 'UTF-8';
+							(document.getElementsByTagName('head')[0] || document
+									.getElementsByTagName('body')[0])
+									.appendChild(ds);
+						})();
+					</script>
+					<!-- 多说公共JS代码 end -->
+
+				</div>
+
+			</div>
+			<!-- 右边 -->
+			<div class="col-xs-3">
+				<div>
+
+										<div class="right-want-box">
+						<div class="row">
+							<div class="col-xs-2">
+								<span class=" glyphicon glyphicon-flash want-box-icon "></span>
+							</div>
+							<div class="col-lg-4">
+								<a href="#" class="want-box-text" rel="nofollow">我要约战</a>
+							</div>
+							<div class="col-xs-1">
+								<span class="glyphicon glyphicon-facetime-video  want-box-share-icon "></span>
+							</div>
+							<div class="col-xs-4">
+								<a href="#" class="want-box-text" rel="nofollow">我要直播</a>
+							</div>
+						</div>
+					</div>
+					{:W('IndexFightRank/lists')}
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 343);
+					}).resize();
+		});
+	</script>
+	<!-- /主体 -->
+
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

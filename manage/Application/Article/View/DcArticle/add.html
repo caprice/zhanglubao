@@ -1,0 +1,183 @@
+<extend name="Public/base" />
+<block name="style">
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/compiled/wizard.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/libs/dropzone.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/lib/selectize/css/selectize.default.css">
+
+</block>
+
+<block name="body">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix" style="min-height: 1180px;">
+			<header class="main-box-header clearfix">
+				<h2>添加文章</h2>
+			</header>
+			<div class="main-box-body clearfix">
+				<form class="form-horizontal" action="{:U()}" method="post">
+
+					<input type="hidden" name="game_id" value="7" /> <input
+						type="hidden" name="category_id" value="1" />
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-1 control-label">文章名称</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputTitle"
+								name="title" placeholder="文章名称">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="articleTags" class="col-lg-1 control-label">文章标签</label>
+						<div class="col-lg-11">
+							<input type="text" id="articleTags" name="tags"
+								placeholder="文章标签">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="articledescription" class="col-lg-1 control-label">文章介绍</label>
+						<div class="col-lg-11">
+							<textarea class="form-control" name="description"
+								id="articledescription" rows="4"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="articleIntro" class="col-lg-1 control-label">缩略图</label>
+						<div class="col-lg-11">
+							<input type="file" id="upload_file_image"> <input
+								type="hidden" name="cover_id" />
+							<div class="upload-img-box">
+								<present name="cover_id">
+								<div class="upload-pre-file">
+									<span class="upload_icon_all"></span>
+								</div>
+								</present>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="articleIntro" class="col-lg-1 control-label">文章内容</label>
+						<div class="col-lg-11">
+							<textarea name="content" id="articleContetnt"></textarea>
+
+							<input type="hidden" name="parse" value="0">
+
+
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="articleTags" class="col-lg-1 control-label"></label>
+						<div class="col-lg-11">
+							<input type="submit" class="btn btn-success ajax-post"
+								target-form="form-horizontal" value="提交">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</block>
+
+<block name="script"> <script
+	src="__STATIC__/lib/selectize/js/standalone/selectize.js"></script> <script
+	src="__STATIC__/js/uploadify/jquery.uploadify.min.js">
+		
+	</script> <script type="text/javascript">
+		$('#articleTags').selectize(
+				{
+					plugins : [ 'remove_button' ],
+					persist : false,
+					create : true,
+					render : {
+						item : function(data, escape) {
+							return '<div>"' + escape(data.text) + '"</div>';
+						}
+					},
+					onDelete : function(values) {
+						return confirm(values.length > 1 ? '你确定要删除 '
+								+ values.length + ' 标签么?' : '你确定要删除 "'
+								+ values[0] + '"?');
+					}
+				});
+	</script> <script type="text/javascript">
+		//上传图片
+		/* 初始化上传插件 */
+		$("#upload_file_image")
+				.uploadify(
+						{
+							"height" : 30,
+							"swf" : "__STATIC__/js/uploadify/uploadify.swf",
+							"fileObjName" : "download",
+							"buttonText" : "上传附件",
+							"uploader" : "{:U('DcPicture/uploadCoverPicture',array('session_id'=>session_id()))}",
+							"width" : 120,
+							'removeTimeout' : 1,
+							"onUploadSuccess" : uploadFilecover_id,
+							'onFallback' : function() {
+								alert('未检测到兼容版本的Flash.');
+							}
+						});
+		function uploadFilecover_id(file, data) {
+
+			var data = $.parseJSON(data);
+
+			if (data.status) {
+				var name = "cover_id";
+				$("input[name=" + name + "]").val(data.id);
+				$("input[name=" + name + "]")
+						.parent()
+						.find('.upload-img-box')
+						.html(
+								"<div class=\"upload-pre-file\"><span class=\"upload_icon_all\"></span> <img src='"
+										+ data.url + "'/></div>");
+			} else {
+				updateAlert(data.info);
+				setTimeout(function() {
+					$('#top-alert').find('button').click();
+					$(that).removeClass('disabled').prop('disabled', false);
+				}, 1500);
+			}
+		}
+	</script>
+
+
+
+<link rel="stylesheet"
+	href="__STATIC__/js/kindeditor/default/default.css" />
+<script charset="utf-8"
+	src="__STATIC__/js/kindeditor/kindeditor-min.js"></script> <script
+	charset="utf-8" src="__STATIC__/js/kindeditor/zh_CN.js"></script> <script
+	type="text/javascript">
+		var editor_content;
+		KindEditor
+				.ready(function(K) {
+					editor_content = K
+							.create(
+									'textarea[name="content"]',
+									{
+										allowFileManager : false,
+										themesPath : K.basePath,
+										width : '100%',
+										height : '500px',
+										resizeType : 1,
+										pasteType : 2,
+										urlType : 'absolute',
+										fileManagerJson : '/index.php?s=/Article/fileManagerJson.html',
+										uploadJson : "{:U('DcPicture/uploadArticlePicture')}",
+										extraFileUploadParams : {
+											session_id : '{:session_id()}'
+										}
+									});
+				});
+	</script> </block>

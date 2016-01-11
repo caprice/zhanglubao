@@ -1,0 +1,400 @@
+
+/**matchgame**/
+
+.vs-info {
+	width: 82%;
+	float: left;
+	display: inline;
+	height: 500px;
+	background: #1c1c1c;
+}
+
+.pre-vs-info {
+	width: 460px;
+	display: block;
+	zoom: 1;
+	margin: 0 auto;
+	text-align: center;
+	zoom: 1;
+	padding: 160px 0px 137px;
+}
+
+.vs-user-name {
+	background: #F5F5F5;
+	height: 20px;
+	color: #999;
+	font-size: 12px;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+}
+
+.vs-user-name span {
+	width: 76px;
+	margin-left: 2px;
+	margin-right: 2px;
+	display: block;
+	overflow: hidden;
+}
+
+.vs-vs {
+	width: 220px;
+	float: left;
+	display: block;
+	text-align: center;
+	color: #ffffff;
+	font-size: 30px;
+	height: 100px;
+	line-height: 100px;
+}
+
+.qq-alarm {
+	margin-top: 10px;
+}
+
+.preteamcon {
+	width: 120px;
+	float: left;
+	font-size: 18px;
+	color: #fff;
+}
+
+.preteamcon .teamname {
+	font-size: 14px;
+	color: #fff;
+	padding-top: 8px;
+}
+
+.prevstime {
+	width: 220px;
+	float: left;
+	display: block;
+}
+
+.vsplaytime {
+	width: 100%;
+	float: left;
+	font-size: 16px;
+	color: #fff;
+	line-height: 24px;
+}
+
+.vs-red-team {
+	float: right;
+	height: 100%;
+	width: 9%;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+	background-color: #f8f8f8;
+}
+
+.vs-blue-team {
+	float: left;
+	height: 100%;
+	width: 9%;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+	background-color: #f8f8f8;
+}
+
+.middle-vs-info {
+	width: 100%;
+	float: left;
+}
+
+.vs-blue-team ul {
+	height: 100%;
+}
+
+.vs-red-team ul {
+	height: 100%;
+}
+
+.vs-blue-team  li {
+	height: 20%;
+	display: block;
+}
+
+.vs-red-team  li {
+	height: 20%;
+	display: block;
+}
+
+.vs-team-info {
+	display: block;
+	height: 500px;
+	width: 100%;
+}
+
+.vs-title-info {
+	height: 45px;
+	width: 100%;
+	margin: auto;
+	box-shadow: 0px -2px 4px rgba(217, 217, 217, .8);
+	background-color: #f8f8f8;
+}
+
+.vs-base-info {
+	z-index: 3;
+	height: 45px;
+	width: 100%;
+	margin: auto;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+	background-color: #f8f8f8;
+}
+
+.vs-title-tip-box {
+	width: 3px;
+	height: 45px;
+	margin-right: 5px;
+	line-height: 45px;
+	background: #48b87a;
+	float: left;
+	background: #48b87a;
+}
+
+.vs-title-tip h3 {
+	color: #48b87a;
+	line-height: 45px;
+	text-align: center;
+	font-size: 24px;
+}
+
+.mod－action {
+	width: 360px;
+	height: 45px;
+	display: block;
+	float: left;
+}
+
+.mod－action .action-item {
+	float: left;
+	display: block;
+	font-size: 16px;
+	color: #48b87a;
+	height: 45px;
+	text-align: center
+}
+
+.mod－action .action-item:hover {
+	background: #e6e6e6;
+}
+
+.mod－action .action-collect {
+	width: 100px;
+}
+
+.mod－action .action-share {
+	width: 100px;
+}
+
+.mod－action .action-phone {
+	width: 120px;
+}
+
+.mod－action .action-item-icon {
+	font-size: 16px;
+	color: #48b87a;
+	line-height: 45px;
+}
+
+.mod－action .action-item-text {
+	color: #48b87a;
+	font-size: 16px;
+	line-height: 45px;
+}
+
+.match-game-title b {
+	color: #48b87a;
+	line-height: 45px;
+	text-align: center;
+	font-size: 24px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.title-content span {
+	line-height: 45px;
+	width: 32.8%;
+	float: left;
+}
+
+.match-name {
+	float: left;
+}
+
+.match-game-category {
+	float: right;
+	text-align: right;
+}
+
+.vs-match-game-tag {
+	float: right;
+	line-height: 45px;
+	padding-right: 6px;
+}
+
+.vs-match-game-tag ul {
+	float: left;
+}
+
+.vs-match-game-tag li {
+	float: left;
+	margin-left: 8px;
+}
+
+.vs-match-game-tag span {
+	float: left;
+}
+
+.other-match-game {
+	width: 100%;
+	box-shadow: 0 0 4px rgba(217, 217, 217, .8);
+	position: relative;
+	height: 100px;
+	margin-top: 10px;
+}
+
+.other-match-game-prev {
+	float: left;
+	width: 28px;
+	height: 100px;
+	line-height: 100px;
+	font-size: 24px;
+	color: #48b87a;
+	background-color: #f8f8f8;
+	top: 0px;
+}
+
+.other-match-game-prev:hover {
+	background: #e6e6e6;
+}
+
+.other-match-game-next:hover {
+	background: #e6e6e6;
+}
+
+.other-match-game-next {
+	width: 28px;
+	float: right;
+	height: 100px;
+	line-height: 100px;
+	font-size: 24px;
+	color: #48b87a;
+	top: 0px;
+	background-color: #f8f8f8;
+}
+
+.other-match-game .inner {
+	width: 832px;
+	height: 100px;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+
+.other-match-game .inner  li {
+	background-color: #f8f8f8;
+	width: 161px;
+	float: left;
+	margin-left: 5px;
+	height: 100px;
+	display: block;
+	padding: 4px;
+	position: relative;
+}
+
+.other-match-game .inner ul {
+	height: 100px;
+	position: absolute;
+}
+
+.other-match-game .inner  li .match-team-item {
+	width: 40%;
+	float: left;
+	line-height: 50px;
+	display: block;
+	height: 50px;
+}
+
+.other-match-game .inner  li .match-team-vs {
+	width: 20%;
+	float: left;
+	line-height: 50px;
+	color: #48b87a;
+	text-align: center;
+}
+
+.match-info {
+	clear: both;
+	text-align: center;
+	display: block;
+}
+
+.match-team-item .vs {
+	width: 100%;
+	text-align: center;
+}
+
+.guess-detail-win {
+	background-color: #48b87a;
+	border-color: #48b87a;
+}
+
+.guess-item-detail span {
+	display: inline-block;
+	height: 38px;
+	line-height: 38px;
+	background: #48b87a;
+	float: left;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.guess-item-detail-win {
+	width: 40%;
+	border: 1px solid #fff;
+}
+
+.guess-item-detail-even {
+	width: 20%;
+}
+
+.side-matchvideo-list li {
+	margin-bottom: 10px;
+	height:80px;
+	width:100%;
+}
+
+.side-matchvideo-list .v-thumb {
+	float: left;
+	width: 145px;
+	height: 80px;
+}
+
+.side-matchvideo-list .v-meta {
+	float: right;
+	padding-left: 10px;
+	padding-right: 5px;
+	overflow: hidden;
+	zoom: 1;
+	width:131px;
+}
+
+.side-matchvideo-list .v-meta  .v-num
+{
+	color:#888;
+}
+
+.side-matchvideo-list .v-meta  .v-meta-title {
+	height: auto;
+	margin: 0;
+	font-size:14px;
+}
+
+.vs-fight-info {
+	display: block;
+	height: 500px;
+	width: 100%;
+}

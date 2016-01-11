@@ -1,0 +1,58 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="text_size">14.0sp</dimen>
+    <dimen name="text_size_big">19.0sp</dimen>
+    <dimen name="text_size_medium">17.0sp</dimen>
+    <dimen name="text_size_more">16.0sp</dimen>
+    <dimen name="text_size_small">13.0sp</dimen>
+    <dimen name="text_size_small_medium">12.0sp</dimen>
+    <dimen name="text_size_smallest">11.0sp</dimen>
+
+    <dimen name="video_layout_default_size">200.0dip</dimen>
+    <dimen name="detail_brief_comment_layout_margin">7.0dip</dimen>
+    <dimen name="detail_comment_img_size">36.0dip</dimen>
+    <dimen name="detail_spac">30.0dip</dimen>
+
+    <dimen name="plugin_detail_play_pause_pandding">0.0dip</dimen>
+    <dimen name="plugin_full_valome_size">60.0dip</dimen>
+
+    <dimen name="cache_edit_btn_height">180.0dip</dimen>
+    <dimen name="cache_edit_btn_ml">15.0dip</dimen>
+    <dimen name="cache_edit_btn_width">49.0dip</dimen>
+    <dimen name="cache_item_imgae_height">72.0dip</dimen>
+    <dimen name="cache_item_imgae_width">128.0dip</dimen>
+    <dimen name="cache_edit_btn_mr">7.0dip</dimen>
+    <dimen name="cache_folder_item_progress_height">43.0dip</dimen>
+    <dimen name="cache_head_height">23.0dip</dimen>
+    <dimen name="cache_item_imgae_bg_height">36.0dip</dimen>
+    <dimen name="cache_item_imgae_bg_width">64.0dip</dimen>
+    <dimen name="cache_item_imgae_file_height">40.0dip</dimen>
+    <dimen name="cache_item_imgae_file_width">68.0dip</dimen>
+    <dimen name="cache_item_picture_file_margin_right">3.0dip</dimen>
+    <dimen name="cache_item_picture_part_margin_left">6.5dip</dimen>
+    <dimen name="cache_item_picture_part_margin_right">5.0dip</dimen>
+    <dimen name="cache_item_title_part">130.0dip</dimen>
+    <dimen name="cache_tab_icon_margin">3.0dip</dimen>
+    <dimen name="cache_tab_icon_margin_right">15.0dip</dimen>
+    <dimen name="cache_title_edit_icon">20.0dip</dimen>
+    <dimen name="cache_progress_height">32.0dip</dimen>
+    <dimen name="cached_delete_ll_height">50.0dip</dimen>
+    <dimen name="cached_progress_mbt">5.0dip</dimen>
+    <dimen name="cached_progress_mrl">2.5dip</dimen>
+    <dimen name="caching_all_edit_heigth">24.0dip</dimen>
+    <dimen name="caching_all_edit_mlr">2.5dip</dimen>
+    <dimen name="caching_all_edit_mtb">5.0dip</dimen>
+    <dimen name="caching_item_shadow_padding_right_bottom">2.5dip</dimen>
+    <dimen name="caching_item_size_speed_space">3.0dip</dimen>
+    <dimen name="caching_item_status_icon_margin_right">7.5dip</dimen>
+    <dimen name="caching_item_title_margin_bottom">3.0dip</dimen>
+    <dimen name="caching_item_title_margin_top">10.0dip</dimen>
+    <dimen name="page_padding">8.0dip</dimen>
+    <dimen name="caching_item_height">120.0dip</dimen>
+
+    <dimen name="indicator_height">30.0dip</dimen>
+
+</resources>

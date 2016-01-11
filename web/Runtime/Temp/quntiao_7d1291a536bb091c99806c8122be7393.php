@@ -1,0 +1,3 @@
+<?php
+//000000086400a:17:{s:2:"id";s:1:"8";s:8:"host_uid";s:1:"3";s:7:"game_id";s:5:"10005";s:11:"fight_coins";s:3:"322";s:10:"fight_type";s:1:"0";s:9:"guest_uid";s:1:"5";s:10:"start_time";s:10:"1405925460";s:11:"create_time";s:10:"1405925530";s:11:"update_time";s:10:"1405925530";s:11:"description";s:9:"来战吧";s:7:"contact";N;s:14:"result_screent";N;s:6:"status";s:1:"1";s:6:"winner";s:1:"0";s:12:"fight_status";s:1:"0";s:9:"game_area";s:12:"默认大区";s:11:"total_coins";N;}
+?>

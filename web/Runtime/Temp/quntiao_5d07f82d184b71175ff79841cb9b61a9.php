@@ -1,0 +1,3 @@
+<?php
+//000000086400a:22:{s:2:"id";s:2:"21";s:3:"uid";s:1:"1";s:5:"title";s:27:"电竞李伯清的直播间";s:13:"online_membes";s:1:"0";s:11:"description";s:27:"电竞李伯清的直播间";s:4:"rtmp";s:0:"";s:9:"rtmp_code";s:0:"";s:5:"cover";s:3:"298";s:11:"update_time";s:10:"1405403264";s:11:"online_time";s:1:"0";s:9:"next_time";s:1:"0";s:6:"status";s:1:"1";s:11:"play_status";s:1:"1";s:11:"create_time";s:10:"1405403264";s:4:"tags";s:22:"李伯清,英雄联盟";s:9:"from_site";s:1:"4";s:9:"flash_url";s:67:"http://staticlive.douyutv.com/common/share/play_tv.swf?room_id=6324";s:7:"game_id";s:5:"10005";s:11:"start_times";s:1:"0";s:14:"verify_content";s:0:"";s:13:"flash_content";N;s:7:"follows";s:1:"0";}
+?>

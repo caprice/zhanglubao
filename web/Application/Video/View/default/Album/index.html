@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<link href="__CSS__/list.css" rel="stylesheet" />
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+		<div class="row">
+			<div class="col-xs-9">
+
+				<div class="row">
+					<div class="col-xs-12  column-content">
+						<div class="game-category-area">
+							<ul>
+								<volist name="games" id="game">
+								<li <if condition="$game['id'] eq $gameid">
+									class="selected"</if>><a  
+									href="{:U('/album/list/'.$game['id'])}" title="{$game.title}">{$game.title}</a></li>
+								</li>
+								</volist>
+							</ul>
+						</div>
+
+
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12  column-content">
+						<div class="video-list">
+							<ul>
+
+								<volist name="_list" id="album">
+								<li>
+									<div class="video-thumb">
+										<a href="{:U('/album/'.$album['id'])}"> <img
+											src="__PUBLIC__/Core/images/placeholder.png"
+											lazy-src="{:query_picture('url',$album['cover'])}"
+											alt="{$album['title']}" width="216px" height="120px">
+										</a>
+
+									</div>
+									<div class="video-des"><a href="{:U('/album/'.$album['id'])}">{$album.title}</a></div>
+
+								</li>
+								</volist>
+
+
+							</ul>
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+
+					<div class="pull-right">
+						<div class="page">{$_page}</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+			
+			{:W('ListHotVideo/lists',array($gameid))}
+			
+			
+			</div>
+
+
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 343);
+					}).resize();
+		});
+	</script>
+	<!-- /主体 -->
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

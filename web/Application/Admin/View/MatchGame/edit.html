@@ -1,0 +1,169 @@
+<extend name="Public/base" />
+
+<block name="body">
+<div class="main-title">
+<h2>{:isset($matchgame['id'])?'编辑':'新增'}小组赛</h2>
+</div>
+<link href="/Public/Static/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link
+	href="/Public/Static/datetimepicker/css/bootstrap-datetimepicker.css"
+	rel="stylesheet" />
+<script type="text/javascript"
+	src="/Public/Static/datetimepicker/js/moment.js"></script>
+<script
+	src="/Public/Static/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript"
+	src="/Public/Static/bootstrap/js/bootstrap.min.js"></script>
+<script
+	src="/Public/Static/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<form action="{:U()}" method="post" class="form-horizontal">
+
+
+
+<div class="form-item"><label class="item-label">归属游戏<span
+	class="check-tips">（是什么游戏的小组赛）</span></label>
+<div class="controls"><select name="game_id">
+	<volist name="games" id="game">
+
+	<option value="{$game.id}"<eq name="matchgame['game_id']"
+		value="$game.id"> selected</eq>>{$game.title_show}</option>
+	</volist>
+</select></div>
+</div>
+<div class="form-item"><label class="item-label">小组赛标签<span
+	class="check-tips">（小组赛名称昵称）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="tags" value="{$matchgame.tags|default=''}"></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">蓝队<span
+	class="check-tips">（蓝队）</span></label>
+<div class="controls"><select name="blue_team">
+<option value="0">弃权</option>
+	<volist name="teams" id="team">
+	<option value="{$team.id}"<eq name="matchgame['blue_team']"
+		value="$team.id"> selected</eq>>{$team.name}</option>
+	</volist>
+</select></div>
+</div>
+
+<div class="form-item"><label class="item-label">红队<span
+	class="check-tips">（红队）</span></label>
+<div class="controls"><select name="red_team">
+	<option value="0">弃权</option>
+	<volist name="teams" id="team">
+	<option value="{$team.id}"<eq name="matchgame['red_team']"
+		value="$team.id"> selected</eq>>{$team.name}</option>
+	</volist>
+</select></div>
+</div>
+<div class="form-item"><label class="item-label">开始时间<span
+	class="check-tips">（大赛开始时间）</span></label>
+<div class="controls">
+
+
+
+<div class="form-item time-item">
+<div class='input-group date' id='datetimepicker'><input
+	data-date-format="MM/DD/YYYY hh:mm A/PM" type='text'
+	class="form-control" id="start_time" name="start_time"
+	value="{:date('m/d/Y H:i',$matchgame['start_time'])}"> <span
+	class="input-group-addon"><span
+	class="glyphicon glyphicon-calendar"></span> </span></div>
+</div>
+
+
+</div>
+</div>
+
+<div class="form-item"><label class="item-label">回合<span
+	class="check-tips">（第几轮）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="round" value="{$matchgame.round|default=''}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">游戏状态<span
+	class="check-tips">游戏状态</span></label>
+<div class="controls"><select name="game_status">
+
+	<option value="0">未开始</option>
+	<option value="1">正在进行</option>
+	<option value="2">已经结束</option>
+
+</select></div>
+</div>
+
+<div class="form-item"><label class="item-label">胜利队伍<span
+	class="check-tips">胜利队伍</span></label>
+<div class="controls"><select name="winner">
+	<option value="0">未结束</option>
+	<option value="0">平局</option>
+	<volist name="teams" id="team">
+	<option value="{$team.id}"<eq name="matchgame['winner']"
+		value="$team.id"> selected</eq>>{$team.name}</option>
+	</volist>
+</select></div>
+</div>
+
+<div class="form-item"><label class="item-label">蓝队结果<span
+	class="check-tips">蓝队结果</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="blue_result" value="{$matchgame.blue_result|default='0'}"></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">红队结果<span
+	class="check-tips">红队结果</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="red_result" value="{$matchgame.red_result|default='0'}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">分组<span
+	class="check-tips">（分组）</span></label>
+<div class="controls"><select name="match_group">
+
+	<for start="65" end="91" name="group">
+	<option value="{:chr($group)}"<eq
+		name="matchgame['match_group']" value="$group"> selected</eq>>{:chr($group)}</option>
+	</for>
+
+
+</select></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">直播房间<span
+	class="check-tips">（直播房间）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="live_id" value="{$matchgame.live_id|default=''}"></div>
+</div>
+
+
+<div class="form-item"><input type="hidden" name="id"
+	value="{$matchgame.id|default=''}"> <if condition="$matchgame">
+<input type="hidden" name="match_id"
+	value="{$matchgame.match_id|default=''}"> <else /> <input
+	type="hidden" name="match_id" value="{$match_id}"> </if>
+<button class="btn submit-btn ajax-post" id="submit" type="submit"
+	target-form="form-horizontal">确 定</button>
+<button class="btn btn-return"
+	onclick="javascript:history.back(-1);return false;">返 回</button>
+</div>
+</form>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script>
+
+<script type="text/javascript">
+    $("#datetimepicker").datetimepicker({
+    	 pickDate: true,
+        defaultDate: "01/01/2014",
+        minDate:'01/01/2014',
+    });
+</script>
+</block>

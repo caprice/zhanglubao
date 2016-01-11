@@ -1,0 +1,74 @@
+<extend name="Public/base" />
+
+<block name="body">
+<div class="main-title">
+<h2>{:query_team('name',$team_id)}新增战队</h2>
+</div>
+<form action="{:U()}" method="post" class="form-horizontal"  enctype="multipart/form-data">
+<div class="form-item"><label class="item-label">用户名<span
+	class="check-tips">（用户名会作为默认的昵称）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="username" value=""></div>
+</div>
+<div class="form-item"><label class="item-label">真名<span
+	class="check-tips">（真名）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="real_name" value=""></div>
+</div>
+
+<div class="form-item"><label class="item-label">游戏名字<span
+	class="check-tips">（游戏名字）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="game_uname" value=""></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">队员角色<span
+	class="check-tips">（1 队长 2正式成员 3 已经离队）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="role" value="1"></div>
+</div>
+
+<div class="form-item"><label class="item-label">用户头像</label> <input
+	type="file" id="upload_picture" name="avatar"></div>
+
+
+
+<div class="form-item"><label class="item-label">游戏位置<span
+	class="check-tips">（游戏位置）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="place" value=""></div>
+</div>
+
+<div class="form-item"><label class="item-label">擅长英雄<span
+	class="check-tips">（擅长英雄）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="hero" value=""></div>
+</div>
+ 
+<div class="form-item"><label class="item-label">邮箱<span
+	class="check-tips">（用户邮箱，用于找回密码等安全操作）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="email" value=""></div>
+</div>
+<div class="form-item"><input type="hidden" value="{$team_id}"
+	name="team_id" /> <input type="hidden"
+	value="{:query_team('name',$team_id)}" name="team_name" />
+	<input type="hidden" value="1"
+	name="verify" /> 
+	
+	
+<button class="btn submit-btn" id="submit" type="submit"
+	target-form="form-horizontal">确 定</button>
+<button class="btn btn-return"
+	onclick="javascript:history.back(-1);return false;">返 回</button>
+</div>
+</form>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script>
+</block>

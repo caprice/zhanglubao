@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="3.0dip"
+            android:layout_height="16.0dip"
+            android:layout_marginTop="18.0dip"
+            android:background="#ffff6600" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="55.0dip"
+            android:layout_marginLeft="16.0dip"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxWidth="165.0dip"
+            android:singleLine="true"
+            android:text="推荐"
+            android:textColor="#ff1f1f1f"
+            android:textSize="18.0sp" />
+
+    </LinearLayout>
+
+    <com.zhanglubao.lol.view.video.NoScrollGridView
+        android:id="@+id/detail_video_relates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000"
+        android:horizontalSpacing="10.0dip"
+        android:listSelector="#00000000"
+        android:numColumns="2"
+        android:scrollbars="none"
+        android:verticalSpacing="10.0dip" />
+
+
+</LinearLayout>

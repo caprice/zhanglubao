@@ -1,0 +1,24 @@
+<div class="video-list">
+	<ul>
+		<volist name="hots" id="hot">
+		<li>
+			<div class="video-thumb">
+				<a href="{:U('/video/'.$hot['id'])}"> <img
+					src="__PUBLIC__/Core/images/placeholder.png"
+					lazy-src="{:query_picture('url',$hot['cover'])}"
+					alt="{$hot['title']}" width="216px" height="120px">
+				</a>
+				<div class="video-name">
+					<span>{$hot['title']}</span>
+				</div>
+			</div>
+			<div class="video-des">
+				<span class="pull-left"> <span
+					class="glyphicon glyphicon-user "></span> <span
+					class="game-des-online">{$hot['views']}人</span></span> <span
+					class="pull-right "> {:get_game($hot['game_id'],'title')} </span>
+			</div>
+		</li>
+		</volist>
+	</ul>
+</div>

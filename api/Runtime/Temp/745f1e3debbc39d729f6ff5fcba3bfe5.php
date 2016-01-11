@@ -1,0 +1,3 @@
+<?php
+//000000086400a:13:{s:3:"uid";s:3:"299";s:8:"username";s:8:"modadisi";s:8:"nickname";s:12:"魔哒蒂斯";s:8:"group_id";s:1:"3";s:10:"country_id";s:1:"1";s:9:"avatar_id";s:3:"352";s:14:"user_signature";s:21:"快来看游戏视频";s:11:"user_verify";s:1:"1";s:14:"verify_content";s:0:"";s:14:"avatar_big_url";s:60:"http://img.quntiao.net/avatar/2015/0304/09/54f66008034fe.jpg";s:14:"avatar_mid_url";s:72:"http://img.quntiao.net/avatar/2015/0304/09/54f66008034fe.jpg@60w_60h.jpg";s:10:"group_name";s:12:"游戏解说";s:12:"country_name";s:6:"中国";}
+?>

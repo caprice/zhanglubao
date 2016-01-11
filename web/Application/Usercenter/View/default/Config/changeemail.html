@@ -1,0 +1,28 @@
+<php>
+    $user = query_user(array('email'));
+</php>
+
+<div class="row">
+    <div class="col-xs-12">
+        <p>&nbsp;</p>
+        <h4>修改邮箱</h4>
+        <hr class="oneuser-title-hr"/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3">
+        <p class="pull-right">输入新邮箱：</p>
+    </div>
+    <div class="col-xs-6">
+        <form action="{:U('UserCenter/Index/doChangeEmail')}" method="post" class="ajax-form">
+            <p>
+                <input type="text" name="email" class="form-control" placeholder="输入邮箱" value="{$user.email}"/>
+            </p>
+
+            <p>
+                <input type="submit" class="btn btn-primary" value="提交"/>
+            </p>
+        </form>
+    </div>
+</div>

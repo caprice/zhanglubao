@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="#ffe6e6e6">
+
+    <RelativeLayout
+        android:id="@+id/title_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fffcfcfc">
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip"
+            android:background="#fffcfcfc">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <RelativeLayout
+                    android:id="@+id/back_img"
+                    android:layout_width="48.0dip"
+                    android:layout_height="48.0dip">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/title_back_icon" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="1.0dip"
+                    android:layout_height="16.0dip"
+                    android:layout_gravity="center_vertical"
+                    android:background="#ffe2e2e2" />
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15.0dip"
+                    android:text="@string/setting_title"
+                    android:textColor="#ff838384"
+                    android:textSize="17.0sp" />
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/cut"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_below="@+id/title_view"
+        android:background="#ffd9d9d9" />
+
+
+</RelativeLayout>

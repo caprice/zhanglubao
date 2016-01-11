@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="91.0dip"
+    android:background="@android:color/white"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="220.0dip"
+        android:layout_height="91.0dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/user_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/detail_video_avatar_image"
+                android:layout_width="48.0dip"
+                android:layout_height="48.0dip"
+               />
+
+
+            <TextView
+                android:id="@+id/detail_video_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:layout_marginLeft="8.0dip"
+                android:maxWidth="140.0dip"
+                android:singleLine="true"
+                android:textColor="#ff1f1f1f"
+                android:textSize="18.0dip" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/detail_video_cache"
+        android:layout_width="46.0dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="right|center"
+        android:layout_marginRight="75.0dip"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="26.0dip"
+            android:layout_height="26.0dip"
+            android:background="@drawable/detail_bottom_brief_bar_cache_normal"
+            android:clickable="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.0dip"
+            android:text="缓存"
+            android:textColor="#ff4d4d4d"
+            android:textSize="14.0dip" />
+    </LinearLayout>
+
+
+    <com.zhanglubao.lol.view.video.SubscribeView
+        android:id="@+id/subscribe"
+        android:layout_width="46.0dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="right|center"
+        android:layout_marginRight="14.0dip"
+        android:gravity="center_horizontal"/>
+
+
+
+
+</RelativeLayout>

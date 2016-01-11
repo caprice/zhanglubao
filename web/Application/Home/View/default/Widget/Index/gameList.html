@@ -1,0 +1,22 @@
+<div class="game-list">
+	<ul>
+		<volist name="games" id="game">
+		<li>
+			<div>
+				<a href="{:U('/game/'.$game['name'])}"> <img
+					src="__PUBLIC__/Core/images/placeholder.png"
+					lazy-src="{:query_picture('url',$game['cover'])}"
+					alt="{$game['title']}" width="170" height="220">
+				</a>
+			</div>
+			<div class="game-des">
+				<span class="pull-left">{$game['title']}</span> <span
+					class="pull-right"> <span
+					class="glyphicon glyphicon-user clo"></span> <span
+					class="game-des-online">{$game['online_member']}人</span>
+				</span>
+			</div>
+		</li>
+		</volist>
+	</ul>
+</div>

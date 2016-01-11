@@ -1,0 +1,30 @@
+<if condition="$uid == is_login()">
+    <script type="text/javascript" src="__JS__/expandinfo-form.js"></script>
+    <form action="{:U('Config/edit_expandinfo')}" method="post" class="ajax-form">
+        <input type="hidden" name="profile_group_id" value="{$profile_group_id}">
+        <div>
+            <volist name="info_list" id="vl">
+                <dl>
+                    {:W('InputRender/inputRender',array($vl,'personal'))}
+                </dl>
+            </volist>
+        </div>
+        <if condition="$info_list neq null">
+            <input type="submit" value="保存" id="submit_btn"
+                   class="btn btn-primary expandinfo-sumbit">
+            <else/>
+            <span class="expandinfo-noticeinfo">该扩展信息分组没有信息！</span>
+        </if>
+    </form>
+    <else/>
+    <div>
+        <volist name="info_list" id="vll">
+            <dl>
+                {:W('InputRender/inputRender',array($vll,'other'))}
+            </dl>
+        </volist>
+        <if condition="$info_list eq null">
+            <span class="expandinfo-noticeinfo">该扩展信息分组没有信息！</span>
+        </if>
+    </div>
+</if>

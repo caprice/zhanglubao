@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LOL掌撸宝</string>
+    <string name="edit">编辑</string>
+    <string name="finish">完成</string>
+    <string name="all_select">全选</string>
+    <string name="all_unselect">全不选</string>
+    <string name="net_work_error">请打开网络</string>
+    <string name="main_page_return_exit">再按一次退出程序</string>
+
+    <string name="sub_layout_loading_text">加载中...</string>
+    <string name="sub_layout_network_error">当前网络不可用，请检查您的网络设置</string>
+
+    <string name="tab_item_home">首页</string>
+    <string name="tab_item_top">热门</string>
+    <string name="tab_item_category">分类</string>
+    <string name="tab_item_search">搜索</string>
+    <string name="tab_item_profile">我的</string>
+    <string name="sub_loading_text">加载中...</string>
+
+    <string name="content_home_index_hot">热门视频</string>
+    <string name="content_home_index_hot_more">不够猛？猛戳这</string>
+    <string name="content_home_index_comm">解说视频</string>
+    <string name="content_home_index_comm_user">热门解说</string>
+    <string name="content_home_index_comm_user_more">不在榜？深入找</string>
+    <string name="content_home_index_comm_more">上Miss？点这儿</string>
+    <string name="content_home_index_master">高手视频</string>
+    <string name="content_home_index_master_more">高手教学？秀起来</string>
+    <string name="content_home_index_master_user">热门高手</string>
+    <string name="content_home_index_master_user_more">高手在哪？给地图</string>
+
+    <string name="content_home_index_album">专栏视频</string>
+    <string name="content_home_index_album_more">没有国服第一？进来看</string>
+    <string name="content_home_index_album_album">最新专栏</string>
+    <string name="content_home_index_album_album_more">没有搞笑集锦？戳进来</string>
+
+    <string name="content_home_index_match">比赛视频</string>
+    <string name="content_home_index_match_more">LPL在哪里？在这里哟</string>
+    <string name="content_home_index_match_user">最近联赛</string>
+    <string name="content_home_index_match_user_more">所有比赛？一起看</string>
+
+    <string name="content_home_index_other">相关视频</string>
+    <string name="content_home_index_other_more">官方消息！游戏妹子！</string>
+
+    <string name="content_home_index_more">更多视频</string>
+    <string name="content_home_index_more_more">躁动的心？撸起来</string>
+
+
+    <string name="content_category_index_hero">最新英雄</string>
+    <string name="content_category_index_hero_more">不热门？客官进来看</string>
+
+    <string name="content_category_index_comm_user">热门解说</string>
+    <string name="content_category_index_comm_user_more">不在榜？深入找</string>
+
+    <string name="content_category_index_album_album">最新专栏</string>
+    <string name="content_category_index_album_album_more">没有搞笑集锦？戳进来</string>
+
+    <string name="content_category_index_master_user">热门高手</string>
+    <string name="content_category_index_master_user_more">高手在哪？给地图</string>
+
+
+    <string name="content_category_index_match_user">最近联赛</string>
+    <string name="content_category_index_match_user_more">所有比赛？一起看</string>
+
+    <string name="content_category_index_pro_user">职业选手</string>
+    <string name="content_category_index_pro_user_more">所有选手？大全</string>
+
+    <string name="content_category_index_team_user">职业战队</string>
+    <string name="content_category_index_team_user_more">所有战队？全部都有</string>
+
+    <string name="search_text_hint">请输入关键字</string>
+
+    <string name="content_search_index_hot">大家都在看</string>
+    <string name="content_search_index_hot_more">不热门？戳这</string>
+
+
+    <string name="content_search_index_hot_user">热搜人物</string>
+    <string name="content_search_index_hot_user_more">看高手？这里有</string>
+
+    <string name="profile_not_login">点击登录</string>
+    <string name="profile_not_login_tips">1秒登录，和朋友一起玩</string>
+    <string name="profile_download">离线观看</string>
+    <string name="profile_subscribe">订阅</string>
+    <string name="profile_collect">收藏</string>
+    <string name="profile_feedback">帮助反馈</string>
+    <string name="profile_setting">设置</string>
+    <string name="login_logining">小挑努力登陆中</string>
+
+    <string name="video_page_comment_count">%d个</string>
+    <string name="video_page_subscribe">订阅</string>
+    <string name="video_page_subscribe_already">已订阅</string>
+
+    <string name="new_detail_comment_Text_send">发送</string>
+    <string name="new_detail_comment_Text_hint">评论</string>
+    <string name="video_detail_comment_none">请输出评论</string>
+    <string name="video_detail_comment_over">评论过长</string>
+
+    <!-- fav-->
+    <string name="fav_success">收藏成功</string>
+    <string name="fav_fail">收藏失败</string>
+
+    <string name="unfav_success">取消收藏成功</string>
+    <string name="unfav_fail">取消收藏失败</string>
+
+
+
+    <!-- 下载页 v3.0—————————————————————————————————————————————————————————————— -->
+
+    <string name="detail_album">专辑</string>
+    <string name="detail_video">视频</string>
+
+    <string name="tips_no_network">当前无网络连接</string>
+    <string name="download_add_more">添加下载更多剧集</string>
+    <string name="download_exist_not_finished">该视频已在您的下载列表中</string>
+    <string name="download_exist_finished">该视频已下载完成</string>
+    <string name="download_add_success">添加下载成功</string>
+    <string name="download_no_sdcard">木有发现存储设备，请插入SD卡试试</string>
+    <string name="download_no_space">空间不足，请删除些内容再下载</string>
+    <string name="download_timeout">网络不给力，正在下载的视频已暂停。</string>
+    <string name="download_no_network">网络已断开，正在下载的视频将在网络连接恢复后续传。</string>
+    <string name="download_unknown_error">该视频暂不支持下载</string>
+    <string name="download_write_fail">储存本地视频信息失败</string>
+    <string name="download_many_fail">S个正下载，F个暂无下载版权</string>
+    <string name="download_many_fail_timeout">S个正下载，F个因断网添加失败</string>
+    <string name="download_many_fail_no_space">S个正下载，空间不足F个未下载，请删些内容</string>
+    <string name="download_many_fail_unknown_error">S个正下载，F个不明原因失败</string>
+    <string name="download_cannot_ues_3g">已设置为2G/3G/4G下不允许下载视频</string>
+    <string name="player_tips_use_3g">当前使用2G/3G/4G网络</string>
+    <string name="player_tips_not_responding">网络不给力，请稍后再试。</string>
+
+
+    <string name="wait">等待</string>
+    <string name="pause">暂停</string>
+    <string name="download">下载</string>
+    <string name="tips_no_cache">还未缓存任何视频</string>
+
+    <!-- 收藏-->
+    <string name="fav_title">我的收藏</string>
+
+    <!--设置-->
+    <string name="setting_title">设置</string>
+
+    <!--搜索-->
+    <string name="search_btn">搜索</string>
+    <string name="search_cancel">取消</string>
+
+    <string name="copyright">Copyright © 2015 Zhanglubao.com All Rights Reserved</string>
+</resources>

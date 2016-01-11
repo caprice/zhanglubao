@@ -1,0 +1,147 @@
+/***match view**/
+.match-area {
+	margin-bottom: 8px;
+	display: block;
+	height: 120px;
+}
+
+.match-cover {
+	float: left;
+}
+
+.match-info {
+	float: left;
+	padding-left: 8px;
+}
+
+.match-info h3 {
+	color: #48b87a;
+}
+
+.match-info-time {
+	line-height: 32px;
+	color: #666;
+}
+
+.match-info-description {
+	width: 630px;
+	line-height: 18px;
+	color: #666;
+}
+
+.match-item-list {
+	margin-left: -2%;
+}
+
+.match-item-list li {
+	margin-left: 2%;
+}
+
+.match-game-item {
+	width: 18%;
+	float: left;
+	margin-bottom: 1%;
+	text-align: center;
+}
+
+.game-list {
+	margin-top: 8px;
+}
+
+.match-game-item {
+	float: left;
+}
+
+.result-item {
+	float: left;
+	text-align: center;
+	width: 17.6px;
+	display: block;
+	height: 30px;
+	line-height: 30px;
+}
+
+.match-game-item .hd {
+	height: 24px;
+	line-height: 24px;
+	background-color: #4BB86D;
+	color: #FFF;
+}
+
+.match-game-item .bd {
+	height: 64px;
+	background-color: #FFF;
+	overflow: hidden;
+}
+
+.match-game-item .status {
+	background-color: #3ea16a;
+	position: relative;
+	width: 60px;
+	height: 24px;
+	text-align: center;
+	color: #E5FFED;
+	font-size: 12px;
+	float: left;
+}
+
+.match-game-item .time {
+	background-color: #48b87a;
+	position: relative;
+	text-align: center;
+	height: 24px;
+	color: #E5FFED;
+	font-size: 12px;
+	float: left;
+}
+.match-game-item .team-icon
+{
+	display:block;
+	height:38px;
+	padding-top:4px;
+	line-height:30px;
+	
+}
+
+
+.match-game-item .team-name {
+	height: 26px;
+	line-height: 26px;
+	background-color: #EDEDED;
+	text-align:center;
+	color: #057142;
+}
+.match-game-item .team-name div
+{
+	display:block;
+	height:26px;
+}
+
+
+.side-matchvideo-list li {
+	margin-bottom: 10px;
+	height:80px;
+	width:100%;
+}
+
+.side-matchvideo-list .v-thumb {
+	float: left;
+	width: 145px;
+	height: 80px;
+}
+
+.side-matchvideo-list .v-meta {
+	float: right;
+	padding-left: 10px;
+	padding-right: 5px;
+	overflow: hidden;
+	zoom: 1;
+	width:131px;
+}
+
+.side-matchvideo-list .v-meta  .v-meta-title {
+	height: auto;
+	margin: 0;
+}
+
+.

@@ -1,0 +1,11 @@
+<div class="game-list">
+
+	<ul>
+
+		<volist name="games" id="game">
+		<li><a href="{:U('/game/'.$game['id'])}">{$game.title}</a></li>
+		</volist>
+		<li><a href="{:U('/live/list')}">所有游戏</a></li>
+	</ul>
+
+</div>

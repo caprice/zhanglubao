@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">#00000000</color>
+    <color name="all_bg_color">#ffffffff</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="mask">#9a000000</color>
+    <color name="orange">#ffff5a00</color>
+    <color name="grey">#ff909090</color>
+    <color name="progress_green">#ffa1e748</color>
+    <color name="bottom_grey">#ff545e69</color>
+    <color name="seperate_line">#ffdbdbdb</color>
+    <color name="background">#fff0f2f5</color>
+
+    <color name="nav_background">#ffFF6300</color>
+
+    <color name="light_gray">#ff747b83</color>
+    <color name="light_light_gray">#ffb9bdc3</color>
+
+    <color name="trans_25">#40000000</color>
+    <color name="trans_30">#4d000000</color>
+    <color name="trans_40">#66000000</color>
+    <color name="trans_50">#80000000</color>
+    <color name="trans_60">#99000000</color>
+    <color name="trans_70">#b2000000</color>
+    <color name="trans_80">#cc000000</color>
+    <color name="zhanglubao_text_dark_grey">#ff555555</color>
+    <color name="zhanglubao_text_grey">#ffbfbfbf</color>
+    <color name="zhanglubao_text_light_grey">#ff8b8b8b</color>
+
+
+
+    <color name="seperateline">#ffdbdbdb</color>
+    <color name="title_orange">#ffff5a00</color>
+    <color name="title_white">#ffffffff</color>
+    <color name="tab_top_line_bg">#ffd9d9d9</color>
+    <color name="conent_title_left_bg">#ffF38400</color>
+    <color name="sub_layout_loading_text_color">#ffcccccc</color>
+    <color name="sub_layout_net_error_text_color">#ffcccccc</color>
+
+    <color name="video_cover_selected">#77555555</color>
+    <color name="video_page_bg">#fff3f3f3</color>
+    <color name="mediacontroller_bg_pressed">#ff53c1bd</color>
+
+    <color name="profile_page_bg">#fff3f3f3</color>
+    <color name="profile_not_login_tips">#ff888888</color>
+    <color name="sweet_dialog_bg_color">#ffffffff</color>
+
+    <color name="lf_background_black_f0f0f0">#fff0f0f0</color>
+    
+    <color name="cache_page_title_unselect">#ffdddddd</color>
+    <color name="cache_page_title_selected">#ffffffff</color>
+    <color name="listview_item_selected">#fff4f4f4</color>
+    <color name="round_progress_border_color">#ffffffff</color>
+    <color name="round_progress_fill_color">#ffffffff</color>
+</resources>

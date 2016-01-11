@@ -1,0 +1,37 @@
+ <div class="container-span top-columns cf">
+	<dl class="show-num-mod">
+		<dt><i class="count-icon user-count-icon"></i></dt>
+		<a target="_blank" href="{:U('User/index')}" title="正常状态用户数/用户总个数"><dd>
+			<strong>{$info.user}/{$info.userall}</strong>
+			<span>用户个数</span>
+		</dd></a>
+	</dl>
+	<dl class="show-num-mod">
+		<dt><i class="count-icon user-action-icon"></i></dt>
+				<a target="_blank" href="{:U('Action/actionlog')}" title="用户行为"><dd>
+			<strong>{$info.action}</strong>
+			<span>用户行为</span>
+		</dd></a>
+	</dl>
+	<dl class="show-num-mod">
+		<dt><i class="count-icon doc-count-icon"></i></dt>
+				<a target="_blank" href="{:U('Forum/post')}" title="正常状态帖子数/帖子总条数"><dd>
+			<strong>{$info.forumtie}/{$info.forumall}</strong>
+			<span>帖子条数</span>
+		</dd></a>
+	</dl>
+	<dl class="show-num-mod">
+		<dt><i class="count-icon doc-modal-icon"></i></dt>
+				<a target="_blank" href="{:U('Weibo/weibo')}" title="正常状态微博数/微博总条数"><dd>
+			<strong>{$info.weibo}/{$info.weiboall}</strong>
+			<span>微博条数</span>
+		</dd></a>
+	</dl>
+	<dl class="show-num-mod">
+		<dt><i class="count-icon category-count-icon"></i></dt>
+				<a target="_blank" href="{:U('Category/index')}" title="未读消息数/消息总数"><dd>
+			<strong>{$info.message}/{$info.messageall}</strong>
+			<span>站内消息</span>
+		</dd></a>
+	</dl>
+</div>

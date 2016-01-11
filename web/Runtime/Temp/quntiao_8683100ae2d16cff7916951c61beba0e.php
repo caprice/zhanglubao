@@ -1,0 +1,3 @@
+<?php
+//000000086400a:22:{s:2:"id";s:5:"10005";s:4:"name";s:3:"lol";s:5:"title";s:12:"英雄联盟";s:3:"pid";s:1:"1";s:4:"sort";s:1:"1";s:10:"meta_title";s:83:"lol_英雄联盟_比赛_直播_职业联赛_解说_视频_小智解说_小漠解说";s:8:"keywords";s:84:"lol视频,英雄联盟视频,lol比赛,lol直播,lol职业联赛,lol约战,lol战队";s:11:"description";s:123:"群挑网为你提供lol视频,英雄联盟视频,lol直播,lol职业联赛,lol解说视频,lol英雄视频,lol教学视频";s:4:"type";s:0:"";s:7:"link_id";s:1:"0";s:13:"allow_publish";s:1:"1";s:7:"display";s:1:"1";s:5:"reply";s:1:"1";s:5:"check";s:1:"0";s:11:"reply_model";s:0:"";s:6:"extend";s:0:"";s:11:"create_time";s:10:"1401173660";s:11:"update_time";s:10:"1405593544";s:6:"status";s:1:"1";s:5:"cover";s:2:"36";s:13:"online_member";i:2609;s:10:"fight_area";s:0:"";}
+?>

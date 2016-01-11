@@ -1,0 +1,26 @@
+<div class="col-xs-8   main-carousel-wrapper">
+	<div id="focus">
+		<ul>
+			<volist name="scrolls" id="scroll" key='scroll_k'>
+			<li><a herf="{$scroll['url']}"><img
+					style="width: 610px; height: 232px"
+					src="__PUBLIC__/Core/images/placeholder.png"
+					lazy-src="{:query_picture('url',$scroll['cover'])}"
+					alt="{$scroll['title']}"></a></li>
+			</volist>
+		</ul>
+	</div>
+</div>
+<div class="col-xs-4 index-ad-right-box">
+	<ul>
+		<volist name="recads" id="recad" key='k'>
+
+		<li><a href="{$recad['url']}"><img
+				style="height: 114px; width: 292px;"
+				src="__PUBLIC__/Core/images/placeholder.png"
+				lazy-src="{:query_picture('url',$recad['cover'])}"
+				alt="{$recad['title']}"></a></li>
+		</volist>
+	</ul>
+</div>
+ 

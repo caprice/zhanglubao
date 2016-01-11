@@ -1,0 +1,18 @@
+<php>
+    $avatarUser = query_user(array('username','title','avatar128'));
+</php>
+
+<div class="col-xs-3">
+    <p>&nbsp;</p>
+    <div class="row">
+        <div class="col-xs-4">
+            <p>
+                <img src="{$avatarUser.avatar128}" style="border: 1px solid #ccc; padding: 1px;">
+            </p>
+        </div>
+        <div class="col-xs-8">
+            <h4>{$user.username|htmlspecialchars}</h4>
+            <p>等级：{$user.title}</p>
+        </div>
+    </div>
+</div>

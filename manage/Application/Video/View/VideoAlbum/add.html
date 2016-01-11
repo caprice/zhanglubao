@@ -1,0 +1,252 @@
+<extend name="Public/base" />
+<block name="style">
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/compiled/wizard.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/libs/dropzone.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/lib/selectize/css/selectize.default.css">
+
+</block>
+
+<block name="body">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix" style="min-height: 1180px;">
+			<header class="main-box-header clearfix">
+				<h2>添加专辑</h2>
+			</header>
+			<div class="main-box-body clearfix">
+				<div id="addVideoWizard" class="wizard">
+					<div class="wizard-inner">
+						<ul class="steps">
+							<li data-target="#step1" class="active"><span
+								class="badge badge-primary">1</span>添加资料<span class="chevron"></span></li>
+							<li data-target="#step2"><span class="badge">2</span>上传封面<span
+								class="chevron"></span></li>
+						</ul>
+						<div class="actions">
+							<button type="button" class="btn btn-default btn-mini btn-prev">
+								<i class="icon-arrow-left"></i>上一步
+							</button>
+							<button type="button"
+								class="btn btn-success btn-mini btn-next ajax-post"
+								target-form="form-horizontal" data-last="完成">下一步</button>
+
+
+						</div>
+					</div>
+					<div class="step-content">
+						<div class="step-pane active" id="step1">
+
+							<h4></h4>
+							<form class="form-horizontal" action="{:U()}" method="post">
+
+								<input name="picture_id" id="album_picture_hidden" type="hidden"
+									value="{$album.picture_id}" />
+
+								<div class="form-group">
+									<label for="albumName" class="col-lg-1 control-label">专辑名称</label>
+									<div class="col-lg-11">
+										<input type="text" class="form-control" id="albumName"
+											name="album_name" placeholder="专辑名称">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="albumName" class="col-lg-1 control-label">专辑权重</label>
+									<div class="col-lg-11">
+										<input type="number" class="form-control" id="album_weight"
+											name="album_weight" placeholder="专辑权重">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="albumTags" class="col-lg-1 control-label">视频标签</label>
+									<div class="col-lg-11">
+										<input type="text" id="albumTags" name="album_tags"
+											placeholder="视频标签">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="albumUsers" class="col-lg-1 control-label">所属玩家</label>
+									<div class="col-lg-11">
+										<input type="text" id="albumUsers" name="uid"
+											placeholder="玩家 | 如不修改请不要填写">
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<label for="albumIntro" class="col-lg-1 control-label">专辑介绍</label>
+									<div class="col-lg-11">
+										<textarea class="form-control" name="album_intro"
+											id="albumIntro" rows="4">{$album.album_intro}</textarea>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="step-pane" id="step2">
+
+							<h4 style="text-align: center;">
+								上传封面200*112 <span id="upload_tips"></span>
+							</h4>
+							<div class="form-group">
+								<input type="file" name="picture" id="album_picture_file"
+									style="display: none;">
+
+								<div id="dropzone">
+									<div id="picture-upload" class="dropzone dz-clickable">
+										<div id="album_picture_tip" class="dz-default dz-message">
+
+										</div>
+										<img id="album_picture_img" width="160" height="225"
+											class="albumpic-center"
+											src="{$album.picture_id|get_album_picture='url'}"
+											style="display: none;">
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</block>
+
+<block name="script"> <script src="__STATIC__/js/wizard.js"></script>
+<script type="text/javascript" src="__STATIC__/js/jquery.fileupload.js"></script>
+
+<script src="__STATIC__/js/hogan.js"></script> <script
+	src="__STATIC__/lib/selectize/js/standalone/selectize.js">
+	
+</script> <script src="__STATIC__/js/jquery.pwstrength.js"></script> <script
+	type="text/javascript">
+		$('#albumTags').selectize(
+				{
+					plugins : [ 'remove_button' ],
+					persist : false,
+					create : true,
+					render : {
+						item : function(data, escape) {
+							return '<div>"' + escape(data.text) + '"</div>';
+						}
+					},
+					onDelete : function(values) {
+						return confirm(values.length > 1 ? '你确定要删除 '
+								+ values.length + ' 标签么?' : '你确定要删除 "'
+								+ values[0] + '"?');
+					}
+				});
+
+		$('#albumUsers')
+				.selectize(
+						{
+							plugins : [ 'remove_button' ],
+							valueField : 'uid',
+							labelField : 'nickname',
+							searchField : 'nickname',
+							maxItems : 1,
+							options : [],
+							create : false,
+							render : {
+								item : function(data, escape) {
+									return '<div>"' + escape(data.nickname)
+											+ '"</div>';
+								}
+							},
+							onDelete : function(values) {
+								return confirm(values.length > 1 ? '你确定要删除 '
+										+ values.length + ' 标签么?' : '你确定要删除 "'
+										+ values[0] + '"?');
+							},
+							load : function(query, callback) {
+								if (!query.length)
+									return callback();
+								$.ajax({
+									url : '{:U("Video/User/ajax")}',
+									type : 'GET',
+									data : {
+										nickname : query,
+									},
+									error : function() {
+										callback();
+									},
+									success : function(res) {
+										callback(res.users);
+									}
+								});
+							}
+						});
+
+		//选择图片文件之后立即上传表单
+		$('#album_picture_file').change(function() {
+			$('#upload_tips').html('-上传中...');
+			$("#album_picture_img").show();
+			$("#album_picture_tip").hide();
+		});
+
+		$("#album_picture_file").fileupload(
+				{
+					url : "{:U('Video/File/uploadVideoAlbumPicture')}",
+					done : function(e, result) {
+						var json = result.result;
+						if (json.status) {
+							$('#upload_tips').html('-上传成功');
+							$("#album_picture_img").attr("src", json.url);
+							$('#album_picture_hidden').val(json.id);
+
+						} else {
+							$('#upload_tips').html('-上传失败');
+							$('#upload_tips').html('');
+							$('#album_picture_hidden').val('0');
+							$("#album_picture_img").hide();
+							$("#album_picture_img").attr("src",
+									'__STATIC__/images/uploadingv.png');
+							$("#album_picture_tip").show();
+							$('#album_picture_file').val('');
+						}
+					}
+				});
+
+		$(function() {
+			$('#addVideoWizard').wizard();
+		});
+
+		$("#album_picture_tip").click(function() {
+			$("#album_picture_file").click();
+		});
+
+		$("#album_picture_img").click(
+				function() {
+					$('#upload_tips').html('');
+					$('#album_picture_hidden').val('0');
+					$("#album_picture_img").hide();
+					$("#album_picture_img").attr("src",
+							'__STATIC__/images/uploadingv.png');
+					$("#album_picture_tip").show();
+				});
+		function format(item) {
+			return item.nickname;
+		}
+
+		var picture_id = "{$album['picture_id']}";
+		$(function() {
+
+			if (picture_id > 0) {
+				$("#album_picture_img").show();
+				$("#album_picture_tip").hide();
+			}
+
+		});
+	</script> </block>

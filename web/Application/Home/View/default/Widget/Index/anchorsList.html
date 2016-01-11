@@ -1,0 +1,15 @@
+<div class="anchors">
+	<ul>
+		<volist name="anchors" id="anchor">
+		<li><php> $user =
+			query_user(array('avatar','username'),$anchor['uid']); </php>
+
+			<div class="anchors-thumb">
+				<a href="{:U('/live/'.$anchor['id'])}"><img
+					src="__PUBLIC__/Core/images/placeholder.png"
+					lazy-src="{$user.avatar}" height="84" width="84" /> </a>
+			</div>
+			<div class="anchors-des">{$user.username}</div></li>
+		</volist>
+	</ul>
+</div>

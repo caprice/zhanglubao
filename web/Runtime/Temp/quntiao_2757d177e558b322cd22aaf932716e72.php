@@ -1,0 +1,3 @@
+<?php
+//000000086400a:13:{s:2:"id";s:1:"7";s:5:"title";s:15:"国际邀请赛";s:4:"tags";s:21:"DOTA2,国际邀请赛";s:5:"cover";s:3:"188";s:7:"team_id";s:1:"1";s:7:"game_id";s:5:"10006";s:6:"status";s:1:"1";s:11:"description";s:20:"DOTA2国际邀请赛";s:11:"create_time";s:10:"1402981899";s:11:"update_time";s:10:"1402981899";s:7:"live_id";s:1:"6";s:11:"match_count";s:1:"1";s:11:"format_tags";a:2:{i:0;s:5:"DOTA2";i:1;s:15:"国际邀请赛";}}
+?>

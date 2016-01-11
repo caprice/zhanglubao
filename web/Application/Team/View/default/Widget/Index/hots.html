@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="col-xs-12  column-content">
+		<div class="column-content-title">
+			<i class="title-tip-box"></i> <span class="title-tip">热门战队</span>
+		</div>
+		<div class="hot-list column-content">
+			<ul>
+
+				<volist name="hots" id="hot">
+
+				<li>
+				<div class="cl">
+				 <div class="team-icon">
+				 
+				 		<a href="{:U('/team/'.$hot['id'])}"> <img
+						src="__PUBLIC__/Core/images/placeholder.png"
+						lazy-src="{$hot.cover|get_cover=url}"
+						  width="80" height="80">
+					</a>
+				 </div>
+				 <div class="team-info">
+				 
+				 <div><a href="{:U('/team/'.$hot['id'])}">{$hot.name}</a></div>
+				 
+				 <div class="pull-left">
+				 <div>成员: {$hot.members}人 </div>
+				 
+				 <div>游戏: {:get_game($hot['game_id'],'title')} </div>
+				 </div>
+				 
+				 </div>
+				</div>
+				
+				</li>
+				</volist>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,3 @@
+<?php
+//000000086400a:19:{s:2:"id";s:1:"8";s:3:"uid";s:1:"1";s:5:"title";s:19:"CFPLS5职业联赛 ";s:4:"tags";s:20:"CF CFPL 职业联赛";s:11:"description";s:30:"穿越火线职业联赛第季";s:5:"cover";s:3:"181";s:9:"game_tags";s:25:"正赛视频 精彩花絮";s:7:"live_id";s:1:"7";s:10:"video_nums";s:1:"0";s:10:"start_time";s:10:"1398441600";s:6:"status";s:1:"1";s:7:"game_id";s:5:"10008";s:8:"end_time";s:10:"1404489600";s:13:"champion_team";s:1:"0";s:11:"create_time";s:10:"1402981253";s:11:"update_time";s:10:"1402981253";s:9:"series_id";s:1:"8";s:12:"match_status";s:1:"1";s:4:"days";d:-78;}
+?>

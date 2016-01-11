@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="#ffe6e6e6">
+
+    <RelativeLayout
+        android:id="@+id/title_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fffcfcfc">
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip"
+            android:background="@color/nav_background">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <RelativeLayout
+                    android:id="@+id/back_img"
+                    android:layout_width="48.0dip"
+                    android:layout_height="48.0dip">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/navi_btn_back"/>
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="1.0dip"
+                    android:layout_height="16.0dip"
+                    android:layout_gravity="center_vertical"
+                    android:background="#ffe2e2e2" />
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15.0dip"
+                    android:text="@string/fav_title"
+                    android:textColor="@color/white"
+                    android:textSize="17.0sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/edit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right|center"
+                android:gravity="center_vertical"
+                android:paddingLeft="10.0dip"
+                android:paddingRight="20.0dip"
+                android:text="@string/edit"
+                android:textColor="@color/title_right_seletor"
+                android:textSize="17.0sp" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/cut"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_below="@+id/title_view"
+        android:background="#ffd9d9d9" />
+
+    <RelativeLayout
+        android:id="@+id/favListView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/bottom_area"
+        android:layout_below="@+id/cut"
+        android:orientation="vertical">
+
+
+        <com.zhanglubao.pulltorefresh.PullToRefreshListView xmlns:ptr="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/pull_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/caching_all_edit_mlr"
+            android:layout_marginRight="@dimen/caching_all_edit_mlr"
+            android:cacheColorHint="#00000000"
+            android:horizontalSpacing="10.0dip"
+            android:listSelector="#00000000"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbarThumbVertical="@drawable/transparent"
+            android:scrollbars="none"
+            ptr:ptrAnimationStyle="flip"
+            ptr:ptrMode="both" />
+
+        <include
+            android:id="@+id/loadingBar"
+            layout="@layout/sub_layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            android:id="@+id/netWorkError"
+            layout="@layout/sub_layout_net_work_error"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_area"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/cached_delete_ll_height"
+        android:layout_alignParentBottom="true"
+        android:background="#ffd9d9d9"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_all_select"
+            style="@style/edit_button_selectall"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_margin="1.0px"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_white_selected"
+            android:gravity="center"
+            android:text="全选" />
+
+        <TextView
+            android:id="@+id/btn_del_select"
+            style="@style/edit_button_nodelete"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="1.0px"
+            android:layout_marginRight="1.0px"
+            android:layout_marginTop="1.0px"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_white_selected"
+            android:gravity="center"
+            android:text="删除" />
+    </LinearLayout>
+
+</RelativeLayout>

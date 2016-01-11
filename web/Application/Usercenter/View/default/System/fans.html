@@ -1,0 +1,60 @@
+<extend name="Public/usercenter"/>
+
+<block name="body">
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <p>&nbsp;</p>
+            <h4>我的粉丝</h4>
+            <hr class="oneuser-title-hr"/>
+
+            <ul class="nav nav-pills ucenter-tab">
+                <li
+                <eq name="tab" value="fans"> class="active"</eq>
+                ><a href="{:U('Usercenter/Index/fans')}">我的粉丝</a></li>
+                <li
+                <eq name="tab" value="following"> class="active"</eq>
+                ><a href="{:U('Usercenter/Index/following')}">我的关注</a></li>
+
+            </ul>
+
+        </div>
+    </div>
+    <if condition="count($fans) eq 0"><p class="text-muted" style="text-align: center; font-size: 3em;">
+        <br><br>
+        暂无粉丝，努力发言哦～
+        <br><br><br>
+    </p></if>
+    <div style="margin-top: 20px;margin-bottom: 20px;">
+        <volist name="fans" id="fan">
+            <div class="row" style="border-bottom: 1px solid #dedede;padding-bottom: 20px;padding-top:20px;margin-left: 0;margin-right: 0">
+                <div class="col-xs-2">
+                    <img ucard="{$fan.who_follow}" style="width: 80px" class="avatar-img" src="{$fan.user.avatar128}"/>
+                </div>
+                <div class="col-xs-10">
+                    <div><a href="{$fan.user.space_url}">{$fan.user.nickname}</a><br/>
+                        等级：{$fan.user.title}
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            微博：
+                            {$fan.user.weibocount}
+                        </div>
+                        <div class="col-xs-4">
+                            粉丝：
+                            {$fan.user.fans}
+                        </div>
+                        <div class="col-xs-4">
+                            关注：
+                            {$fan.user.following}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </volist>
+        <div class="pull-right">
+            {:getPagination($totalCount)}
+        </div>
+    </div>
+</block>

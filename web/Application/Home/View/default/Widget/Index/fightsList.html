@@ -1,0 +1,42 @@
+<div class="fight-list">
+	<ul>
+		<volist name="fights" id="fight">
+		<li>
+			<div class="fihght-thumb">
+				<div>
+					<a href="{:U('/fight/'.$fight['id'])}"><img
+						src="__PUBLIC__/Core/images/placeholder.png"
+						lazy-src="{:query_user('avatar',$fight['host_uid'])}" height="83"
+						width="83" /> </a>
+					<div class="fihght-des">{:get_username($fight['host_uid'])}</div>
+				</div>
+			</div>
+			<div class="fight-info">
+				<div class="fight-info-line">
+					<span class="pull-left info-name"><a
+						href="{:U('/fight/'.$fight['id'])}">{:get_game($fight['game_id'],'title')}</a></span>
+					<span class="pull-right">{$fight['game_area']}</span>
+				</div>
+				<div class="fight-info-line">
+					<span class="pull-left info-name">{:get_username($fight['host_uid'])}</span>
+
+					<span class="pull-right info-name "> <switch
+							name="fight['fight_type']"> <case value="0"> 单挑 </case>
+						<case value="1"> 群挑 </case> </switch>
+					</span>
+				</div>
+				<div class="pull-all for fight-info-line">
+					<span class="pull-left info-name">押币:{$fight['fight_coins']}金币</span>
+					<span class="pull-right"><a
+						href="{:U('fight/'.$fight['id'])}">竞猜</a></span>
+				</div>
+				<div class="fight-info-line">
+					<span class="pull-left info-name">{:date('m-d
+						H:i',$fight['start_time'])}</span> <span class="pull-right"><a
+						href="{:U('fight/'.$fight['id'])}">应战</a></span>
+				</div>
+			</div>
+		</li>
+		</volist>
+	</ul>
+</div>

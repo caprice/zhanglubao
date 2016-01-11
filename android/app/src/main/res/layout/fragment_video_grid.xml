@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.zhanglubao.pulltorefresh.PullToRefreshGridView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/video_gird"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarThumbVertical="@drawable/transparent"
+        ptr:ptrAnimationStyle="flip"
+        ptr:ptrMode="both"
+        android:padding="6.0dip"
+        android:cacheColorHint="#00000000"
+        android:horizontalSpacing="10.0dip"
+        android:listSelector="#00000000"
+        android:numColumns="2"
+        android:scrollbars="none"
+        android:verticalSpacing="10.0dip"
+        />
+    <include
+        android:id="@+id/loadingBar"
+        layout="@layout/sub_layout_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include
+        android:id="@+id/netWorkError"
+        layout="@layout/sub_layout_net_work_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</RelativeLayout>

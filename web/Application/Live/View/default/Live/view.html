@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<link href="__CSS__/view.css" rel="stylesheet" />
+</head>
+<body>
+
+	<div class="playPage">
+
+		<div class="playLeft" id="playLeft">
+			<div class="leftNav">
+				<div class="top">
+					<a class="logo-nav" target="_self" href="/"> </a>
+
+					<form id="frm_search" class="navbar-form navbar-left "
+						role="search" method="post" action="/">
+						<div class="form-group form-control"
+							style="border-radius: 2em; padding-right: 0; margin-top: 5px; padding-top: 5px;">
+							<input id="search_keywords" type="text" name="keywords" class=""
+								style="border: none; width: 82%; outline: none;"
+								placeholder="输入房间名称"> <i id="sbt_search"
+								style="color: rgb(72, 184, 122)"
+								class="glyphicon glyphicon-search"></i>
+						</div>
+					</form>
+				</div>
+				<div class="login-area">
+					<a href="javascript:;"
+						onclick="user_dialog.open_login(); return false;"
+						class="login-btn">登录</a> <a href="javascript:;"
+						onclick="user_dialog.open_reg(); return false;" class="login-btn">注册</a>
+
+				</div>
+
+				<div class="all-live">
+					<a href="{:U('/live/list')}" class="live-bg"><span
+						class="glyphicon glyphicon-facetime-video live-icon"></span>全部直播</a>
+				</div>
+				<div id="game_scroll">{:W('ViewGames/lists')}</div>
+			</div>
+			<div class="leftSmallNav"></div>
+
+		</div>
+		<div class="playCenter" id="playCenter">
+			<div id="playArea">
+				<a id="left_close" class="left_close   "> <span></span>
+				</a>
+
+				<php> $user =
+				query_user(array('avatar','username'),$live['uid']); </php>
+				<div class="live-main" id="live_main">
+					<div class="user-info">
+						<div id="live_switch"></div>
+						<div class="avatar">
+							<a href="{:U('/u/'.$live['id'])}"> <img
+								src="__PUBLIC__/Core/images/placeholder.png"
+								lazy-src="{$user.avatar}" height="80" width="80" />
+							</a>
+						</div>
+						<div class="pull-left room-info">
+							<div class="title">
+								<h4>{$live.title}</h4>
+							</div>
+							<div class="anchors">
+								主 播:<a href="{:U('/u/'.$live['id'])}">{$user.username}</a>
+							</div>
+							<div class="navs">
+
+								<a id="nav-home" class="nav" href="{:U('/live/'.$live['id'])}"
+									hidefocus="true">直播</a> <a id="nav-video" class="nav"
+									href="{:U('/u/'.$live['uid'])}" hidefocus="true">视频</a> <a
+									id="nav-album" class="nav" href="{:U('/u/'.$live['uid'])}"
+									hidefocus="true">专辑</a>
+							</div>
+						</div>
+						<div class="pull-right">
+
+							<div class="follow">
+								<a href="javascript:;" class="btn-user-subscription"
+									id="mod_follow_btn" data-value="1">+ 订阅</a>
+
+							</div>
+							<div class="fight">
+
+								<a href="javascript:;" class="btn-user-fight"
+									id="mod_follow_btn" data-value="1">挑战他</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="live-info">
+
+						<div id="live_player">
+							<div class="swf_container">
+								<embed width="100%" height="100%" allownetworking="internal"
+									id="WebRoom
+								allowscriptaccess="
+									always"
+								src="http://staticlive.douyutv.com/common/share/play_tv.swf?room_id=15218"
+									quality="high" bgcolor="#fffff" wmode="direct"
+									allowfullscreen="true" allowFullScreenInteractive="true"
+									type="application/x-shockwave-flash">
+							</div>
+						</div>
+						<div class="live-base-info">
+							<div class="mod－action">
+								<div class="action-item action-collect">
+									<a> <span
+										class="glyphicon glyphicon-star  action-item-icon"></span><span
+										class="action-item-text"> 关注</span>
+									</a>
+								</div>
+								<div class="action-item action-share">
+									<a> <span
+										class="glyphicon glyphicon-share action-item-icon"></span><span
+										class="action-item-text"> 分享</span>
+									</a>
+								</div>
+								<div class="action-item action-phone">
+									<a> <span
+										class="glyphicon glyphicon-phone action-item-icon"></span><span
+										class="action-item-text">手机观看</span>
+									</a>
+								</div>
+							</div>
+
+							<div class="live-match-game-tag">
+								<span>现场:{$live.online_membes}人</span> <span>游戏：<a
+									href="/game/10005.html">英雄联盟</a></span>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="live-description">
+
+						<div class=" column-content">
+							<div class="column-content-title">
+								<i class="title-tip-box"></i> <span class="title-tip">公告</span>
+							</div>
+
+						</div>
+						<div class="bulletin">{$live.description}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="playRight" id="playRight">
+			<a id="right_close" class="right_close "> <span></span>
+			</a>
+
+			<div class="chat" id="chatArea">
+
+				<div id="chatContent">
+				
+				
+				
+				
+				</div>
+				<div id="chatButtonArea" class="chatButtonArea">
+					<textarea class="chat_input_area" id="chart_content"
+						name="chat_content" maxlength="20" placeholder="这里输入聊天内容"
+						tabindex="1"></textarea>
+						<div class="sendmgarea pull-right">
+
+							<a class="sendmsg" tabindex="2" id="sendmsg">发送</a>
+						</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<script type="text/javascript" src="__JS__/view.js"></script>
+	<block name="script"> <script
+		src="__PUBLIC__/Core/js/lazyload.js"></script> </block>
+	<!-- /主体 -->
+
+	<!-- 底部 -->
+	<!-- /底部 -->
+</body>
+</html>

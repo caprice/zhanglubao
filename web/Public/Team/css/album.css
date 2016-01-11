@@ -1,0 +1,147 @@
+.team-info {
+	height: 87px;
+	border-bottom: #eee solid 1px;
+	margin-bottom: 15px;
+}
+
+.team-icon {
+	width: 80px;
+	height: 80px;
+	float: left;
+}
+
+.team-info  .btn-team-subscription {
+	height: 28px;
+	box-shadow: 0 0 5px #cccccc;
+	background-color: #48b87a;
+	width: 72px;
+	color: #ffffff;
+	display: block;
+	line-height: 28px;
+	text-align: center;
+}
+
+.team-info  .btn-team-join {
+	height: 28px;
+	box-shadow: 0 0 5px #cccccc;
+	background-color: #48b87a;
+	width: 72px;
+	color: #ffffff;
+	display: block;
+	line-height: 28px;
+	text-align: center;
+}
+
+.team-info .follow a:hover {
+	background-color: #307E54;
+	width: 72px;
+	color: #ffffff;
+}
+
+.team-info {
+	margin-left: 6px;
+	color: #999;
+}
+
+.team-info h4 {
+	color: #48b87a;
+}
+
+.team-info .title {
+	padding-bottom: 4px;
+}
+.team-navs
+{
+	margin-top:28px;
+}
+.team-nav {
+	height: 36px;
+	line-height: 38px;
+	padding: 0 14px 0 15px;
+	color: #666;
+	display: block;
+	text-align: center;
+	float: left;
+	font-size: 15px;
+	font-family: "Microsoft YaHei";
+}
+.team-nav-current {
+	color: #48b87a;
+	border-bottom: #48b87a solid 1px;
+}
+.join {
+	margin-top: 6px;
+}
+
+
+ 
+
+
+.album-list {
+	margin-left: -1%;
+	clear:both;
+	display:inline-block;
+	width:100%;
+}
+
+.album-list li {
+	float: left;
+	width: 24%;
+	margin-left: 1%;
+	margin-bottom: 1%;
+	display:block;
+}
+
+.album-list li image {
+	width: 100%;
+}
+
+ 
+
+.album-thumb {
+	position: relative;
+	height: 120px;
+}
+
+ 
+.video-des {
+	height: 28px;
+	padding: 2%;
+	color: #666;
+	font-size: 1.0em;
+	overflow: hidden;
+}
+
+.side-matchvideo-list li {
+	margin-bottom: 10px;
+	height: 80px;
+	width: 100%;
+}
+
+.side-matchvideo-list .v-thumb {
+	float: left;
+	width: 145px;
+	height: 80px;
+}
+
+.side-matchvideo-list .v-meta {
+	float: right;
+	padding-left: 10px;
+	padding-right: 5px;
+	font-size:12px;
+	overflow: hidden;
+	zoom: 1;
+	width: 131px;
+}
+
+.side-matchvideo-list .v-meta  .v-meta-title {
+	height: auto;
+	margin: 0;
+}
+
+.side-matchvideo-list .v-meta  .v-num
+{
+	color:#888;
+}
+
+ 

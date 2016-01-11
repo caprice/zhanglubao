@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/nav_background"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/status_bar_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/cacheFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip">
+
+            <ImageView
+                android:id="@+id/cache_back"
+                android:layout_width="48.0dip"
+                android:layout_height="48.0dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:background="@drawable/navi_btn_back"/>
+
+
+            <RelativeLayout
+                android:id="@+id/cacheRelFragment"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+               >
+
+                <LinearLayout
+                    android:id="@+id/cachedLinear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="30.0dip"
+                    android:layout_toLeftOf="@+id/cacheTitleMiddle"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/cacheTitleCached"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="已缓存"
+                        android:textColor="@color/cache_page_title_selected"
+                        android:textSize="17.0sp" />
+
+                    <TextView
+                        android:id="@+id/cacheTitleCachedCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="5.0dip"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/cache_page_title_selected"
+                        android:textSize="14.0sp" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/cacheTitleMiddle"
+                    android:layout_width="1.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true"
+                    android:background="#00000000" />
+
+                <LinearLayout
+                    android:id="@+id/cachingLinear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="-10.0dip"
+                    android:layout_toRightOf="@+id/cacheTitleMiddle"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/cacheTitleCaching"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="缓存中"
+                        android:textColor="@color/cache_page_title_unselect"
+                        android:textSize="17.0sp" />
+
+                    <TextView
+                        android:id="@+id/cacheTitleCachingCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="5.0dip"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/cache_page_title_unselect"
+                        android:textSize="14.0sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_alignParentBottom="true"
+                android:background="#ffff612a" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cacheEditFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/cacheEditState"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="22.0dip"
+                android:gravity="center_vertical"
+                android:text="编辑缓存中"
+                android:textColor="#ff838384"
+                android:textSize="17.0sp" />
+
+            <TextView
+                android:id="@+id/cacheEditFinish"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:paddingRight="22.0dip"
+                android:text="完成"
+                android:textColor="@color/title_right_seletor"
+                android:textSize="15.0sp" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_alignParentBottom="true"
+                android:background="#ffdfdfe0" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

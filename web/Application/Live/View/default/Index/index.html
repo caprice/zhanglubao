@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="Public/head" />
+<script type="text/javascript" src="__JS__/index.js"></script>
+<link href="__CSS__/index.css" rel="stylesheet" />
+</head>
+<body>
+	<include file="Public/header" />
+	<div id="main-container" class="container">
+		<div class="row">
+			<!-- 左边 -->
+			<div class="col-xs-9">
+				<div class="row">{:W('IndexAd/lists')}
+					{:W('IndexGames/lists')} {:W('IndexLives/lists')}
+					{:W('IndexVideos/lists')}</div>
+			</div>
+			<!-- 右边 -->
+			<div class="col-xs-3">
+				<div>
+
+					<div class="right-want-box">
+						<div class="row">
+							<div class="col-xs-2">
+								<span class=" glyphicon glyphicon-facetime-video want-box-icon "></span>
+							</div>
+							<div class="col-lg-4">
+								<a href="#" class="want-box-text" rel="nofollow">我要直播</a>
+							</div>
+							<div class="col-xs-1">
+								<span class="glyphicon glyphicon-share want-box-share-icon "></span>
+							</div>
+							<div class="col-xs-4">
+								<a href="#" class="want-box-text" rel="nofollow">分享视频</a>
+							</div>
+						</div>
+					</div>
+					{:W('IndexAnchors/lists')}
+					{:W('IndexMatches/lists')}
+					{:W('IndexNewAnchors/lists')}
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$(window).resize(
+					function() {
+						$("#main-container").css("min-height",
+								$(window).height() - 343);
+					}).resize();
+		});
+	</script>
+	<!-- /主体 -->
+
+	<!-- 底部 -->
+	<include file="Public/footer" />
+	<!-- /底部 -->
+</body>
+</html>

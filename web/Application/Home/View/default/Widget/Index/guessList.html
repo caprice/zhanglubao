@@ -1,0 +1,54 @@
+<div class="guess-list">
+	<ul>
+		<volist name="guesses" id="guess">
+		<li class="guess-item">
+			<div class="guess-item-content">
+				<div class="col-xs-4">
+					<if condition="$guess['blue_team']"> <a
+						href="{:U('/matchgame/'.$guess['id'])}"> <img
+						src="__PUBLIC__/Core/images/placeholder.png"
+						lazy-src="{:query_team('cover',$guess['blue_team'])}"
+						alt="{$live['title']}" width="50" height="50">
+					</a> <else />
+					<div class="vs">弃权</div>
+					</if>
+				</div>
+				<div class="col-xs-4 vs">VS</div>
+				<div class="col-xs-4">
+					<if condition="$guess['red_team']"> <a
+						href="{:U('/matchgame/'.$guess['id'])}"> <img
+						src="__PUBLIC__/Core/images/placeholder.png"
+						lazy-src="{:query_team('cover',$guess['red_team'])}"
+						alt="{$live['title']}" width="50" height="50">
+					</a> <else />
+					<div class="vs">弃权</div>
+					</if>
+				</div>
+			</div>
+			<div class="guess-team-name">
+				<ul>
+					<li><if condition="$guess['blue_team']"> <a
+							href="{:U('/team/'.$guess['blue_team'])}">{:query_team('name',$guess['blue_team'])}</a>
+						<else /> 弃权 </if></li>
+					<li></li>
+					<li><if condition="$guess['red_team']"> <a
+							href="{:U('/team/'.$guess['red_team'])}">{:query_team('name',$guess['red_team'])}</a>
+						<else /> 弃权 </if></li>
+				</ul>
+			</div>
+			<div class="guess-item-des">
+				<ul>
+					<li><span class="pull-left"><a
+							href="{:U('/matchgame/'.$guess['id'])}">{:get_game($guess['game_id'],'title')}</a></span>
+						<span class="pull-right">{:date('m-d
+							H:i',$guess['start_time'])}</span></li>
+					<li><span class="pull-left"><a
+							href="{:U('/matchgame/'.$guess['id'])}">{:query_match('title',$guess['match_id'])}</a></span>
+						<span class="pull-right"><a class="submit-guess"
+							href="{:U('/matchgame/'.$guess['id'])}">竞猜</a></span></li>
+				</ul>
+			</div>
+		</li>
+		</volist>
+	</ul>
+</div>

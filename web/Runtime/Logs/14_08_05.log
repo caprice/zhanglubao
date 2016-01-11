@@ -1,0 +1,496 @@
+[ 2014-08-05T10:30:32+08:00 ] 127.0.0.1 /
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000087s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000134s ]
+SQL: SHOW COLUMNS FROM `quntiao_seo_rule` [ RunTime:0.003106s ]
+NOTIC: [2] Invalid argument supplied for foreach() /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Common/Common/seo.php 第 10 行.
+SQL: SHOW COLUMNS FROM `quntiao_ad` [ RunTime:0.003288s ]
+SQL: SELECT `id` FROM `quntiao_ad` WHERE ( `status` = 1 ) AND ( `module` = 'home' ) AND ( `place` = 0 ) ORDER BY id desc LIMIT 5   [ RunTime:0.001039s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/AdModel.class.php 第 31 行.
+NOTIC: [8] Undefined offset: 1 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/AdModel.class.php 第 31 行.
+SQL: SELECT `id` FROM `quntiao_ad` WHERE ( `status` = 1 ) AND ( `module` = 'home' ) AND ( `place` = 1 ) ORDER BY id desc LIMIT 2   [ RunTime:0.000391s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/AdModel.class.php 第 31 行.
+NOTIC: [8] Undefined offset: 3 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/AdModel.class.php 第 31 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000042s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.024630s ]
+SQL: SHOW COLUMNS FROM `quntiao_picture` [ RunTime:0.002344s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 150 ) LIMIT 1   [ RunTime:0.000575s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 149 ) LIMIT 1   [ RunTime:0.000270s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 152 ) LIMIT 1   [ RunTime:0.000259s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 151 ) LIMIT 1   [ RunTime:0.000284s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011693s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011754s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000488s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000527s ]
+SQL: SHOW COLUMNS FROM `quntiao_match_game` [ RunTime:0.002568s ]
+SQL: SELECT `id` FROM `quntiao_match_game` WHERE ( `status` = 1 ) AND ( `game_status` < 2 ) ORDER BY follows desc LIMIT 3   [ RunTime:0.000804s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/MatchGameModel.class.php 第 31 行.
+NOTIC: [8] Undefined offset: 5 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/MatchGameModel.class.php 第 31 行.
+NOTIC: [8] Undefined offset: 7 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/MatchGameModel.class.php 第 31 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.045388s ]
+SQL: SHOW COLUMNS FROM `quntiao_team` [ RunTime:0.002813s ]
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000519s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 199 ) LIMIT 1   [ RunTime:0.000590s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/aeaedd05c0fa32bda704dea494569ccb.php 第 10 行.
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 19 ) LIMIT 1   [ RunTime:0.000529s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 215 ) LIMIT 1   [ RunTime:0.000572s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/aeaedd05c0fa32bda704dea494569ccb.php 第 20 行.
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000265s ]
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 19 ) LIMIT 1   [ RunTime:0.000205s ]
+SQL: SHOW COLUMNS FROM `quntiao_match` [ RunTime:0.001252s ]
+SQL: SELECT `title` FROM `quntiao_match` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000735s ]
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 26 ) LIMIT 1   [ RunTime:0.000494s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 223 ) LIMIT 1   [ RunTime:0.000375s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/aeaedd05c0fa32bda704dea494569ccb.php 第 10 行.
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 15 ) LIMIT 1   [ RunTime:0.000537s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 211 ) LIMIT 1   [ RunTime:0.000366s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/aeaedd05c0fa32bda704dea494569ccb.php 第 20 行.
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 26 ) LIMIT 1   [ RunTime:0.000420s ]
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 15 ) LIMIT 1   [ RunTime:0.001338s ]
+SQL: SELECT `title` FROM `quntiao_match` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.001375s ]
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 27 ) LIMIT 1   [ RunTime:0.000407s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 224 ) LIMIT 1   [ RunTime:0.000337s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/aeaedd05c0fa32bda704dea494569ccb.php 第 10 行.
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 28 ) LIMIT 1   [ RunTime:0.000400s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 225 ) LIMIT 1   [ RunTime:0.000301s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/aeaedd05c0fa32bda704dea494569ccb.php 第 20 行.
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 27 ) LIMIT 1   [ RunTime:0.000308s ]
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 28 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SELECT `title` FROM `quntiao_match` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000228s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.085015s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.008580s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000010s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.093099s ]
+SQL: SHOW COLUMNS FROM `quntiao_game` [ RunTime:0.003146s ]
+SQL: SELECT `id` FROM `quntiao_game` WHERE ( `pid` = 1 ) ORDER BY sort asc LIMIT 5   [ RunTime:0.000759s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/GameModel.class.php 第 75 行.
+NOTIC: [8] Undefined offset: 10007 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/GameModel.class.php 第 75 行.
+NOTIC: [8] Undefined offset: 10006 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/GameModel.class.php 第 75 行.
+NOTIC: [8] Undefined offset: 10008 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/GameModel.class.php 第 75 行.
+NOTIC: [8] Undefined offset: 10009 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/GameModel.class.php 第 75 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.140925s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 36 ) LIMIT 1   [ RunTime:0.000758s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 44 ) LIMIT 1   [ RunTime:0.000294s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000222s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 45 ) LIMIT 1   [ RunTime:0.000239s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 46 ) LIMIT 1   [ RunTime:0.000280s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011244s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.104934s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000012s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.115708s ]
+SQL: SHOW COLUMNS FROM `quntiao_live` [ RunTime:0.002315s ]
+SQL: SELECT `id` FROM `quntiao_live` WHERE ( `status` = 1 ) ORDER BY id desc LIMIT 8   [ RunTime:0.000657s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 20 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 19 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 18 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 17 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 16 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 15 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 14 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.162229s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 298 ) LIMIT 1   [ RunTime:0.000569s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 297 ) LIMIT 1   [ RunTime:0.000268s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 296 ) LIMIT 1   [ RunTime:0.000335s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 295 ) LIMIT 1   [ RunTime:0.000271s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 294 ) LIMIT 1   [ RunTime:0.000397s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 293 ) LIMIT 1   [ RunTime:0.000272s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 292 ) LIMIT 1   [ RunTime:0.000257s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 290 ) LIMIT 1   [ RunTime:0.000533s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015844s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.126369s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.141720s ]
+SQL: SHOW COLUMNS FROM `quntiao_video` [ RunTime:0.003583s ]
+SQL: SELECT `id` FROM `quntiao_video` WHERE ( `status` = 1 ) ORDER BY id desc LIMIT 12   [ RunTime:0.003167s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 46 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 45 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 44 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 43 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 42 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 41 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 40 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 39 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 38 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 37 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 36 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+SQL: SELECT `id` FROM `quntiao_video` WHERE ( `status` = 1 ) AND ( `edit_status` = 1 ) ORDER BY id desc LIMIT 2   [ RunTime:0.004840s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+NOTIC: [8] Undefined offset: 46 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoModel.class.php 第 290 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000065s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.213537s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 275 ) LIMIT 1   [ RunTime:0.003184s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 274 ) LIMIT 1   [ RunTime:0.000513s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 275 ) LIMIT 1   [ RunTime:0.000813s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 274 ) LIMIT 1   [ RunTime:0.004060s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 273 ) LIMIT 1   [ RunTime:0.001827s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 272 ) LIMIT 1   [ RunTime:0.000431s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 271 ) LIMIT 1   [ RunTime:0.000625s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 270 ) LIMIT 1   [ RunTime:0.000539s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 269 ) LIMIT 1   [ RunTime:0.000302s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 268 ) LIMIT 1   [ RunTime:0.000424s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 267 ) LIMIT 1   [ RunTime:0.000253s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 266 ) LIMIT 1   [ RunTime:0.000207s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 265 ) LIMIT 1   [ RunTime:0.000203s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 264 ) LIMIT 1   [ RunTime:0.000199s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036916s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.174338s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000010s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.210778s ]
+SQL: SHOW COLUMNS FROM `quntiao_team` [ RunTime:0.001514s ]
+SQL: SELECT `id` FROM `quntiao_team` ORDER BY id desc LIMIT 10   [ RunTime:0.000245s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/TeamModel.class.php 第 80 行.
+NOTIC: [8] Undefined offset: 31 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/TeamModel.class.php 第 80 行.
+NOTIC: [8] Undefined offset: 30 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/TeamModel.class.php 第 80 行.
+NOTIC: [8] Undefined offset: 29 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/TeamModel.class.php 第 80 行.
+NOTIC: [8] Undefined offset: 28 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/TeamModel.class.php 第 80 行.
+NOTIC: [8] Undefined offset: 27 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/TeamModel.class.php 第 80 行.
+NOTIC: [8] Undefined offset: 26 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/TeamModel.class.php 第 80 行.
+NOTIC: [8] Undefined offset: 25 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/TeamModel.class.php 第 80 行.
+NOTIC: [8] Undefined offset: 24 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/TeamModel.class.php 第 80 行.
+NOTIC: [8] Undefined offset: 23 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/TeamModel.class.php 第 80 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.255953s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 231 ) LIMIT 1   [ RunTime:0.000393s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 228 ) LIMIT 1   [ RunTime:0.000256s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 227 ) LIMIT 1   [ RunTime:0.000214s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 226 ) LIMIT 1   [ RunTime:0.000204s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 225 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 224 ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 223 ) LIMIT 1   [ RunTime:0.000214s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 222 ) LIMIT 1   [ RunTime:0.000210s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 221 ) LIMIT 1   [ RunTime:0.000222s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 219 ) LIMIT 1   [ RunTime:0.000208s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012230s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.219919s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.231685s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000027s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.268038s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 298 ) LIMIT 1   [ RunTime:0.000333s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 297 ) LIMIT 1   [ RunTime:0.000209s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 296 ) LIMIT 1   [ RunTime:0.000185s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 295 ) LIMIT 1   [ RunTime:0.000193s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 294 ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 293 ) LIMIT 1   [ RunTime:0.000200s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 292 ) LIMIT 1   [ RunTime:0.000185s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 290 ) LIMIT 1   [ RunTime:0.000194s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006665s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.232504s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.238663s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.275610s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 298 ) LIMIT 1   [ RunTime:0.010722s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 297 ) LIMIT 1   [ RunTime:0.003555s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 296 ) LIMIT 1   [ RunTime:0.003330s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 295 ) LIMIT 1   [ RunTime:0.000973s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 294 ) LIMIT 1   [ RunTime:0.000389s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 293 ) LIMIT 1   [ RunTime:0.000270s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 292 ) LIMIT 1   [ RunTime:0.000214s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 290 ) LIMIT 1   [ RunTime:0.000208s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029317s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.239468s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.268283s ]
+SQL: SELECT `id` FROM `quntiao_match_game` WHERE ( `status` = 1 ) AND ( `game_status` < 2 ) ORDER BY id desc LIMIT 4   [ RunTime:0.000384s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/MatchGameModel.class.php 第 31 行.
+NOTIC: [8] Undefined offset: 14 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/MatchGameModel.class.php 第 31 行.
+NOTIC: [8] Undefined offset: 13 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/MatchGameModel.class.php 第 31 行.
+NOTIC: [8] Undefined offset: 12 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/MatchGameModel.class.php 第 31 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000035s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.308806s ]
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000425s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 199 ) LIMIT 1   [ RunTime:0.000268s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/7c2e051fd11f2ee0450c7a70191797e3.php 第 10 行.
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 19 ) LIMIT 1   [ RunTime:0.000220s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 215 ) LIMIT 1   [ RunTime:0.000195s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/7c2e051fd11f2ee0450c7a70191797e3.php 第 20 行.
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000191s ]
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 19 ) LIMIT 1   [ RunTime:0.000189s ]
+SQL: SELECT `title` FROM `quntiao_match` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000183s ]
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 200 ) LIMIT 1   [ RunTime:0.000187s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/7c2e051fd11f2ee0450c7a70191797e3.php 第 10 行.
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000427s ]
+SQL: SELECT `title` FROM `quntiao_match` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000320s ]
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 10 ) LIMIT 1   [ RunTime:0.000353s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 206 ) LIMIT 1   [ RunTime:0.000316s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/7c2e051fd11f2ee0450c7a70191797e3.php 第 10 行.
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 8 ) LIMIT 1   [ RunTime:0.000268s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 204 ) LIMIT 1   [ RunTime:0.000202s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/7c2e051fd11f2ee0450c7a70191797e3.php 第 20 行.
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 10 ) LIMIT 1   [ RunTime:0.000219s ]
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 8 ) LIMIT 1   [ RunTime:0.000209s ]
+SQL: SELECT `title` FROM `quntiao_match` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000283s ]
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 22 ) LIMIT 1   [ RunTime:0.000256s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 229 ) LIMIT 1   [ RunTime:0.000269s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/7c2e051fd11f2ee0450c7a70191797e3.php 第 10 行.
+SQL: SELECT `cover` FROM `quntiao_team` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000328s ]
+SQL: SELECT `url` FROM `quntiao_picture` WHERE ( `id` = 202 ) LIMIT 1   [ RunTime:0.000306s ]
+NOTIC: [8] Undefined variable: live /Applications/XAMPP/xamppfiles/htdocs/quntiao/Runtime/Cache/Home/7c2e051fd11f2ee0450c7a70191797e3.php 第 20 行.
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 22 ) LIMIT 1   [ RunTime:0.001392s ]
+SQL: SELECT `name` FROM `quntiao_team` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.003647s ]
+SQL: SELECT `title` FROM `quntiao_match` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000564s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040594s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.271783s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.311886s ]
+SQL: SELECT `id` FROM `quntiao_live` WHERE ( `status` = 1 ) ORDER BY follows desc LIMIT 9   [ RunTime:0.000420s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 9 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 8 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 7 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 6 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 5 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 4 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 3 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+NOTIC: [8] Undefined offset: 2 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/LiveModel.class.php 第 71 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.353709s ]
+SQL: SHOW COLUMNS FROM `quntiao_member` [ RunTime:0.002644s ]
+SQL: SHOW COLUMNS FROM `quntiao_ucenter_member` [ RunTime:0.003239s ]
+NOTIC: D方法实例化没找到模型类Home\Model\MemberModel
+SQL: SHOW COLUMNS FROM `quntiao_member` [ RunTime:0.001957s ]
+SQL: SELECT `username` FROM `quntiao_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000696s ]
+SQL: SHOW COLUMNS FROM `quntiao_ucenter_member` [ RunTime:0.002080s ]
+SQL: SELECT `username` FROM `quntiao_ucenter_member` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000796s ]
+SQL: SHOW COLUMNS FROM `quntiao_avatar` [ RunTime:0.002453s ]
+SQL: SELECT `url` FROM `quntiao_avatar` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000514s ]
+SQL: SELECT `username` FROM `quntiao_member` WHERE ( `uid` = 9 ) LIMIT 1   [ RunTime:0.000310s ]
+SQL: SELECT `username` FROM `quntiao_ucenter_member` WHERE ( `id` = 9 ) LIMIT 1   [ RunTime:0.000206s ]
+SQL: SELECT `url` FROM `quntiao_avatar` WHERE ( `uid` = 9 ) LIMIT 1   [ RunTime:0.000152s ]
+SQL: SELECT `username` FROM `quntiao_member` WHERE ( `uid` = 8 ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SELECT `username` FROM `quntiao_ucenter_member` WHERE ( `id` = 8 ) LIMIT 1   [ RunTime:0.000194s ]
+SQL: SELECT `url` FROM `quntiao_avatar` WHERE ( `uid` = 8 ) LIMIT 1   [ RunTime:0.000146s ]
+SQL: SELECT `username` FROM `quntiao_member` WHERE ( `uid` = 7 ) LIMIT 1   [ RunTime:0.000294s ]
+SQL: SELECT `username` FROM `quntiao_ucenter_member` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.000259s ]
+SQL: SELECT `url` FROM `quntiao_avatar` WHERE ( `uid` = 7 ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: SELECT `username` FROM `quntiao_member` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000322s ]
+SQL: SELECT `username` FROM `quntiao_ucenter_member` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT `url` FROM `quntiao_avatar` WHERE ( `uid` = 6 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT `username` FROM `quntiao_member` WHERE ( `uid` = 5 ) LIMIT 1   [ RunTime:0.000269s ]
+SQL: SELECT `username` FROM `quntiao_ucenter_member` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000177s ]
+SQL: SELECT `url` FROM `quntiao_avatar` WHERE ( `uid` = 5 ) LIMIT 1   [ RunTime:0.000157s ]
+SQL: SELECT `username` FROM `quntiao_member` WHERE ( `uid` = 4 ) LIMIT 1   [ RunTime:0.000245s ]
+SQL: SELECT `username` FROM `quntiao_ucenter_member` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000179s ]
+SQL: SELECT `url` FROM `quntiao_avatar` WHERE ( `uid` = 4 ) LIMIT 1   [ RunTime:0.000154s ]
+SQL: SELECT `username` FROM `quntiao_member` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000283s ]
+SQL: SELECT `username` FROM `quntiao_ucenter_member` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000205s ]
+SQL: SELECT `url` FROM `quntiao_avatar` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT `username` FROM `quntiao_member` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000331s ]
+SQL: SELECT `username` FROM `quntiao_ucenter_member` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000233s ]
+SQL: SELECT `url` FROM `quntiao_avatar` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.000208s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.046483s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.317966s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000013s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.363995s ]
+SQL: SHOW COLUMNS FROM `quntiao_fight` [ RunTime:0.003358s ]
+SQL: SELECT `id` FROM `quntiao_fight` WHERE ( `status` = 1 ) ORDER BY id desc LIMIT 5   [ RunTime:0.000523s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/FightModel.class.php 第 31 行.
+NOTIC: [8] Undefined offset: 11 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/FightModel.class.php 第 31 行.
+NOTIC: [8] Undefined offset: 10 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/FightModel.class.php 第 31 行.
+NOTIC: [8] Undefined offset: 9 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/FightModel.class.php 第 31 行.
+NOTIC: [8] Undefined offset: 8 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/FightModel.class.php 第 31 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000031s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.409637s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003878s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.373202s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000009s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.376585s ]
+SQL: SHOW COLUMNS FROM `quntiao_video_album` [ RunTime:0.002356s ]
+SQL: SELECT `id` FROM `quntiao_video_album` WHERE ( `status` = 1 ) ORDER BY id desc LIMIT 12   [ RunTime:0.000534s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 12 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 11 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 10 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 9 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 8 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 7 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 6 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 5 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 4 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 3 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 2 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/VideoAlbumModel.class.php 第 110 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000030s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.423854s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002303s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.388177s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000009s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.389991s ]
+SQL: SHOW COLUMNS FROM `quntiao_commentator` [ RunTime:0.002388s ]
+SQL: SELECT `id` FROM `quntiao_commentator` WHERE ( `status` = 1 ) ORDER BY id desc LIMIT 12   [ RunTime:0.000613s ]
+NOTIC: [8] Undefined variable: cacheList /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 12 ) LIMIT 1   [ RunTime:0.000373s ]
+NOTIC: [8] Undefined offset: 11 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 11 ) LIMIT 1   [ RunTime:0.000316s ]
+NOTIC: [8] Undefined offset: 10 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 10 ) LIMIT 1   [ RunTime:0.000300s ]
+NOTIC: [8] Undefined offset: 9 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 9 ) LIMIT 1   [ RunTime:0.000312s ]
+NOTIC: [8] Undefined offset: 8 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 8 ) LIMIT 1   [ RunTime:0.001139s ]
+NOTIC: [8] Undefined offset: 7 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.001215s ]
+NOTIC: [8] Undefined offset: 6 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000465s ]
+NOTIC: [8] Undefined offset: 5 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000285s ]
+NOTIC: [8] Undefined offset: 4 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000270s ]
+NOTIC: [8] Undefined offset: 3 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000300s ]
+NOTIC: [8] Undefined offset: 2 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000343s ]
+NOTIC: [8] Undefined offset: 1 /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 31 行.
+NOTIC: [8] Undefined variable: commentator /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Home/Model/CommentatorModel.class.php 第 18 行.
+SQL: SELECT * FROM `quntiao_commentator` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000274s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000031s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.443759s ]
+SQL: SELECT `username` FROM `quntiao_member` WHERE ( `uid` = 12 ) LIMIT 1   [ RunTime:0.000305s ]
+SQL: SELECT `username` FROM `quntiao_ucenter_member` WHERE ( `id` = 12 ) LIMIT 1   [ RunTime:0.000207s ]
+SQL: SELECT `url` FROM `quntiao_avatar` WHERE ( `uid` = 12 ) LIMIT 1   [ RunTime:0.000181s ]
+SQL: SELECT `username` FROM `quntiao_member` WHERE ( `uid` = 11 ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SELECT `username` FROM `quntiao_ucenter_member` WHERE ( `id` = 11 ) LIMIT 1   [ RunTime:0.000206s ]
+SQL: SELECT `url` FROM `quntiao_avatar` WHERE ( `uid` = 11 ) LIMIT 1   [ RunTime:0.000156s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008811s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.407982s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000010s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.416318s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008985s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.407982s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000008s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.416531s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001145s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001201s ]
+
+[ 2014-08-05T10:30:32+08:00 ] 127.0.0.1 /index.php?s=/Usercenter/Public/getInformation.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000520s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000989s ]
+SQL: SHOW COLUMNS FROM `quntiao_message` [ RunTime:0.002955s ]
+SQL: SHOW COLUMNS FROM `quntiao_message` [ RunTime:0.001974s ]
+SQL: SELECT * FROM `quntiao_message` WHERE ( to_uid=0 and  is_read=0  and last_toast=0 ) ORDER BY id desc LIMIT 99999   [ RunTime:0.000708s ]
+NOTIC: [2] Invalid argument supplied for foreach() /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Common/Model/MessageModel.class.php 第 16 行.
+SQL: UPDATE `quntiao_message` SET `last_toast`=1407205832 WHERE ( to_uid=0 and  is_read=0 and last_toast=0 ) [ RunTime:0.000213s ]
+SQL: SHOW COLUMNS FROM `quntiao_talk_push` [ RunTime:0.003681s ]
+SQL: SELECT * FROM `quntiao_talk_push` WHERE ( `uid` = 0 ) AND ( `status` = 0 )  [ RunTime:0.000308s ]
+NOTIC: [2] Invalid argument supplied for foreach() /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Common/Model/TalkPushModel.class.php 第 11 行.
+SQL: UPDATE `quntiao_talk_push` SET `status`=1 WHERE ( `uid` = 0 ) AND ( `status` = 0 ) [ RunTime:0.000215s ]
+SQL: SHOW COLUMNS FROM `quntiao_talk_message_push` [ RunTime:0.002120s ]
+SQL: SELECT * FROM `quntiao_talk_message_push` WHERE ( `uid` = 0 ) AND ( `status` = 0 )  [ RunTime:0.000316s ]
+NOTIC: [2] Invalid argument supplied for foreach() /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Common/Model/TalkMessagePushModel.class.php 第 15 行.
+SQL: UPDATE `quntiao_talk_message_push` SET `status`=1 WHERE ( `uid` = 0 ) AND ( `status` = 0 ) [ RunTime:0.000207s ]
+NOTIC: [2] Invalid argument supplied for foreach() /Applications/XAMPP/xamppfiles/htdocs/quntiao/Application/Usercenter/Controller/PublicController.class.php 第 84 行.
+
+[ 2014-08-05T10:30:35+08:00 ] 127.0.0.1 /index.php?s=/Admin/Menu/index.html
+SQL: SHOW COLUMNS FROM `quntiao_menu` [ RunTime:0.001653s ]
+SQL: SELECT * FROM `quntiao_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.001857s ]
+SQL: SELECT `id` FROM `quntiao_menu` WHERE ( url like '%Menu/index%' ) LIMIT 1   [ RunTime:0.000364s ]
+SQL: SHOW COLUMNS FROM `quntiao_menu` [ RunTime:0.002408s ]
+SQL: SELECT `id`,`pid`,`title` FROM `quntiao_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000284s ]
+SQL: SELECT `id`,`pid`,`title` FROM `quntiao_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000221s ]
+SQL: SELECT DISTINCT  `group` FROM `quntiao_menu` WHERE ( pid = 68 )  [ RunTime:0.000319s ]
+SQL: SELECT `id`,`url` FROM `quntiao_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000312s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `quntiao_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000365s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `quntiao_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000379s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `quntiao_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000340s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `quntiao_menu` WHERE ( `group` = '其他管理' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000355s ]
+SQL: SELECT `id`,`title` FROM `quntiao_menu`  [ RunTime:0.000734s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `quntiao_menu` WHERE ( `pid` = 0 ) ORDER BY sort asc,id asc  [ RunTime:0.000764s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000132s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016073s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016141s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000157s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000186s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000563s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000618s ]
+
+[ 2014-08-05T10:30:39+08:00 ] 127.0.0.1 /index.php?s=/Admin/Match/index.html
+SQL: SHOW COLUMNS FROM `quntiao_menu` [ RunTime:0.001624s ]
+SQL: SELECT * FROM `quntiao_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000614s ]
+SQL: SELECT `id` FROM `quntiao_menu` WHERE ( url like '%Match/index%' ) LIMIT 1   [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `quntiao_menu` [ RunTime:0.001486s ]
+SQL: SELECT `id`,`pid`,`title` FROM `quntiao_menu` WHERE ( id=10001 ) LIMIT 1   [ RunTime:0.000394s ]
+SQL: SELECT DISTINCT  `group` FROM `quntiao_menu` WHERE ( pid = 10001 )  [ RunTime:0.000400s ]
+SQL: SELECT `id`,`url` FROM `quntiao_menu` WHERE ( `pid` = 10001 ) AND ( `hide` = 0 )  [ RunTime:0.000249s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `quntiao_menu` WHERE ( `group` = '比赛信息' ) AND ( `pid` = 10001 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000282s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `quntiao_menu` WHERE ( `group` = '系列赛事' ) AND ( `pid` = 10001 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000287s ]
+SQL: SHOW COLUMNS FROM `quntiao_match` [ RunTime:0.002465s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `quntiao_match` WHERE ( `status` >= 0 ) LIMIT 1   [ RunTime:0.000282s ]
+SQL: SELECT `id`,`uid`,`title`,`tags`,`description`,`cover`,`game_tags`,`live_id`,`video_nums`,`start_time`,`status`,`game_id`,`end_time`,`champion_team`,`create_time`,`update_time`,`series_id`,`match_status` FROM `quntiao_match` WHERE ( `status` >= 0 ) ORDER BY id desc LIMIT 0,10   [ RunTime:0.000497s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000136s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014288s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014373s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000270s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000316s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000553s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000615s ]
+

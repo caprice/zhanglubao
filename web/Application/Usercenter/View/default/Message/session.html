@@ -1,0 +1,139 @@
+<extend name="Public/usercenter"/>
+
+<block name="body">
+    <php>
+        $user = query_user(array('message'));
+    </php>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <p>&nbsp;</p>
+            <h4>我的会话</h4>
+            <hr class="oneuser-title-hr"/>
+
+            <ul class="nav nav-pills ucenter-tab">
+                <li class="active"
+                <eq name="tab" value="unread"> class="active"</eq>
+                ><a href="{:U('Usercenter/Message/session',array('tab'=>'session'))}">所有会话</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="row talk_list">
+        <div id="scrollContainer">
+            <volist name="talks" id="talk">
+                <div class="row talk_line">
+                    <div class="col-xs-2">
+                        <div class="row heads text-center">
+                            <volist name="talk.users" id="user">
+                                <if condition="count($talk['users']) neq 2">
+                                    <div class="pull-left" style="margin:11px;margin-top: 0">
+                                        <div><img style="width:32px" class="avatar-img" ucard="{$user.id}"
+                                                  src="{$user.avatar64}"></div>
+                                    </div>
+                                    <else/>
+                                    <div class="pull-left" style="margin:25px;margin-top: 0">
+                                        <div>
+                                            <img style="width:64px" class="avatar-img" ucard="{$user.id}"
+                                                 src="{$user.avatar64}">
+                                        </div>
+                                    </div>
+                                </if>
+
+                            </volist>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="pull-right">
+                            <a class="btn btn-danger ajax-post"
+                               href="{:U('Usercenter/Message/doDeleteTalk', array('talk_id'=>$talk['id']))}">
+                                <span class="glyphicon glyphicon-remove"></span> 关闭
+                            </a>
+                        </div>
+                        <h2>
+                            <a href="{:U('UserCenter/Message/talk',array('talk_id'=>$talk['id']))}">
+                                {$talk.title|op_t}&nbsp;（{:count($talk['users'])}人）
+                            </a>
+                        </h2>
+
+                        <if condition="$talk['last_message']['content'] neq ''">
+                            <p>
+                                <a href="{$talk.last_message.user.space_url}" ucard="{$talk.last_message.user.id}">
+                                    {$talk.last_message.user.username|op_t}
+                                </a>： &nbsp;&nbsp;{$talk.last_message.content} &nbsp; &nbsp; &nbsp;{$talk.last_message.create_time|friendlyDate}
+                            </p>
+                            <else/>
+                            <p>暂无对话内容</p>
+                        </if>
+                    </div>
+                </div>
+                <hr/>
+            </volist>
+            <if condition="!$talks">
+                <p style="font-size:3em;padding:2em 0;" class="text-muted text-center">暂无内容</p>
+            </if>
+        </div>
+    </div>
+    <style>
+        .talk_list {
+
+            margin: 20px 5px 20px 5px;
+            padding: 0;
+        }
+
+        .talk_list .row {
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        .talk_list .heads .avatar-img {
+        }
+
+    </style>
+
+
+    <script>
+        $(function () {
+            op_initTalkBox();
+        });
+        var MID = "{$self.id}";
+        var message_id = "{$message_id}";
+        var talk_id = "{$talk.id}";
+        var myhead = "{$self.avatar128}";
+
+        function appendMessage() {
+            var myDate = new Date();
+            $.post(U('Usercenter/Message/postMessage'), {talk_id: talk_id, content: $('#tt_content').val()}, function (msg) {
+                op_appendMessage(op_fetchMessageTpl({uid: MID, content: $('#tt_content').val(),
+                    avatar128: myhead,
+                    ctime: myDate.toLocaleTimeString()}, MID));
+                $('#tt_content').val('');
+                $('#tt_content').focus();
+            }, 'json');
+        }
+
+        $('#tt_content').keypress(function (e) {
+            if (e.ctrlKey && e.which == 13 || e.which == 10) {
+                appendMessage();
+            }
+        });
+
+        (function ($) {
+            $.talkBox = {
+                init: function (element) {
+
+                }
+            }
+
+        })
+                (jQuery);
+    </script>
+
+    <div class="pull-right">
+        {:getPagination($totalCount)}
+    </div>
+    </div>
+
+
+</block>

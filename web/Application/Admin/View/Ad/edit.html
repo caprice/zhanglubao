@@ -1,0 +1,119 @@
+<extend name="Public/base" />
+
+<block name="body">
+<div class="main-title">
+<h2>{:isset($ad['id'])?'编辑':'新增'}广告</h2>
+</div>
+<script type="text/javascript"
+	src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+<form action="{:U()}" method="post" class="form-horizontal">
+<div class="form-item"><label class="item-label">广告名称<span
+	class="check-tips">（广告名称昵称）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="title" value="{$ad.title|default=''}"></div>
+</div>
+<div class="form-item"><label class="item-label">广告跳转地址<span
+	class="check-tips">（广告跳转地址）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="url" value="{$ad.url|default=''}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">广告顺序<span
+	class="check-tips">（广告顺序）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="display_order" value="{$ad.display_order|default=''}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">广告位置<span
+	class="check-tips">（广告位置）</span></label>
+<div class="controls"><select name="place">
+                    
+	<option value="0" <eq name="ad['place']" value="0"> selected</eq>>切换广告</option>
+	<option value="1" <eq name="ad['place']" value="1"> selected</eq>>专辑广告</option>
+	<option value="2" <eq name="ad['place']" value="2"> selected</eq>>其他广告</option>
+</select></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">所属模块<span
+	class="check-tips">（所属模块）</span></label>
+<div class="controls"><select name="module">
+	<option value="home" <eq name="$ad['module']" value="home"> selected</eq>>主页</option>
+	<option value="competition" <eq name="ad['module']" value="competition"> selected</eq>>比赛</option>
+	<option value="guess" <eq name="ad['module']" value="guess"> selected</eq>>竞猜</option>
+	<option value="fight" <eq name="ad['module']" value="fight"> selected</eq>>约战</option>
+	<option value="live" <eq name="ad['module']" value="live"> selected</eq>>直播</option>
+	<option value="video" <eq name="ad['module']" value="video"> selected</eq>>视频</option>
+	<option value="team" <eq name="ad['module']" value="team"> selected</eq>>战队</option>
+</select></div>
+</div>
+
+
+
+<div class="form-item"><label class="item-label">广告图腾</label> <input
+	type="file" id="upload_picture"> <input type="hidden"
+	name="cover" id="cover" value="{$ad['cover']|default=''}" />
+<div class="upload-img-box"><notempty name="ad['cover']">
+<div class="upload-pre-item"><img
+	src="{$ad.cover|get_cover='url'}" /></div>
+</notempty></div>
+</div>
+<script type="text/javascript">
+					//上传图片
+				    /* 初始化上传插件 */
+					$("#upload_picture").uploadify({
+				        "height"          : 30,
+				        "swf"             : "__STATIC__/uploadify/uploadify.swf",
+				        "fileObjName"     : "download",
+				        "buttonText"      : "上传图片",
+				        "uploader"        : "{:U('File/uploadAdPic',array('session_id'=>session_id()))}",
+				        "width"           : 120,
+				        'removeTimeout'	  : 1,
+				        'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
+				        "onUploadSuccess" : uploadAdPic,
+				        'onFallback' : function() {
+				            alert('未检测到兼容版本的Flash.');
+				        }
+				    });
+					function uploadAdPic(file, data){
+				    	var data = $.parseJSON(data);
+				    	var src = '';
+				        if(data.status){
+				        	$("#cover").val(data.id);
+				        	src = data.url;
+				        	$("#cover").parent().find('.upload-img-box').html(
+				        		'<div class="upload-pre-item"><img src="' + src + '"/></div>'
+				        	);
+				        } else {
+				      
+				        	updateAlert(data.info);
+				        	setTimeout(function(){
+				                $('#top-alert').find('button').click();
+				                $(that).removeClass('disabled').prop('disabled',false);
+				            },1500);
+				        }
+				    }
+					</script>
+
+
+<div class="form-item"><label class="item-label">广告介绍<span
+	class="check-tips">（广告介绍）</span></label>
+<div class="controls"><label class="textarea input-large">
+<textarea name="description">{$ad.description|default=''}</textarea> </label></div>
+</div>
+<div class="form-item"><input type="hidden" name="id"
+	value="{$ad.id|default=''}">
+<button class="btn submit-btn ajax-post" id="submit" type="submit"
+	target-form="form-horizontal">确 定</button>
+<button class="btn btn-return"
+	onclick="javascript:history.back(-1);return false;">返 回</button>
+</div>
+</form>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script>
+</block>

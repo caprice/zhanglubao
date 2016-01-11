@@ -1,0 +1,65 @@
+
+<div class="col-xs-12  column-content">
+	<div class="column-content-title">
+		<i class="title-tip-box"></i> <span class="title-tip"><a
+			href="{:U('/fight/list/hot')}">最新挑战</a></span> <span class="pull-right">
+			<a href="{:U('/fight/list/hot')}">更多挑战</a>
+		</span>
+	</div>
+
+</div>
+
+<div class="col-xs-12  column-content">
+	<div class="fight-list">
+		<ul>
+			<volist name="fights" id="fight">
+			<li>
+				<div class="fight-info">
+
+					<div class="fight-info-member">
+						<a href="{:U('/fight/'.$fight['id'])}"><img
+							src="__PUBLIC__/Core/images/placeholder.png"
+							lazy-src="{$fight['host']['avatar']}" width="69" height="69"></a>
+					</div>
+					<div class="fight-info-member vs">VS</div>
+					<div class="fight-info-member">
+						<if condition="$fight['guest']"> <a
+							href="{:U('/fight/'.$fight['id'])}"><img
+							src="__PUBLIC__/Core/images/placeholder.png"
+							lazy-src="{$fight['guest']['avatar']}" width="69" height="69"></a>
+						<else /> 
+						
+						
+						<span class="fight-invite"><a
+							href="{:U('/fight/'.$fight['id'])}">战</a></span> </if>
+
+
+
+					</div>
+				</div>
+				
+				<div class="fight-info-name">
+				<div class="fight-member-name">
+						<a href="{:U('/fight/'.$fight['id'])}">{$fight['host']['username']}</a>
+					</div>
+						<div class="fight-member-name">
+					</div>
+						<div class="fight-member-name">
+						
+						<if condition="$fight['guest']">
+						<a href="{:U('/fight/'.$fight['id'])}">{$fight['host']['username']}</a>
+						</if>
+						
+					</div>
+				
+				</div>
+				<div class="fight-des">
+				<span class="fight-coin">金币: {$fight['fight_coins']}</span>
+				<span class="fight-game">{:get_game($fight['game_id'],'title')}</span>
+				</div>
+
+			</li>
+			</volist>
+		</ul>
+	</div>
+</div>

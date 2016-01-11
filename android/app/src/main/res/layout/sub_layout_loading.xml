@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/all_bg_color">
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminateBehavior="repeat"
+        android:indeterminateDrawable="@drawable/detail_progress_yellow_76"
+        android:indeterminateDuration="800"
+        android:maxHeight="48.0dip"
+        android:maxWidth="48.0dip"
+        android:minHeight="48.0dip"
+        android:minWidth="48.0dip"
+        android:layout_centerInParent="true"
+          />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/promptTV"
+        android:textColor="#757575"
+        android:minWidth="44dp"
+        android:textSize="16sp"
+        android:layout_below="@+id/progress_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="@string/sub_loading_text"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

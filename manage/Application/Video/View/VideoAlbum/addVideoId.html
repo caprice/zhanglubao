@@ -1,0 +1,70 @@
+<extend name="Public/base" />
+<block name="style">
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/compiled/wizard.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/libs/dropzone.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/lib/selectize/css/selectize.default.css">
+
+</block>
+
+<block name="body">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix" style="min-height: 1180px;">
+			<header class="main-box-header clearfix">
+				<h2>给{$album_id}添加视频</h2>
+			</header>
+			<div class="main-box-body clearfix">
+				<form class="form-horizontal" action="{:U()}" method="post">
+
+					<input type="hidden" name="album_id" value="{$album_id}"> 
+					<div class="form-group">
+						<label for="videoids" class="col-lg-1 control-label">视频ID</label>
+						<div class="col-lg-11">
+							<input type="text" id="videoids" name="videoids" 
+								placeholder="添加视频ID" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<button type="submit" class="btn btn-success ajax-post"
+								target-form="form-horizontal">提交</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+</block>
+
+
+<block name="script"> <script
+	src="__STATIC__/lib/selectize/js/standalone/selectize.js"></script> <script
+	type="text/javascript">
+ 
+	$('#videoids').selectize(
+			{
+				plugins : [ 'remove_button' ],
+				persist : false,
+				create : true,
+				render : {
+					item : function(data, escape) {
+						return '<div>"' + escape(data.text) + '"</div>';
+					}
+				},
+				onDelete : function(values) {
+					return confirm(values.length > 1 ? '你确定要删除 '
+							+ values.length + ' 标签么?' : '你确定要删除 "' + values[0]
+							+ '"?');
+				}
+			});
+
+
+ </script> </block>

@@ -1,0 +1,170 @@
+<extend name="Public/base" />
+
+<block name="body">
+<div class="main-title">
+<h2>{:isset($match['id'])?'编辑':'新增'}大赛</h2>
+</div>
+<link href="/Public/Static/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="/Public/Static/bootstrap/css/datepicker.css" rel="stylesheet" />
+<script src="/Public/Static/bootstrap/js/bootstrap-datepicker.js"></script>
+
+
+<script type="text/javascript"
+	src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+<form action="{:U()}" method="post" class="form-horizontal">
+<div class="form-item"><label class="item-label">大赛名称<span
+	class="check-tips">（大赛名称昵称）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="title" value="{$match.title|default=''}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">归属游戏<span
+	class="check-tips">（是什么游戏的大赛）</span></label>
+<div class="controls"><select name="game_id">
+	<volist name="games" id="game">
+
+	<option value="{$game.id}"<eq name="match['game_id']"
+		value="$game.id"> selected</eq>>{$game.title_show}</option>
+	</volist>
+</select></div>
+</div>
+ 
+<div class="form-item"><label class="item-label">游戏状态<span
+	class="check-tips">（游戏状态）</span></label>
+<div class="controls"><select name="match_status">
+	<option value="0" <eq name="match['match_status']"
+		value="0"> selected</eq>>未开始</option>
+	<option value="1" <eq name="match['match_status']"
+		value="1"> selected</eq>>正在进行</option>
+	<option value="2" <eq name="match['match_status']"
+		value="2"> selected</eq>>已经结束</option>
+</select></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">大赛标签<span
+	class="check-tips">（大赛标签）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="tags" value="{$match.tags|default=''}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">子游戏标签<span
+	class="check-tips">（大赛标签）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="game_tags" value="{$match.game_tags|default=''}"></div>
+</div>
+
+<div class="form-item"><label class="item-label">直播房间号<span
+	class="check-tips">（直播房间号）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	name="live_id" value="{$match.live_id|default=''}"></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">开始时间<span
+	class="check-tips">（大赛开始时间）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	id="start_time" name="start_time"
+	value="{:date('Y-m-d',$match['start_time'])}"></div>
+</div>
+
+
+<div class="form-item"><label class="item-label">结束时间<span
+	class="check-tips">（大赛结束时间）</span></label>
+<div class="controls"><input type="text" class="text input-large"
+	id="end_time" name="end_time"
+	value="{:date('Y-m-d',$match['end_time'])}">
+	</div>
+</div>
+
+<div class="form-item"><label class="item-label">大赛封面</label> <input
+	type="file" id="upload_picture"> <input type="hidden"
+	name="cover" id="cover" value="{$match['cover']|default=''}" />
+<div class="upload-img-box"><notempty name="match['cover']">
+<div class="upload-pre-item"><img
+	src="{$match.cover|get_cover='url'}" /></div>
+</notempty></div>
+</div>
+<script type="text/javascript">
+					//上传图片
+				    /* 初始化上传插件 */
+					$("#upload_picture").uploadify({
+				        "height"          : 30,
+				        "swf"             : "__STATIC__/uploadify/uploadify.swf",
+				        "fileObjName"     : "download",
+				        "buttonText"      : "上传图片",
+				        "uploader"        : "{:U('File/uploadMatchPic',array('session_id'=>session_id()))}",
+				        "width"           : 120,
+				        'removeTimeout'	  : 1,
+				        'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
+				        "onUploadSuccess" : uploadMatchPic,
+				        'onFallback' : function() {
+				            alert('未检测到兼容版本的Flash.');
+				        }
+				    });
+					function uploadMatchPic(file, data){
+				    	var data = $.parseJSON(data);
+				    	var src = '';
+				        if(data.status){
+				        	$("#cover").val(data.id);
+				        	src = data.url;
+				        	$("#cover").parent().find('.upload-img-box').html(
+				        		'<div class="upload-pre-item"><img src="' + src + '"/></div>'
+				        	);
+				        } else {
+				      
+				        	updateAlert(data.info);
+				        	setTimeout(function(){
+				                $('#top-alert').find('button').click();
+				                $(that).removeClass('disabled').prop('disabled',false);
+				            },1500);
+				        }
+				    }
+					</script>
+
+
+<div class="form-item"><label class="item-label">大赛介绍<span
+	class="check-tips">（大赛介绍）</span></label>
+<div class="controls"><label class="textarea input-large">
+<textarea name="description">{$match.description|default=''}</textarea>
+</label></div>
+</div>
+<div class="form-item"><input type="hidden" name="id"
+	value="{$match.id|default=''}">
+	
+	<input type="hidden" name="series_id"
+	value="{$seriesid}">
+	
+<button class="btn submit-btn ajax-post" id="submit" type="submit"
+	target-form="form-horizontal">确 定</button>
+<button class="btn btn-return"
+	onclick="javascript:history.back(-1);return false;">返 回</button>
+</div>
+</form>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script>
+
+<script type="text/javascript">
+$('#start_time').datepicker({ 
+    language: 'zh-CN',
+    autoclose: true, 
+    format: 'yyyy-mm-dd', 
+    inputMask: true
+});
+$('#end_time').datepicker({ 
+    language: 'zh-CN',
+    autoclose: true, 
+    format: 'yyyy-mm-dd', 
+    inputMask: true
+});
+</script>
+
+
+
+
+</block>

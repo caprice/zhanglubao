@@ -1,0 +1,24 @@
+<div class="live-list">
+	<ul>
+		<volist name="lives" id="live">
+		<li>
+			<div class="live-thumb">
+				<a href="{:U('/live/'.$live['id'])}"> <img
+					src="__PUBLIC__/Core/images/placeholder.png"
+					lazy-src="{:query_picture('url',$live['cover'])}"
+					alt="{$live['title']}" width="216px" height="120px">
+				</a>
+				<div class="live-name">
+					<span>{:get_username($live['uid'])}</span>
+				</div>
+			</div>
+			<div class="live-des">
+				<span class="pull-left"> <span
+					class="glyphicon glyphicon-user "></span> <span
+					class="game-des-online">{$live['online_membes']}人</span></span> <span
+					class="pull-right "> {:get_game($live['game_id'],'title')} </span>
+			</div>
+		</li>
+		</volist>
+	</ul>
+</div>

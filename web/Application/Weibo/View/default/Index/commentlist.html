@@ -1,0 +1,24 @@
+<volist name="list" id="comment">
+
+    <hr style="margin: 5px 0px;"/>
+    <div class="row weibo_comment" >
+        <div class="col-xs-12">
+            <div class="pull-left" style="width: 32px;">
+                <a href="{$comment.user.space_url}" ucard="{$comment.user.uid}"><img src="{$comment.user.avatar32}"
+                                                                                     class="avatar-img"/></a>
+            </div>
+            <div class="" style="overflow: hidden; padding-left: 15px; padding-top: 5px;">
+                <span class="text-muted pull-right">&nbsp;{$comment.create_time|friendlyDate}&nbsp;&nbsp;<a
+                        data-weibo-id="{$weiboId}" onclick="weibo_reply(this,{$comment.id},'{$comment.user.username}')"><i
+                        class="glyphicon glyphicon-comment"></i></a>
+                        <if condition="$comment['can_delete']">
+                            <a data-weibo-id="{$weiboId}" onclick="comment_del(this,{$comment.id})"><i
+                                    style="margin-left: 0.2em" class="glyphicon glyphicon-trash"></i></a>
+                        </if>
+                </span>
+                <a href="{$comment.user.space_url}" ucard="{$comment.user.uid}">{$comment.user.nickname|htmlspecialchars}</a>{$comment.user.icons_html}：{$comment.content|parse_comment_content}
+            </div>
+        </div>
+    </div>
+
+</volist>

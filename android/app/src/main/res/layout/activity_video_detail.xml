@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/detail_content_panel"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/white">
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/video_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="200.0dip"
+            android:background="@color/black"
+            android:clickable="true">
+
+            <com.zhanglubao.lol.view.player.QTPlayerView
+                android:id="@+id/video_view"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:clickable="true" />
+
+
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+
+            android:id="@+id/sub_content"
+            android:layout_below="@+id/video_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="6.0dip"
+            android:paddingRight="6.0dip">
+
+
+
+            <com.zhanglubao.pulltorefresh.PullToRefreshScrollView xmlns:ptr="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/detail_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbarThumbVertical="@drawable/transparent"
+                ptr:ptrMode="pullFromEnd">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/content_detail_brief"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1.0px"
+                        android:layout_marginBottom="6.0dip"
+                        android:background="#ffcfcfcf" />
+
+                    <include
+                        layout="@layout/content_detail_relates"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4.0dip" />
+
+                    <include
+                        layout="@layout/content_detail_comments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4.0dip" />
+                </LinearLayout>
+
+            </com.zhanglubao.pulltorefresh.PullToRefreshScrollView>
+
+            <include
+                android:id="@+id/loadingBar"
+                layout="@layout/sub_layout_loading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <include
+                android:id="@+id/netWorkError"
+                layout="@layout/sub_layout_net_work_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+
+
+</RelativeLayout>

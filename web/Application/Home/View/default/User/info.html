@@ -1,0 +1,243 @@
+<extend name="Base/common" />
+
+<block name="body">
+
+
+<link href="__STATIC__/bootstrap/css/datepicker.css" rel="stylesheet" />
+<script src="__STATIC__/bootstrap/js/bootstrap-datepicker.js"></script>
+<script src="__PUBLIC__/Core/js/area.js"></script>
+
+<div class="login-box">
+<div>
+
+<div class="register-step register-step-info"><span>基本信息</span> <span
+	class="hover">完善资料</span> <span>头像上传</span></div>
+<div>
+
+<section>
+<div class="login-form-upbox">
+<div class="col-xs-9">
+
+<div class="login-input-area">
+<form class="form-horizontal login-form" role="form" action="__SELF__"
+	method="post">
+
+<div class="form-group"><label for="inputUserName"
+	class="col-xs-3 control-label login-label">性别:</label>
+<div class="col-xs-9 ">
+
+<div class="col-xs-8 ">
+<div class="col-xs-6"><input type="radio"  checked="checked"  name="sex" value=1 /><label
+	class="control-label sex-label" >男</label></div>
+<div class="col-xs-6"><input type="radio" name="sex" value=1 /><label
+	class="control-label sex-label">女</label></div>
+</div>
+</div>
+</div>
+
+<div class="form-group"><label for="inputEmail"
+	class="col-xs-3 control-label login-label">生日:</label>
+<div class="col-xs-9 ">
+<input type="text" class="form-control" value="1994-01-01"  id="birthday" name="birthday">
+
+
+</div>
+</div>
+
+<div class="form-group"><label for="inputPassword"
+	class="col-xs-3 control-label login-label">地区:</label>
+<div class="col-xs-9 ">
+<div class="controls">
+ <select class="area-select selectpicker "  name="province" id="province" onchange="changeArea(this)"></select>
+<select class="area-select selectpicker "   name="city" id="city" onchange="changeArea(this)"></select>
+<select  class="area-select selectpicker "   name="area" id="area" onchange="changeArea(this)"></select>
+<input event-node="input_area" type="hidden" id="current" name="city_ids" value=""/>
+<input type="hidden" id="current_name" name="location" value="" />
+ 
+</div>
+</div>
+</div>
+
+<div class="form-group"><label  
+	class="col-xs-3 control-label login-label">手机号码:</label>
+<div class="col-xs-9 ">
+<div class="controls"><input type="text"  
+	class="form-control" placeholder="比赛结束时联系方式(选填)"  
+	errormsg="比赛结束时联系方式(选填)" nullmsg="比赛结束时联系方式(选填)"  
+	name="mobile"></div>
+</div>
+</div>
+
+
+<div class="form-group"><label  
+	class="col-xs-3 control-label login-label">签名:</label>
+<div class="col-xs-9 ">
+<div class="controls"><input type="text"  
+	class="form-control" placeholder="填写自己的个性签名(选填)"  
+	errormsg="填写自己的个性签名(选填)" nullmsg="填写自己的个性签名"  
+	name="signature"></div>
+</div>
+</div>
+
+
+<div class="form-group col-xs-12 ">
+<div class="pull-right"><span id="error-message"
+	class="error-message"></span>
+<button type="submit" class="btn btn-primary submit-btn">下一步</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<div class="col-xs-3"><include file="User/right" /></div>
+
+
+
+
+</div>
+
+
+</div>
+</section></div>
+
+
+</div>
+
+</div>
+</block>
+
+
+<block name="side"></block>
+
+
+
+<block name="script">
+
+
+<script type="text/javascript">
+
+
+var arrNodeChild = new Array();		// 子树数组
+var selected = '';		// 默认选中的地区
+
+// 地区初始化
+var init = function() {
+	selected = selected == '' ? $('#current').val() : selected;
+	var arrSelect = selected.split(',');
+	// 获取树形结构的子树
+	var option1 = '<option value="0">请选择</option>';
+	var option2 = '<option value="0">请选择</option>';
+	var option3 = '<option value="0">请选择</option>';
+	$.each(json, function(i, n) {
+		var selected1 = (n.id == arrSelect[0]) ? 'selected="selected"' : '';
+		option1 += '<option value="' + n.id + '" ' + selected1 + '>' + n.title + '</option>'
+		arrNodeChild[parseInt(i.replace(/area_/, ''))] = n.child;
+		if(n.child !== null) {
+			$.each(n.child, function(ii, nn) {
+				if(n.id == arrSelect[0]) {
+					var selected2 = (nn.id == arrSelect[1]) ? 'selected="selected"' : '';
+					option2 += '<option value="' + nn.id + '" ' + selected2 + '>' + nn.title + '</option>';
+				}
+				arrNodeChild[ii] = nn.child;
+				if(nn.child !== null) {
+					$.each(nn.child, function(iii, nnn) {
+						if(nn.id == arrSelect[1]) {
+							var selected3 = (nnn.id == arrSelect[2]) ? 'selected="selected"' : '';
+							option3 += '<option value="' + nnn.id + '" ' + selected3 + '>' + nnn.title + '</option>';
+						}
+						arrNodeChild[iii] = nnn.child;
+					});
+				}
+			});
+		}
+	});
+	$('#province').append(option1);
+	$('#city').append(option2);
+	$('#area').append(option3);
+};
+// 改变地区方法
+var changeArea = function(obj) {
+	var id = $(obj).attr('id');
+	var val = $(obj).val();
+	switch(id) {
+		case 'province':
+			if(arrNodeChild[val] !== null) {
+				if(val == 0) {
+					$('#city').html('<option value="0">请选择</option>');
+					$('#area').html('<option value="0">请选择</option>');
+					break;
+				}
+				var select = '<option value="0">请选择</option>';
+				$.each(arrNodeChild[val], function(i, n) {
+					select += '<option value="' + n.id + '">' + n.title + '</option>';
+				});
+				$('#city').html(select);
+				$('#area').html('<option value="0">请选择</option>');
+			}
+ 			break;
+		case 'city':
+			if(arrNodeChild[val] !== null) {
+				if(val == 0) {
+					$('#area').html('<option value="0">请选择</option>');
+					break;
+				}
+				var select = '<option value="0">请选择</option>';
+				$.each(arrNodeChild[val], function(i, n) {
+					select += '<option value="' + n.id + '">' + n.title + '</option>';
+				});
+				$('#area').html(select);
+			}
+			break;
+	}
+	var current = new Array();
+	typeof($('#province').val()) !== 'undefined' && current.push($('#province').val());
+	typeof($('#city').val()) !== 'undefined' && current.push($('#city').val());
+	typeof($('#area').val()) !== 'undefined' && current.push($('#area').val());
+	$('#current').val(current.join(','));
+	var currentName = new Array();
+	$('#province option:selected').html() != '请选择' && currentName.push($('#province option:selected').html());
+	$('#city option:selected').html() != '请选择' && currentName.push($('#city option:selected').html());
+	$('#area option:selected').html() != '请选择' && currentName.push($('#area option:selected').html());
+	$('#current_name').val(currentName.join(' '));
+} 
+
+init();
+</script>    
+
+
+<script type="text/javascript">
+$('#birthday').datepicker({ 
+    language: 'zh-CN',
+    autoclose: true, 
+    format: 'yyyy-mm-dd', 
+    inputMask: true
+});
+</script>
+
+
+<script type="text/javascript">
+        $(document)
+                .ajaxStart(function () {
+                    $("button:submit").addClass("log-in").attr("disabled", true);
+                })
+                .ajaxStop(function () {
+                    $("button:submit").removeClass("log-in").attr("disabled", false);
+                });
+
+
+        $("form").submit(function () {
+            var self = $(this);
+            $.post(self.attr("action"), self.serialize(), success, "json");
+            return false;
+
+            function success(data) {
+                if (data.status) {
+                	window.location.href = data.url;
+                } else {
+                    $("#error-message").html(data.info);
+                }
+            }
+        });
+     
+    </script>
+</block>

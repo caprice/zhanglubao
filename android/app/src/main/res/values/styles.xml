@@ -1,0 +1,171 @@
+<resources>
+
+    <style name="Theme.Custom.Theme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme" parent="@style/Theme.Custom.Theme">
+
+        <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
+    </style>
+
+    <style name="nav_tab_item">
+
+        <item name="android:background">@drawable/nav_tab_item_selector</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15.0dip</item>
+
+    </style>
+
+    <style name="CustomTabPageIndicator">
+        <item name="android:background">@drawable/nav_tab_item_selector</item>
+        <item name="android:textColor">@color/nav_tab_item_color</item>
+        <item name="android:textSize">15.0dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:showDividers">middle</item>
+
+        <item name="android:fadingEdge">horizontal</item>
+        <item name="android:fadingEdgeLength">8dp</item>
+    </style>
+
+    <style name="HomeTitle">
+
+        <item name="android:textSize">18.0dip</item>
+        <item name="android:textColor">#ff4e4e4e</item>
+        <item name="android:paddingLeft">10.0dip</item>
+    </style>
+
+    <style name="HomeMore">
+
+        <item name="android:textSize">15.0dip</item>
+        <item name="android:textColor">#ff979797</item>
+        <item name="android:paddingRight">4.0dip</item>
+    </style>
+
+    <style name="detail_play_load">
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:textSize">17.299988sp</item>
+    </style>
+
+
+    <style name="Theme.Dialog.Base" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="ZlbDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="CommentDialog" parent="@style/ZlbDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+
+    <style name="Font14">
+        <item name="android:textSize">13.0sp</item>
+    </style>
+    <style name="FontA">
+        <item name="android:textSize">12.0sp</item>
+    </style>
+    <style name="FontB">
+        <item name="android:textSize">13.299988sp</item>
+    </style>
+    <style name="FontC">
+        <item name="android:textSize">14.699982sp</item>
+    </style>
+    <style name="FontD">
+        <item name="android:textSize">16.0sp</item>
+    </style>
+    <style name="FontE">
+        <item name="android:textSize">17.299988sp</item>
+    </style>
+    <style name="FontF">
+        <item name="android:textSize">20.0sp</item>
+    </style>
+    <style name="FontG">
+        <item name="android:textSize">21.299988sp</item>
+    </style>
+    <style name="FontH">
+        <item name="android:textSize">24.0sp</item>
+    </style>
+    <style name="FontI">
+        <item name="android:textSize">25.299988sp</item>
+    </style>
+    <style name="FontJ">
+        <item name="android:textSize">26.699982sp</item>
+    </style>
+    <style name="FontK">
+        <item name="android:textSize">32.0sp</item>
+    </style>
+    <style name="FontL">
+        <item name="android:textSize">36.0sp</item>
+    </style>
+    <style name="FontM">
+        <item name="android:textSize">22.0sp</item>
+    </style>
+    <style name="FontN">
+        <item name="android:textSize">42.0sp</item>
+    </style>
+    <style name="FontO">
+        <item name="android:textSize">20.0sp</item>
+    </style>
+    <style name="FontP">
+        <item name="android:textSize">18.0sp</item>
+    </style>
+    <style name="FontQ">
+        <item name="android:textSize">28.0sp</item>
+    </style>
+
+    <style name="zhanglubao_detail_comment_text" parent="@style/FontC">
+        <item name="android:textColor">#ff3c3c3c</item>
+    </style>
+
+
+    <style name="detail_comment_send_text" parent="@style/FontC">
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="detail_comment_edit_hint" parent="@style/FontC">
+        <item name="android:textColor">#ff959494</item>
+    </style>
+
+    <style name="cache_item_title" parent="@style/FontD">
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">#ff3c3c3c</item>
+    </style>
+
+
+    <style name="caching_item_state" parent="@style/FontC">
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">#b1ffffff</item>
+    </style>
+    <style name="cache_item_other" parent="@style/FontB">
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">#ff999999</item>
+    </style>
+    <style name="edit_button_selectall" parent="@style/FontE">
+        <item name="android:textColor">#ff838384</item>
+    </style>
+    <style name="edit_button_nodelete" parent="@style/FontE">
+        <item name="android:textColor">#ff838384</item>
+    </style>
+    <style name="search_app_need" parent="@style/FontE">
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">#ff3c3c3c</item>
+    </style>
+
+</resources>

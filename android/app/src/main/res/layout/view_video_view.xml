@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clickable="true">
+
+
+    <io.vov.vitamio.widget.VideoView
+        android:id="@+id/widget_video_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <com.zhanglubao.lol.view.player.QTController
+        android:id="@+id/widget_media_controller"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        />
+
+    <ImageView
+        android:id="@+id/widget_video_cover"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/black"
+        android:clickable="true"
+        android:scaleType="centerCrop" />
+
+    <ProgressBar
+        android:id="@+id/widget_loading_indicator"
+        android:layout_width="40.0dip"
+        android:layout_height="40.0dip"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_loading_white"
+        android:indeterminateDuration="800"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/player_loading_indicator"
+        android:layout_width="40.0dip"
+        android:layout_height="40.0dip"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress_loading_white"
+        android:indeterminateDuration="800"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

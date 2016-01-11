@@ -1,0 +1,3 @@
+<?php
+//000000086400a:15:{s:2:"id";s:2:"22";s:5:"title";s:53:"King vs DC  第1场_德玛西亚杯第2赛季_32进16";s:3:"uid";s:1:"1";s:9:"video_url";s:60:"http://v.qq.com/cover/j/j0u9v3x7yltk1o0.html?vid=b0131oqsqk3";s:5:"views";s:2:"40";s:4:"tags";s:40:"King,DC,德玛西亚杯,英雄联盟,LOL";s:5:"cover";s:3:"246";s:11:"description";s:72:"King.TC vs DC 第1场 德玛西亚杯第二赛季职业锦标赛 32进16";s:7:"game_id";s:5:"10005";s:6:"status";s:1:"1";s:11:"update_time";s:10:"1403597608";s:9:"flash_url";s:59:"http://static.video.qq.com/TPout.swf?vid=b0131oqsqk3&auto=1";s:3:"md5";s:32:"d96abb5e0221fe5e37962e5cfd7b87a8";s:11:"edit_status";s:1:"0";s:11:"create_time";s:10:"1403597608";}
+?>

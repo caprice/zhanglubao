@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit();?>LOL视频 - 英雄联盟解说视频 - 英雄联盟比赛视频 - 群挑英雄联盟视频站

@@ -1,0 +1,165 @@
+<extend name="Public/base" />
+<block name="style">
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/compiled/wizard.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/libs/dropzone.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/lib/selectize/css/selectize.default.css">
+
+</block>
+
+<block name="body">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix" style="min-height: 1180px;">
+			<header class="main-box-header clearfix">
+				<h2>添加英雄</h2>
+			</header>
+			<div class="main-box-body clearfix">
+				<form class="form-horizontal" action="{:U()}" method="post">
+
+					<input type="hidden" name="id" value="{$hero.id}">
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-1 control-label">英雄大名</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputTitle"
+								value="{$hero.name}" name="name" placeholder="英雄大名">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-1 control-label">英文名字</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputTitle"
+								value="{$hero.en_name}" name="en_name" placeholder="英文名字">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-1 control-label">英雄昵称</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputTitle"
+								value="{$hero.nick}" name="nick" placeholder="英雄昵称">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-1 control-label">TAG1</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputTitle"
+								value="{$hero.tag1}" name="tag1" placeholder="tag1">
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-1 control-label">TAG2</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputTitle"
+								value="{$hero.tag2}" name="tag1" placeholder="tag3">
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-1 control-label">TAG3</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputTitle"
+								value="{$hero.tag3}" name="tag3" placeholder="tag3">
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label for="inputTitle" class="col-lg-1 control-label">TAG4</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="inputTitle"
+								value="{$hero.tag4}" name="tag4" placeholder="tag4">
+						</div>
+					</div>
+
+
+
+
+					<div class="form-group">
+						<label for="articleIntro" class="col-lg-1 control-label">头像</label>
+						<div class="col-lg-11">
+							<input type="file" id="upload_file_image"> <input
+								type="hidden" name="avatar" value="{hero.avatar}" />
+
+
+							<div class="upload-img-box">
+								<notempty name="hero['avatar']">
+								<div class="upload-pre-item">
+									<img src="{$hero['avatar']}" />
+								</div>
+								</notempty>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="form-group">
+						<label for="articleTags" class="col-lg-1 control-label"></label>
+						<div class="col-lg-11">
+							<input type="submit" class="btn btn-success ajax-post"
+								target-form="form-horizontal" value="提交">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</block>
+
+<block name="script"> <script
+	src="__STATIC__/lib/selectize/js/standalone/selectize.js"></script> <script
+	src="__STATIC__/js/uploadify/jquery.uploadify.min.js">
+		
+	</script> <script type="text/javascript">
+		//上传图片
+		/* 初始化上传插件 */
+		$("#upload_file_image")
+				.uploadify(
+						{
+							"height" : 30,
+							"swf" : "__STATIC__/js/uploadify/uploadify.swf",
+							"fileObjName" : "download",
+							"buttonText" : "上传附件",
+							"uploader" : "{:U('Avatar/uploadAvatarPicture',array('session_id'=>session_id()))}",
+							"width" : 120,
+							'removeTimeout' : 1,
+							"onUploadSuccess" : uploadFileavatar,
+							'onFallback' : function() {
+								alert('未检测到兼容版本的Flash.');
+							}
+						});
+		function uploadFileavatar(file, data) {
+
+			var data = $.parseJSON(data);
+
+			if (data.status) {
+				var name = "avatar";
+				$("input[name=" + name + "]").val(data.url);
+				$("input[name=" + name + "]")
+						.parent()
+						.find('.upload-img-box')
+						.html(
+								"<div class=\"upload-pre-file\"><span class=\"upload_icon_all\"></span> <img src='"
+										+ data.url + "'/></div>");
+			} else {
+				updateAlert(data.info);
+				setTimeout(function() {
+					$('#top-alert').find('button').click();
+					$(that).removeClass('disabled').prop('disabled', false);
+				}, 1500);
+			}
+		}
+	</script> </block>

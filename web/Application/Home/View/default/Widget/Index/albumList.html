@@ -1,0 +1,10 @@
+<div class="album-list">
+	<ul>
+		<volist name="albums" id="album">
+		<li><span class="album-item-name"><a
+				href="{:U('/game/'.$album['game_id'])}">[{:get_game($album['game_id'],'title')}]</a></span><span
+			class="album-item-title"> <a
+				href="{:U('/album/'.$album['id'])}">{$album['title']} </a></span></li>
+		</volist>
+	</ul>
+</div>

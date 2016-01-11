@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tab_home">
+
+        <item>首页</item>
+        <item>最新</item>
+        <item>解说</item>
+        <item>专栏</item>
+        <item>高手</item>
+        <item>比赛</item>
+        <item>官方</item>
+        <item>其他</item>
+
+    </string-array>
+    <string-array name="tab_hot">
+
+        <item>日榜</item>
+        <item>周榜</item>
+        <item>月榜</item>
+        <item>总榜</item>
+
+    </string-array>
+
+    <string-array name="tab_category">
+
+        <item>分类</item>
+        <item>英雄</item>
+        <item>解说</item>
+        <item>专辑</item>
+        <item>高手</item>
+        <item>职业</item>
+        <item>战队</item>
+        <item>联赛</item>
+
+    </string-array>
+
+    <string-array name="tab_search">
+
+        <item>搜索</item>
+        <item>专辑</item>
+
+    </string-array>
+
+    <string-array name="tab_search_detail">
+
+        <item>视频</item>
+        <item>玩家</item>
+
+
+    </string-array>
+
+</resources>

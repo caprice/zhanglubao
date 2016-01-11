@@ -1,0 +1,170 @@
+<extend name="Public/base" />
+<block name="style">
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/compiled/wizard.css">
+
+<link rel="stylesheet" type="text/css"
+	href="__STATIC__/css/libs/dropzone.css">
+</block>
+
+<block name="body">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix" style="min-height: 1180px;">
+			<header class="main-box-header clearfix">
+				<h2>编辑用户</h2>
+			</header>
+			<div class="main-box-body clearfix">
+				<div id="addUserWizard" class="wizard">
+					<div class="wizard-inner">
+						<ul class="steps">
+							<li data-target="#step1" class="active"><span
+								class="badge badge-primary">1</span>添加资料<span class="chevron"></span></li>
+							<li data-target="#step2"><span class="badge">2</span>上传头像<span
+								class="chevron"></span></li>
+						</ul>
+						<div class="actions">
+							<button type="button" class="btn btn-default btn-mini btn-prev">
+								<i class="icon-arrow-left"></i>上一步
+							</button>
+							<button type="button"
+								class="btn btn-success btn-mini btn-next ajax-post"
+								target-form="form-horizontal" data-last="完成">下一步</button>
+
+
+						</div>
+					</div>
+					<div class="step-content">
+						<div class="step-pane active" id="step1">
+
+							<h4></h4>
+							<form class="form-horizontal" action="{:U()}" method="post">
+								<input class="id" name="id" type="hidden" value="{$user.id}" />
+								<input   name="avatar_id"
+									id="user_avatar_hidden" type="hidden"
+									value="{$user.avatar_id}" />
+								<div class="form-group">
+									<label for="UserName" class="col-lg-1 control-label">用户名称</label>
+									<div class="col-lg-11">
+										<input type="text"  class="form-control"
+											id="UserName" placeholder="用户名称(英文或者数字)"
+											value="{$user.username}" disabled="disabled">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="Email" class="col-lg-1 control-label">用户邮箱</label>
+									<div class="col-lg-11">
+										<input type="email"  class="form-control"
+											id="Email" placeholder="用户邮箱" value="{$user.email}" disabled="disabled">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="Password" class="col-lg-1 control-label">用户密码</label>
+									<div class="col-lg-11">
+										<input type="text" name="password" class="form-control"
+											id="Password" placeholder="用户密码(6-12位) | 可以不填写">
+									</div>
+								</div>
+								
+								
+								<input type="submit">
+							</form>
+						</div>
+						<div class="step-pane" id="step2">
+
+							<h4 style="text-align: center;">
+								上传头像120*120 <span id="upload_tips"></span>
+							</h4>
+							<div class="form-group">
+
+
+								<input type="file" name="avatar" id="user_avatar_file"
+									style="display: none;">
+
+								<div id="dropzone">
+									<div id="avatar-upload" class="dropzone dz-clickable">
+										<div id="user_avatar_tip" class="dz-default dz-message">
+
+										</div>
+										<img id="user_avatar_img" width="120" height="120"
+											class="avatar-center"
+											src="{$user.avatar_id|get_admin_avatar='url'}"
+											style="display: none;">
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</block>
+
+<block name="script"> <script src="__STATIC__/js/wizard.js"></script>
+<script type="text/javascript" src="__STATIC__/js/jquery.fileupload.js"></script>
+<script type="text/javascript">
+	var avatar_id = "{$user['avatar_id']}";
+
+	$('#user_avatar_file').change(function() {
+		$('#upload_tips').html('-上传中...');
+		$("#user_avatar_img").show();
+		$("#user_avatar_tip").hide();
+	});
+
+	$("#user_avatar_file").fileupload(
+			{
+				url : "{:U('System/File/uploadAvatar')}",
+				done : function(e, result) {
+					var json = result.result;
+					if (json.status) {
+						$('#upload_tips').html('-上传成功');
+						$("#user_avatar_img").attr("src", json.url);
+						$('#user_avatar_hidden').val(json.id);
+
+					} else {
+						$('#upload_tips').html('-上传失败');
+						$('#upload_tips').html('');
+						$('#user_avatar_hidden').val('0');
+						$("#user_avatar_img").hide();
+						$("#user_avatar_img").attr("src",
+								'__STATIC__/images/uploading.png');
+						$("#user_avatar_tip").show();
+						$('#user_avatar_file').val('');
+					}
+				}
+			});
+
+	$(function() {
+		$('#addUserWizard').wizard();
+	});
+
+	 
+	$("#user_avatar_tip").click(function() {
+		$("#user_avatar_file").click();
+	});
+
+	$("#user_avatar_img").click(function() {
+		$('#upload_tips').html('');
+		$('#user_avatar_hidden').val('0');
+		$("#user_avatar_img").hide();
+		$("#user_avatar_img").attr("src", '__STATIC__/images/uploading.png');
+		$("#user_avatar_tip").show();
+	});
+	$(function() {
+	 
+		if (avatar_id > 0) {
+			$("#user_avatar_img").show();
+			$("#user_avatar_tip").hide();
+		}
+
+	});
+</script> </block>

@@ -1,0 +1,3 @@
+<?php
+//000000086400a:13:{s:2:"id";s:1:"9";s:8:"place_id";s:1:"2";s:8:"rec_type";s:1:"1";s:9:"rec_title";s:21:"微笑射可可双排";s:9:"rec_views";s:1:"0";s:11:"rec_content";s:21:"微笑射可可双排";s:11:"click_times";s:1:"0";s:7:"rec_url";s:22:"http://www.quntiao.com";s:10:"picture_id";s:2:"14";s:11:"create_time";s:10:"1414303683";s:11:"update_time";s:10:"1414303683";s:6:"status";s:1:"1";s:11:"rec_picture";s:63:"http://img.quntiao.net/recommend/2014/1026/02/544c8fc0e5f51.jpg";}
+?>

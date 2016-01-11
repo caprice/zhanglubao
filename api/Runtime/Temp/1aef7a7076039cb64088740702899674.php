@@ -1,0 +1,3 @@
+<?php
+//000000086400a:13:{s:2:"id";s:2:"13";s:8:"place_id";s:1:"2";s:8:"rec_type";s:1:"1";s:9:"rec_title";s:21:"OGN联赛直播报道";s:9:"rec_views";s:1:"0";s:11:"rec_content";s:21:"OGN联赛直播报道";s:11:"click_times";s:1:"0";s:7:"rec_url";s:29:"http://u.quntiao.com/203.html";s:10:"picture_id";s:2:"21";s:11:"create_time";s:10:"1421387151";s:11:"update_time";s:10:"1421387189";s:6:"status";s:1:"1";s:11:"rec_picture";s:63:"http://img.quntiao.net/recommend/2015/0116/01/54b8a5b414e17.jpg";}
+?>

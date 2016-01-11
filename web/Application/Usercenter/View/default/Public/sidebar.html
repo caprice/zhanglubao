@@ -1,0 +1,59 @@
+<php>
+    $sideBarUser = query_user(array('nickname', 'uid', 'title', 'score', 'avatar128'), $uid);
+    $call = $call ? $call : '我';
+</php>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div>
+            <!--关注按钮，在登录状态-->
+            <if condition="is_login() && $uid != get_uid()">
+                <php>
+                    $sideBarUser['is_following'] = D('Follow')->where(array('who_follow'=>get_uid(),'follow_who'=>$uid))->find();
+                </php>
+                <p class="text-center">
+                    <a class="btn btn-primary" onclick="ufollow(this,{$uid})">
+                        <if condition="$sideBarUser['is_following']">
+                            已关注
+                            <else/>
+                            关注
+                        </if>
+                    </a>
+                </p>
+            </if>
+            <!--导航栏-->
+            <php>
+                //各列字段的含义分别是：标签名称，图标，链接，tabHash
+                if($uid==is_login()) {
+                $oneuser_navbar_items = array(
+                array('系统相关'),
+                array('我的会话','send',U('UserCenter/Message/session'),'session'),
+                array('消息中心','bullhorn',U('UserCenter/Message/message'),'message'),
+                 );
+                } else {
+                $oneuser_navbar_items = array(
+               );
+                }
+            </php>
+            <ul class="nav nav-pills nav-stacked">
+                <volist name="oneuser_navbar_items" id="item">
+                    <if condition="!$item[2]">
+                        <li class="nav-title">
+                            <a>{$item[0]}</a>
+                        </li>
+                        <else/>
+                        <php>
+                            $activeClass = $tabHash == $item[3] ? 'active' : '';
+                        </php>
+                        <li class="{$activeClass}">
+                            <a href="{$item[2]}">
+                                {$item[0]}
+                                <span class="glyphicon glyphicon-{$item[1]} pull-right"></span>
+                            </a>
+                        </li>
+                    </if>
+                </volist>
+            </ul>
+        </div>
+    </div>
+</div>

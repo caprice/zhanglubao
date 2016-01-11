@@ -1,0 +1,103 @@
+@CHARSET "UTF-8";
+
+#focus {
+	width: 597px;
+	height: 232px;
+	overflow: hidden;
+	position: relative;
+}
+
+#focus ul {
+	height: 232px;
+	position: absolute;
+}
+
+#focus ul li {
+	float: left;
+	width: 597px;
+	height: 232px;
+	overflow: hidden;
+	position: relative;
+	background: #000;
+}
+
+#focus ul li div {
+	position: absolute;
+	overflow: hidden;
+}
+
+/*#focus .btnBg{position:absolute;width:585px;height:20px;left:0;bottom:0;background:#000;}*/
+#focus .focusbtn {
+	position: absolute;
+	width: 450px;
+	height: 20px;
+	padding: 5px 10px;
+	right: 10px;
+	bottom: 10px;
+	text-align: right;
+	font-size: 12px;
+}
+
+#focus .focusbtn span {
+	display: inline-block;
+	_display: inline;
+	_zoom: 1;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	text-align: center;
+	border: #F3F3F3 1px solid;
+	margin-left: 5px;
+	cursor: pointer;
+	background: #FEFEFE;
+	color: #666666;
+}
+
+#focus .focusbtn span.on {
+	background: #47AB56;
+	color: #fff;
+	border: #76BE2F 1px solid;
+}
+
+/*#focus .preNext{width:45px;height:100px;position:absolute;top:90px;background:url(img/sprite.png) no-repeat 0 0;cursor:pointer;}*/
+#focus .pre {
+	left: 0;
+}
+
+.match-list li {
+	margin-bottom: 4.6%;
+}
+
+.match-list .match-des {
+	background-color: #F5F5F5;
+	height: 58px;
+	padding: 2%;
+	color: #999;
+	font-size: 1.0em;
+	overflow: hidden;
+	width: 100%;
+}
+
+.game-list {
+	margin-left: -1%;
+}
+
+.game-des {
+	background: #48b87a;
+	height: 28px;
+	padding: 2%;
+	font-size: 1.0em;
+	color: #ffffff;
+}
+
+.game-list li {
+	float: left;
+	width: 19%;
+	margin-left: 1%;
+}
+
+.game-list li image {
+	width: 100%;
+}
+
+ 

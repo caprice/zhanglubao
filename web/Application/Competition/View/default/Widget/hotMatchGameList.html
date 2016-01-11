@@ -1,0 +1,96 @@
+<div class="hot-matches">
+
+<ul>
+
+	<volist name="hotmatches" id="hotmatch">
+	<li>
+	<div class="hot-match-team">
+	<div class="col-xs-4">
+	<if condition="$hotmatch['blue_team']">
+	<a
+		href="{:U('/matchgame/'.$hotmatch['id'])}"> <img
+		src="__PUBLIC__/Core/images/placeholder.png"
+		lazy-src="{:query_team('cover',$hotmatch['blue_team'])}"
+		  width="50" height="50"> </a>
+		<else/>
+		<div class="vs">弃权</div>
+		</if>
+		
+		</div>
+	<div class="col-xs-4 vs">VS</div>
+	<div class="col-xs-4">
+	<if condition="$hotmatch['red_team']">
+	
+		<a
+		href="{:U('/matchgame/'.$hotmatch['id'])}"> <img
+		src="__PUBLIC__/Core/images/placeholder.png"
+		lazy-src="{:query_team('cover',$hotmatch['red_team'])}"
+		  width="50" height="50"> </a>
+			<else/>
+		<div class="vs">弃权</div>
+		</if>
+		
+		</div>
+
+	</div>
+	<div class="hot-match-team-name">
+
+	<ul>
+	 <li>
+	 
+ 
+			
+			
+				<if condition="$hotmatch['blue_team']">
+	 	<a
+		href="{:U('/matchgame/'.$hotmatch['id'])}">{:query_team('name',$hotmatch['blue_team'])}</a>
+		<else/>
+		 弃权
+		</if>
+		
+			
+			</li>
+			<li></li>
+		 <li>
+		 
+		
+			
+			
+				<if condition="$hotmatch['red_team']">
+	
+		<a
+		href="{:U('/matchgame/'.$hotmatch['id'])}">{:query_team('name',$hotmatch['red_team'])}</a>
+			<else/>
+		弃权
+		</if>
+		
+			</li>
+
+	</ul>
+	</div>
+	<div class="hot-match-item-des">
+	<ul>
+
+
+		<li><span class="pull-left">	<a
+		href="{:U('/matchgame/'.$hotmatch['id'])}">{:get_game($hotmatch['game_id'],'title')}</a></span>
+		<span class="pull-right"> <switch name="hotmatch['game_status']">
+		<case value="0"> 未开始 </case> <case value="1"> 正在进行 </case> <case
+			value="2"> 已结束 </case> </switch> </span></li>
+
+		<li><span class="match-item-des-left">	<a
+		href="{:U('/matchgame/'.$hotmatch['id'])}">{:query_match('title',$hotmatch['match_id'])}</a></span>
+
+		<span class="match-item-des-right">{:date('m-d
+		H:i',$hotmatch['start_time'])}</span></li>
+		
+	 
+
+	</ul>
+	</div>
+	</li>
+	</volist>
+
+</ul>
+
+</div>

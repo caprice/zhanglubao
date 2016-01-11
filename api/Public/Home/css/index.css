@@ -1,0 +1,107 @@
+@CHARSET "UTF-8";
+.mod-banner {
+	position:relative;
+	width:100%;
+	overflow:hidden
+}
+.mod-banner .slider {
+	display:-webkit-box;
+	position:relative;
+	width:100%
+}
+.mod-banner .slider .el {
+	display:block;
+	position:relative;
+	width:100%
+}
+.mod-banner .slider .el .img {
+	position:relative;
+	z-index:2;
+	display:block;
+	width:100%
+}
+.mod-banner .slider .el .loadtips {
+	position:absolute;
+	top:50%;
+	left:0;
+	right:0;
+	margin-top:-10px;
+	text-align:center;
+	font-size:16px;
+	line-height:20px;
+	color:#999
+}
+.mod-banner .slider .el .info {
+	position:absolute;
+	z-index:3;
+	bottom:0;
+	left:0;
+	right:0;
+	padding-top:26px;
+	padding-right:40px;
+	text-indent:8px;
+	height:56px;
+	line-height:30px;
+	font-size:12px;
+	color:#FFF;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,0)),color-stop(100%,rgba(0,0,0,.75)));
+	-webkit-box-sizing:border-box
+}
+.mod-banner .count {
+	position:absolute;
+	z-index:3;
+	right:8px;
+	bottom:9px
+}
+.mod-banner .count .inner {
+	height:10px;
+	padding:0 10px;
+	border-radius:5px;
+	overflow:hidden;
+	background:rgba(0,0,0,.4)
+}
+.mod-banner .count .inner span {
+	display:inline-block;
+	float:left;
+	margin:3px 0 0 5px;
+	height:4px;
+	width:4px;
+	background:#C1C3C7;
+	border-radius:2px
+}
+.mod-banner .count .inner span.current {
+	background:#2F7BF1
+}
+.mod-banner .count .inner span:first-child {
+	margin-left:0
+}
+.mod-banner .pagecount {
+	position:absolute;
+	z-index:4;
+	right:10px;
+	bottom:0;
+	line-height:30px;
+	font-size:11px;
+	color:#fff
+}
+.mod-banner .btn-prev {
+	position:absolute;
+	left:0;
+	top:50%;
+	width:40px;
+	height:50px;
+	margin-top:-25px;
+	background:rgba(0,0,0,.8)
+}
+.mod-banner .btn-next {
+	position:absolute;
+	right:0;
+	top:50%;
+	width:40px;
+	height:50px;
+	margin-top:-25px;
+	background:rgba(0,0,0,.8)
+}

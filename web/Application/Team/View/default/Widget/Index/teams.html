@@ -1,0 +1,39 @@
+
+<div class="col-xs-12  column-content">
+	<div class="column-content-title">
+		<i class="title-tip-box"></i> <span class="title-tip">最新战队</span> <span class="pull-right"></span>
+	</div>
+
+</div>
+
+<div class="col-xs-12  column-content">
+	<div class="team-list">
+		<ul>
+			<volist name="teams" id="team">
+			<li>
+	<div class="cl">
+				 <div class="team-icon">
+				 
+				 		<a href="{:U('/team/'.$team['id'])}"> <img
+						src="__PUBLIC__/Core/images/placeholder.png"
+						lazy-src="{$team.cover|get_cover=url}"
+						  width="80" height="80">
+					</a>
+				 </div>
+				 <div class="team-info">
+				 
+				 <div><a href="{:U('/team/'.$team['id'])}">{$team.name}</a></div>
+				 
+				 <div class="pull-left">
+				 <div>成员: {$team.members}人 </div>
+				 
+				 <div>游戏: {:get_game($team['game_id'],'title')} </div>
+				 </div>
+				 
+				 </div>
+				</div>
+			</li>
+			</volist>
+		</ul>
+	</div>
+</div>

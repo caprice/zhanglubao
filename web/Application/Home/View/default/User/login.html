@@ -1,0 +1,85 @@
+<extend name="Base/common" />
+<block name="body">
+<div class="login-box">
+<div>
+<div><section>
+<div class="login-form-upbox">
+<div class="col-xs-9">
+
+<div class="login-input-area">
+<form class="form-horizontal login-form" role="form" action="__SELF__"
+	method="post">
+
+<div class="form-group"><label for="inputEmail"
+	class="col-xs-3 control-label login-label">电子邮件:</label>
+<div class="col-xs-9 "><input type="text" id="inputEmail"
+	class="form-control" placeholder="请输入电子邮件"
+	  errormsg="请填写正确格式的邮箱"
+	nullmsg="请填写邮箱" datatype="e" value="" name="email"></div>
+</div>
+
+<div class="form-group"><label for="inputPassword"
+	class="col-xs-3 control-label login-label">输入密码:</label>
+<div class="col-xs-9 ">
+<div class="controls"><input type="password" id="inputPassword"
+	class="form-control" placeholder="请输入密码" errormsg="密码为6-20位"
+	nullmsg="请填写密码" datatype="*6-20" name="password"></div>
+</div>
+</div>
+
+<div class="form-group col-xs-12 ">
+<div class="pull-right"><span id="error-message"
+	class="error-message"></span>
+<button type="submit" class="btn btn-primary submit-btn">登录</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<div class="col-xs-3"><include
+	file="User/right" /></div>
+
+
+
+
+</div>
+
+
+</div>
+</section></div>
+
+
+</div>
+
+</div>
+</block>
+
+
+<block name="side"></block>
+<block name="script">
+<script type="text/javascript">
+        $(document)
+                .ajaxStart(function () {
+                    $("button:submit").addClass("log-in").attr("disabled", true);
+                })
+                .ajaxStop(function () {
+                    $("button:submit").removeClass("log-in").attr("disabled", false);
+                });
+
+
+        $("form").submit(function () {
+            var self = $(this);
+            $.post(self.attr("action"), self.serialize(), success, "json");
+            return false;
+
+            function success(data) {
+                if (data.status) {
+                	window.location.href = data.url
+                } else {
+                    $("#error-message").html(data.info);
+                }
+            }
+        });
+     
+    </script>
+</block>

@@ -1,0 +1,121 @@
+apply plugin: 'com.android.application'
+
+buildscript {
+    repositories {
+        mavenCentral()
+
+    }
+    dependencies {
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4+'
+    }
+}
+
+
+apply plugin: 'android'
+apply plugin: 'android-apt'
+
+
+
+
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+    defaultConfig {
+        applicationId "com.zhanglubao.lol"
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+
+
+
+    signingConfigs {
+        release {
+            storeFile file("/Users/rocks/Desktop/android/LOL/keystore/lol.jks")
+            storePassword "zhanglubao#147258369"
+            keyAlias "zhanglubao"
+            keyPassword "zhanglubao#147258369"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+    }
+    lintOptions {
+        abortOnError false
+
+    }
+    dexOptions {
+        preDexLibraries = false
+    }
+
+    sourceSets.main {
+        jniLibs.srcDir 'libs'
+    }
+
+
+}
+
+
+
+
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
+        resourcePackageName "com.zhanglubao.lol"
+    }
+}
+
+
+dependencies {
+    apt "org.androidannotations:androidannotations:3.2+"
+    // add these
+    compile 'org.androidannotations:androidannotations-api:3.2+'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile files('libs/android-async-http-1.4.6.jar')
+    compile files('libs/eventbus-2.4.0.jar')
+    compile files('libs/greendao-1.3.7.jar')
+    compile files('libs/fastjson-1.2.3.jar')
+    compile files('libs/universal-image-loader-1.9.3.jar')
+    compile files('libs/androidannotations-api-3.2.jar')
+    compile files('libs/universal-image-loader-1.9.4.jar')
+    compile project(':pulltorefresh')
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.android.support:support-v4:21.0.0'
+    compile files('libs/com.umeng.message.lib_v2.3.0.jar')
+    compile files('libs/com.umeng.fb.5.3.0.jar')
+    compile files('libs/umeng-update-v2.6.0.1.jar')
+    compile files('libs/SocialSDK_QQZone_1.jar')
+    compile files('libs/SocialSDK_QQZone_2.jar')
+    compile files('libs/SocialSDK_QQZone_3.jar')
+    compile files('libs/SocialSDK_scrshot.jar')
+    compile files('libs/SocialSDK_shake.jar')
+    compile files('libs/SocialSDK_Sina.jar')
+    compile files('libs/SocialSDK_UserCenter.jar')
+    compile files('libs/SocialSDK_WeiXin_1.jar')
+    compile files('libs/SocialSDK_WeiXin_2.jar')
+    compile files('libs/umeng_social_sdk.jar')
+    compile files('libs/httpmime-4.1.3.jar')
+    compile files('libs/SocialSDK_email.jar')
+    compile files('libs/SocialSDK_sms.jar')
+    compile files('libs/m3u8parser-0.2.jar')
+    compile files('libs/AdsMOGO_Android_SDK_1.6.1.jar')
+    compile files('libs/InMobi-4.3.0.jar')
+    compile project(':vitamio')
+}

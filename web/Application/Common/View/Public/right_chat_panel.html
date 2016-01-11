@@ -1,0 +1,70 @@
+<if condition="(is_login()) ">
+    <div id="right_panel" class="friend_panel visible-md visible-lg" style="display: none">
+        <a class="btn-pull" onclick="show_panel()"><i class="glyphicon glyphicon-chevron-left"></i>
+            <script>
+                function show_panel() {
+                    var $right_panel = $('#right_panel_main');
+                    if ($right_panel.text()) {
+                        $right_panel.load(U('Usercenter/Session/panel'));
+                        $right_panel.toggle();
+                    } else {
+                        $right_panel.toggle();
+                    }
+
+                }
+            </script>
+        </a>
+        <if condition="count($currentSession) eq 0">
+
+            <div id="right_panel_main" style="display: none">
+            </div>
+            <else/>
+            <div id="right_panel_main">
+            </div>
+            <!--开始会话板-->
+        </if>
+
+
+    </div>
+
+    <div id="chat_box" style="display: none" class="chat_panel">
+        <div class="panel_title"><img id="chat_ico" class="chat_avatar avatar-img" src="{$friend.avatar64}">
+
+            <div id="chat_title" class="title pull-left text-more"></div>
+            <div class="control_btns pull-right"><a><i onclick="$('#chat_box').hide();"
+                                                       class="glyphicon glyphicon-minus"></i></a><!-- <a
+                ><i class="glyphicon glyphicon-off"></i></a>--></div>
+        </div>
+        <div class="row talk-body ">
+            <div id="scrollArea_chat" class="row ">
+                <div id="scrollContainer_chat">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="send_box">
+            <input id="chat_id" type="hidden" value="0">
+            <script>
+                var myhead = "{$self.avatar128}";
+            </script>
+            <textarea id="chat_content" class="form-control"></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button class=" btn btn-danger" onclick="chat_exit()"
+                        style="margin: 10px 10px" title="退出会话"><i class="glyphicon glyphicon-off"></i>
+                </button>
+                <!--  <button class=" btn btn-success" onclick="chat_exit()"
+                          style="margin: 10px 10px" title="邀请好友"><i class="glyphicon glyphicon-plus"></i>
+                  </button>-->
+
+            </div>
+            <div class="col-md-6">
+                <button class="pull-right btn btn-primary" onclick="chat_postMessage()"
+                        style="margin: 10px 10px"> 发送 Ctrl+Enter
+                </button>
+            </div>
+        </div>
+    </div>
+</if>

@@ -1,0 +1,27 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/usercenter.css" rel="stylesheet" type="text/css"/>
+</block>
+
+<block name="body">
+    <div class="col-md-12 usercenter">
+        <div class="uc">
+            <include file="_top"/>
+            <include file="_top_menu"/>
+
+            <div class="row uc_content">
+                <div class="col-md-7 col-xs-12">
+                    {$content}
+                    <div class="pull-right">
+                        {:getPagination($totalCount,10)}
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-9 col-xs-12 uc_other_link">
+                    <include file="_right_link"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+

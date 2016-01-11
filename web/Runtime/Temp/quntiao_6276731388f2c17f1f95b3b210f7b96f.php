@@ -1,0 +1,3 @@
+<?php
+//000000086400a:15:{s:2:"id";s:2:"19";s:4:"name";s:8:"KX.HAPPY";s:11:"description";s:47:"KX电子竞技俱乐部，成立于2013年11月";s:5:"cover";s:3:"215";s:7:"members";s:1:"5";s:6:"status";s:1:"1";s:3:"uid";s:1:"1";s:11:"create_time";s:10:"1403024897";s:7:"game_id";s:5:"10005";s:6:"verify";s:1:"1";s:11:"update_time";s:10:"1403024897";s:4:"tags";s:32:"英雄联盟,,KX.HAPPY战队,LOL";s:8:"forum_id";s:2:"19";s:5:"honor";s:0:"";s:7:"follows";s:1:"0";}
+?>

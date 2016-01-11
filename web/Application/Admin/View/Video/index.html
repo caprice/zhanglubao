@@ -1,0 +1,108 @@
+<extend name="Public/base" />
+
+<block name="body">
+<!-- 标题栏 -->
+<div class="main-title">
+<h2>视频列表</h2>
+</div>
+<div class="cf">
+<div class="fl"><a class="btn" href="{:U('Video/add')}">新 增</a>
+<button class="btn ajax-post confirm"
+	url="{:U('Video/changeStatus',array('method'=>'deleteVideo'))}"
+	target-form="ids">删 除</button>
+</div>
+
+<!-- 高级搜索 -->
+<div class="search-form fr cf">
+<div class="sleft"><input type="text" name="nickname"
+	class="search-input" value="{:I('nickname')}" placeholder="视频标题">
+<a class="sch-btn" href="javascript:;" id="search" url="{:U('index')}"><i
+	class="btn-search"></i></a></div>
+</div>
+</div>
+<!-- 数据列表 -->
+<div class="data-table table-striped">
+<table class="">
+	<thead>
+		<tr>
+			<th class="row-selected row-selected"><input class="check-all"
+				type="checkbox" /></th>
+			<th class="">VID</th>
+			<th class="">标题</th>
+			<th class="">游戏</th>
+			<th class="">时间</th>
+			<th class="">状态</th>
+			<th class="">所属</th>
+			<th class="">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<notempty name="_list">
+		<volist name="_list" id="vo">
+		<tr>
+			<td><input class="ids" type="checkbox" name="id[]"
+				value="{$vo.id}" /></td>
+			<td>{$vo.id}</td>
+			<td>{$vo.title|op_t}</td>
+			<td>{:get_game($vo['game_id'],'title')}</td>
+			<td>{:date('Y-m-d H:i:s',$vo['update_time'])}</td>
+			<td>{$vo.status}</td>
+			<td>{:get_username($vo['uid'])}</td>
+			<td>
+			
+			<eq name="vo.edit_status" value="1"> <a
+				href="{:U('Video/changeEditStatus?method=unrecVideo&id='.$vo['id'])}"
+				class="ajax-get">不推荐</a> <else /> <a
+				href="{:U('Video/changeEditStatus?method=recVideo&id='.$vo['id'])}"
+				class="ajax-get">推荐</a> </eq>
+				
+				
+			
+			<eq name="vo.status" value="1"> <a
+				href="{:U('Video/changeStatus?method=forbidVideo&id='.$vo['id'])}"
+				class="ajax-get">禁用</a> <else /> <a
+				href="{:U('Video/changeStatus?method=resumeVideo&id='.$vo['id'])}"
+				class="ajax-get">启用</a> </eq> <a href="{:U('Video/edit?id='.$vo['id'])}"
+				class="authorize">编辑</a> <a
+				href="{:U('Video/changeStatus?method=deleteVideo&id='.$vo['id'])}"
+				class="confirm ajax-get">删除</a></td>
+
+		</tr>
+		</volist>
+		<else />
+		<td colspan="9" class="text-center">aOh! 暂时还没有内容!</td>
+		</notempty>
+	</tbody>
+</table>
+</div>
+<div class="page">{$_page}</div>
+</block>
+
+<block name="script">
+<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+<script type="text/javascript">
+        //搜索功能
+        $("#search").click(function () {
+            var url = $(this).attr('url');
+            var query = $('.search-form').find('input').serialize();
+            query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+            query = query.replace(/^&/g, '');
+            if (url.indexOf('?') > 0) {
+                url += '&' + query;
+            } else {
+                url += '?' + query;
+            }
+            window.location.href = url;
+        });
+        //回车搜索
+        $(".search-input").keyup(function (e) {
+            if (e.keyCode === 13) {
+                $("#search").click();
+                return false;
+            }
+        });
+        //导航高亮
+        highlight_subnav("{:U('User / index')}");
+    </script>
+</block>
