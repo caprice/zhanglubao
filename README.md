@@ -18,8 +18,8 @@ image:所有头像图片<br>
 ![管理端](http://git.oschina.net/uploads/images/2016/0111/142539_128823fb_620187.png "管理端")<br>
 APP端:<br>
 
-![掌撸宝](http://git.oschina.net/uploads/images/2016/0111/141254_6bc2ba52_620187.jpeg "掌撸宝")<br>
+![掌撸宝](http://git.oschina.net/uploads/images/2016/0111/141254_6bc2ba52_620187.jpeg "掌撸宝")
 ![掌撸宝](http://git.oschina.net/uploads/images/2016/0111/141328_1e8f4f2a_620187.jpeg "掌撸宝")<br>
-![掌撸宝](http://git.oschina.net/uploads/images/2016/0111/142633_ef6d0fe9_620187.jpeg "掌撸宝")<br>
+![掌撸宝](http://git.oschina.net/uploads/images/2016/0111/142633_ef6d0fe9_620187.jpeg "掌撸宝")
 ![掌撸宝](http://git.oschina.net/uploads/images/2016/0111/142701_aab1aec7_620187.jpeg "掌撸宝")<br>
 ![掌撸宝](http://git.oschina.net/uploads/images/2016/0111/142724_da8923f7_620187.jpeg "掌撸宝")<br>
